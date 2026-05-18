@@ -95,9 +95,9 @@
   .hero h1 {
     font-family: 'Syne', sans-serif;
     font-weight: 800;
-    font-size: clamp(36px, 7vw, 110px);
+    font-size: clamp(48px, 7vw, 110px);
     line-height: 0.95;
-    letter-spacing: -1px; Zapisz → Commit changes → odśwież stronę za 1-2 minuty.  To powinno naprawić mobile. Wróć ze screenshotem jak będzie gotowe! 🚀
+    letter-spacing: -3px;
     max-width: 900px;
     margin-bottom: 40px;
   }
@@ -499,19 +499,27 @@
   }
 
   @media (max-width: 768px) {
-    nav { padding: 16px 20px; }
+    nav { padding: 14px 16px; }
+    .nav-logo { font-size: 15px; }
+    .nav-cta { padding: 8px 14px; font-size: 12px; }
     .hero { padding: 0 20px 60px; }
-    .hero h1 { font-size: 48px; letter-spacing: -2px; }
+    .hero h1 { font-size: 32px; letter-spacing: -1px; line-height: 1.05; }
+    .hero-sub { font-size: 15px; }
+    .hero-tag { font-size: 11px; margin-bottom: 20px; }
     .hero-stats { display: none; }
+    .btn-primary { padding: 14px 28px; font-size: 14px; width: 100%; text-align: center; }
     section { padding: 60px 20px; }
+    .section-title { font-size: 28px; letter-spacing: -0.5px; }
     .problem-grid { grid-template-columns: 1fr; }
     .results-grid { grid-template-columns: 1fr; }
+    .result-big { font-size: 48px; }
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
     .form-inner { grid-template-columns: 1fr; gap: 40px; padding: 60px 20px; }
     .form-right { padding: 32px 24px; }
     .step { grid-template-columns: 60px 1fr; }
     .step-num { padding: 28px 0 28px 20px; }
     .step-content { padding: 28px 24px; }
+    .portfolio-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
