@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>System Wideo Reklam | Śląsk</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --white: #f5f3ee;
+    --cream: #f0ece3;
+    --accent: #e8401c;
+    --accent2: #f5a623;
+    --gray: #6b6b6b;
+    --border: #2a2a2a;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: -0.5px;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-cta {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: #c93418; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 40px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 60% 50% at 80% 30%, rgba(232,64,28,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(245,166,35,0.06) 0%, transparent 60%);
+  }
+  .hero-tag {
+    display: inline-block;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    margin-bottom: 32px;
+    width: fit-content;
+  }
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(48px, 7vw, 110px);
+    line-height: 0.95;
+    letter-spacing: -3px;
+    max-width: 900px;
+    margin-bottom: 40px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+  .hero-sub {
+    max-width: 480px;
+    color: #999;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 48px;
+  }
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 18px 40px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .btn-primary:hover { background: #c93418; transform: translateY(-2px); }
+  .hero-scroll {
+    color: #555;
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+  .hero-stats {
+    position: absolute;
+    right: 40px;
+    bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    text-align: right;
+  }
+  .stat-item {}
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 13px;
+    color: #666;
+    margin-top: 4px;
+  }
+
+  /* DIVIDER */
+  .divider {
+    border: none;
+    border-top: 1px solid #1a1a1a;
+    margin: 0;
+  }
+
+  /* SECTION */
+  section {
+    padding: 100px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-tag {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(32px, 4vw, 56px);
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+    margin-bottom: 60px;
+  }
+  .section-title em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  /* PROBLEM */
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: #1a1a1a;
+  }
+  .problem-item {
+    background: var(--black);
+    padding: 40px;
+    border-left: 3px solid transparent;
+    transition: border-color 0.3s;
+  }
+  .problem-item:hover { border-left-color: var(--accent); }
+  .problem-icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+  .problem-item h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .problem-item p { color: #888; font-size: 15px; }
+
+  /* HOW IT WORKS */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid #1a1a1a;
+  }
+  .step {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    border-bottom: 1px solid #1a1a1a;
+    transition: background 0.2s;
+  }
+  .step:last-child { border-bottom: none; }
+  .step:hover { background: #111; }
+  .step-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+    padding: 36px 0 36px 32px;
+    border-right: 1px solid #1a1a1a;
+    display: flex;
+    align-items: flex-start;
+  }
+  .step-content {
+    padding: 36px 40px;
+  }
+  .step-content h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .step-content p { color: #888; font-size: 15px; }
+
+  /* RESULTS */
+  .results-section {
+    background: #0d0d0d;
+    border-top: 1px solid #1a1a1a;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .results-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 40px;
+  }
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: #1a1a1a;
+    margin-top: 60px;
+  }
+  .result-card {
+    background: #0d0d0d;
+    padding: 50px 40px;
+    text-align: center;
+  }
+  .result-big {
+    font-family: 'Syne', sans-serif;
+    font-size: 64px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .result-desc {
+    color: #777;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  /* PORTFOLIO */
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2px;
+    background: #1a1a1a;
+  }
+  .portfolio-item {
+    background: #111;
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .portfolio-item:hover { background: #161616; }
+  .portfolio-item:hover .play-btn { transform: scale(1.1); }
+  .play-btn {
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+  }
+  .play-btn svg { margin-left: 4px; }
+  .portfolio-label {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    font-size: 13px;
+    color: #999;
+    font-weight: 500;
+  }
+  .portfolio-placeholder {
+    background: #111;
+    aspect-ratio: 16/9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border: 1px dashed #2a2a2a;
+  }
+  .portfolio-placeholder p {
+    color: #444;
+    font-size: 13px;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .about-text p {
+    color: #aaa;
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+  .about-text p strong { color: var(--white); }
+  .about-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .highlight-item {
+    background: #111;
+    padding: 24px 28px;
+    border-left: 3px solid var(--accent);
+    font-size: 15px;
+    color: #ccc;
+  }
+
+  /* FORM */
+  .form-section {
+    background: var(--accent);
+  }
+  .form-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .form-left h2 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+    color: white;
+    margin-bottom: 24px;
+  }
+  .form-left p {
+    color: rgba(255,255,255,0.75);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .form-right {
+    background: rgba(0,0,0,0.15);
+    padding: 48px;
+  }
+  .form-group {
+    margin-bottom: 24px;
+  }
+  .form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 8px;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    background: rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    padding: 14px 18px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: white; }
+  .form-group select option { background: #222; color: white; }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-submit {
+    width: 100%;
+    background: white;
+    color: var(--accent);
+    border: none;
+    padding: 18px;
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: -0.5px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .form-submit:hover { background: #f0ece3; transform: translateY(-2px); }
+  .form-note {
+    margin-top: 16px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #050505;
+    border-top: 1px solid #1a1a1a;
+    padding: 40px;
+    text-align: center;
+    color: #444;
+    font-size: 13px;
+  }
+  footer span { color: var(--accent); }
+
+  /* SUCCESS */
+  .success-msg {
+    display: none;
+    text-align: center;
+    padding: 40px;
+  }
+  .success-msg h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 16px;
+  }
+  .success-msg p { color: rgba(255,255,255,0.7); }
+
+  /* ANIMATIONS */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .hero { padding: 0 20px 60px; }
+    .hero h1 { font-size: 48px; letter-spacing: -2px; }
+    .hero-stats { display: none; }
+    section { padding: 60px 20px; }
+    .problem-grid { grid-template-columns: 1fr; }
+    .results-grid { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .form-inner { grid-template-columns: 1fr; gap: 40px; padding: 60px 20px; }
+    .form-right { padding: 32px 24px; }
+    .step { grid-template-columns: 60px 1fr; }
+    .step-num { padding: 28px 0 28px 20px; }
+    .step-content { padding: 28px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">WIDEO<span>SYS</span></div>
+  <a href="#formularz" class="nav-cta">Sprawdź czy to dla Ciebie →</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-tag">System wideo reklam · Śląsk</div>
+  <h1>Przyjeżdżam.<br>Nagrywam.<br>Ty <em>sprzedajesz.</em></h1>
+  <p class="hero-sub">Kompleksowy system pozyskiwania klientów przez autentyczne wideo i reklamy Meta Ads. Dla firm usługowych na Śląsku.</p>
+  <div class="hero-actions">
+    <a href="#formularz" class="btn-primary">Sprawdź czy to działa u Ciebie</a>
+    <span class="hero-scroll">↓ Dowiedz się jak to działa</span>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">2 zł</div>
+      <div class="stat-label">za kontakt od klienta</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">400+</div>
+      <div class="stat-label">leadów w jednej kampanii</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- PROBLEM -->
+<section class="fade-in">
+  <div class="section-tag">Dlaczego nie działa</div>
+  <div class="section-title">Masz dobrą usługę.<br>Brakuje Ci <em>systemu.</em></div>
+  <div class="problem-grid">
+    <div class="problem-item">
+      <div class="problem-icon">💸</div>
+      <h3>Przepalona kasa na reklamy</h3>
+      <p>Próbowałeś już różnych rzeczy. Posty, rolki, może jakaś agencja. Kasa wyszła — efektów brak.</p>
+    </div>
+    <div class="problem-item">
+      <div class="problem-icon">🎬</div>
+      <h3>Brak materiałów wideo</h3>
+      <p>Wiesz że wideo działa. Nie masz czasu, sprzętu ani pomysłu jak to nagrać żeby wyglądało profesjonalnie.</p>
+    </div>
+    <div class="problem-item">
+      <div class="problem-icon">📦</div>
+      <h3>Ogólne pakiety agencji</h3>
+      <p>Nikt nie przyjechał do Ciebie, nie zrozumiał Twojej firmy i nie zbudował czegoś pod Ciebie.</p>
+    </div>
+    <div class="problem-item">
+      <div class="problem-icon">📵</div>
+      <h3>Zero systemu sprzedażowego</h3>
+      <p>Nawet jeśli ktoś się zgłosi — nie wiesz co mówić. Brakuje procesu który zamienia zapytanie w klienta.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- HOW IT WORKS -->
+<section class="fade-in">
+  <div class="section-tag">Jak to działa</div>
+  <div class="section-title">Od zera do<br><em>gotowych leadów.</em></div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-content">
+        <h3>Przyjeżdżam do Ciebie</h3>
+        <p>Poznaję Twoją firmę, klientów i to co Cię wyróżnia. Nie pytam o brief — rozmawiam i słucham.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-content">
+        <h3>Nagrywam autentyczne wideo sprzedażowe</h3>
+        <p>Nie ładne rolki. Konkretne reklamy do 60 sekund które zatrzymują i przekonują do działania.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-content">
+        <h3>Montuję i wrzucam do Meta Ads</h3>
+        <p>Sam montuję, ustawiam kampanię lokalnie na Śląsku i wrzucam do menedżera. Bez Twojego udziału.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-content">
+        <h3>Buduję formularz i prowadzę kampanię</h3>
+        <p>Formularz kwalifikacyjny + codzienna optymalizacja. Kontakty trafiają bezpośrednio do Ciebie.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">05</div>
+      <div class="step-content">
+        <h3>Układam proces sprzedażowy przez telefon</h3>
+        <p>Dostajesz gotowy schemat rozmowy. Wiesz co mówić, jak odpowiadać na obiekcje i jak domykać.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<div class="results-section">
+  <div class="results-inner fade-in">
+    <div class="section-tag">Wyniki z aktywnych kampanii</div>
+    <div class="section-title">Liczby które<br><em>mówią same.</em></div>
+    <div class="results-grid">
+      <div class="result-card">
+        <div class="result-big">2 zł</div>
+        <div class="result-desc">koszt jednego kontaktu<br>od potencjalnego klienta</div>
+      </div>
+      <div class="result-card">
+        <div class="result-big">80</div>
+        <div class="result-desc">leadów w jednej kampanii<br>za łącznie 160 zł</div>
+      </div>
+      <div class="result-card">
+        <div class="result-big">400</div>
+        <div class="result-desc">kontaktów w kampanii<br>przy 5 zł za sztukę</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- PORTFOLIO -->
+<section class="fade-in">
+  <div class="section-tag">Portfolio</div>
+  <div class="section-title">Reklamy które<br><em>sprzedają.</em></div>
+  <div class="portfolio-grid" id="portfolio-grid">
+    <!-- Wideo 1 -->
+    <a href="#" class="portfolio-item" onclick="return false;">
+      <div class="play-btn">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M6 3.5L14.5 9L6 14.5V3.5Z" fill="#e8401c"/>
+        </svg>
+      </div>
+      <span class="portfolio-label">Kampania #1</span>
+    </a>
+    <!-- Wideo 2 -->
+    <a href="#" class="portfolio-item" onclick="return false;">
+      <div class="play-btn">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M6 3.5L14.5 9L6 14.5V3.5Z" fill="#e8401c"/>
+        </svg>
+      </div>
+      <span class="portfolio-label">Kampania #2</span>
+    </a>
+    <!-- Wideo 3 -->
+    <a href="#" class="portfolio-item" onclick="return false;">
+      <div class="play-btn">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M6 3.5L14.5 9L6 14.5V3.5Z" fill="#e8401c"/>
+        </svg>
+      </div>
+      <span class="portfolio-label">Kampania #3</span>
+    </a>
+    <!-- Wideo 4 -->
+    <a href="#" class="portfolio-item" onclick="return false;">
+      <div class="play-btn">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M6 3.5L14.5 9L6 14.5V3.5Z" fill="#e8401c"/>
+        </svg>
+      </div>
+      <span class="portfolio-label">Kampania #4</span>
+    </a>
+    <!-- Wideo 5 -->
+    <a href="#" class="portfolio-item" onclick="return false;">
+      <div class="play-btn">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M6 3.5L14.5 9L6 14.5V3.5Z" fill="#e8401c"/>
+        </svg>
+      </div>
+      <span class="portfolio-label">Kampania #5</span>
+    </a>
+    <!-- Placeholder -->
+    <div class="portfolio-placeholder">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <rect x="1" y="1" width="30" height="30" rx="2" stroke="#333" stroke-width="1.5"/>
+        <path d="M12 10L22 16L12 22V10Z" stroke="#333" stroke-width="1.5" stroke-linejoin="round"/>
+      </svg>
+      <p>Wkrótce kolejne realizacje</p>
+    </div>
+  </div>
+  <p style="color: #444; font-size: 14px; margin-top: 20px;">↑ Podmień href w kodzie na linki do swoich filmów YouTube/Vimeo</p>
+</section>
+
+<hr class="divider">
+
+<!-- ABOUT -->
+<section class="fade-in">
+  <div class="section-tag">O mnie</div>
+  <div class="section-title">Nie agencja.<br><em>Jedna osoba.</em><br>Cały system.</div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Działam na Śląsku i <strong>dojeżdżam bezpośrednio do klientów</strong>. Nie wysyłam briefów i nie czekam na materiały — sam przyjeżdżam, nagrywam i buduję system od podstaw.</p>
+      <p>Nie sprzedaję pakietów marketingowych. Każda współpraca jest <strong>spersonalizowana pod konkretną firmę</strong>, jej branżę i jej klientów.</p>
+      <p>Masz być dobry w swoją usługę. <strong>Resztą zajmuję się ja.</strong></p>
+    </div>
+    <div class="about-highlights">
+      <div class="highlight-item">✓ Dojazd do klienta na Śląsku</div>
+      <div class="highlight-item">✓ Nagranie + montaż wideo sprzedażowego</div>
+      <div class="highlight-item">✓ Prowadzenie kampanii Meta Ads</div>
+      <div class="highlight-item">✓ Formularz + system pozyskiwania leadów</div>
+      <div class="highlight-item">✓ Proces sprzedażowy przez telefon</div>
+      <div class="highlight-item">✓ Miesięczna współpraca i optymalizacja</div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<div class="form-section" id="formularz">
+  <div class="form-inner">
+    <div class="form-left">
+      <h2>Sprawdź czy to zadziała u Ciebie.</h2>
+      <p>Wypełnij formularz — odezwę się osobiście i powiem Ci wprost co mogę zrobić dla Twojej firmy. Bez sprzedaży na siłę.</p>
+    </div>
+    <div class="form-right">
+      <form id="contact-form">
+        <div class="form-group">
+          <label>Imię i nazwisko</label>
+          <input type="text" placeholder="Jan Kowalski" required>
+        </div>
+        <div class="form-group">
+          <label>Czym się zajmujesz?</label>
+          <input type="text" placeholder="np. serwis samochodowy, depilacja laserowa..." required>
+        </div>
+        <div class="form-group">
+          <label>Miasto / powiat na Śląsku</label>
+          <input type="text" placeholder="np. Katowice, Tychy, Gliwice..." required>
+        </div>
+        <div class="form-group">
+          <label>Jak teraz pozyskujesz klientów?</label>
+          <select required>
+            <option value="" disabled selected>Wybierz...</option>
+            <option>Głównie z polecenia</option>
+            <option>Social media (organicznie)</option>
+            <option>Płatne reklamy — słabe efekty</option>
+            <option>Nie mam systemu</option>
+            <option>Różnie to bywa</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Numer telefonu</label>
+          <input type="tel" placeholder="+48 XXX XXX XXX" required>
+        </div>
+        <button type="submit" class="form-submit">CHCĘ WIEDZIEĆ CZY TO DLA MNIE →</button>
+        <p class="form-note">Odezwę się w ciągu 24h. Zero spamu.</p>
+      </form>
+      <div class="success-msg" id="success-msg">
+        <h3>Gotowe. 👊</h3>
+        <p>Odezwę się do Ciebie osobiście w ciągu 24 godzin.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <span>WIDEOSYS</span> · Śląsk · System wideo reklam sprzedażowych</p>
+</footer>
+
+<script>
+  // Fade in on scroll
+  const faders = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  faders.forEach(el => observer.observe(el));
+
+  // Form submit
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    this.style.display = 'none';
+    document.getElementById('success-msg').style.display = 'block';
+  });
+</script>
+</body>
+</html>
