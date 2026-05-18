@@ -153,6 +153,41 @@
     margin: 0;
   }
 
+  /* PROOF */
+  .proof-section {
+    background: #0d0d0d;
+    border-top: 1px solid #1a1a1a;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .proof-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 40px;
+  }
+  .proof-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 48px;
+  }
+  .proof-item {
+    background: #111;
+    border: 1px solid #222;
+    overflow: hidden;
+  }
+  .proof-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: brightness(0.95);
+    transition: filter 0.2s;
+  }
+  .proof-item:hover img { filter: brightness(1); }
+  @media (max-width: 768px) {
+    .proof-grid { grid-template-columns: 1fr; }
+    .proof-inner { padding: 60px 20px; }
+  }
+
   /* SECTION */
   section {
     padding: 100px 40px;
@@ -534,7 +569,7 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">WIDEO<span>SYS</span></div>
+  <div class="nav-logo">WIDEO <span>SYSTEM</span></div>
   <a href="#formularz" class="nav-cta">Sprawdź czy to dla Ciebie →</a>
 </nav>
 
@@ -652,6 +687,36 @@
 
 <hr class="divider">
 
+<!-- PROOF -->
+<div class="proof-section">
+  <div class="proof-inner fade-in">
+    <div class="section-tag">Dowody z kampanii</div>
+    <div class="section-title">Screeny prosto<br>z <em>Menedżera Reklam.</em></div>
+    <div class="proof-grid">
+      <div class="proof-item">
+        <img src="wyniki5.webp" alt="Wyniki kampanii - 414 kontaktów">
+      </div>
+      <div class="proof-item">
+        <img src="wyniki3.png" alt="Wyniki kampanii - kontakty formularz">
+      </div>
+      <div class="proof-item">
+        <img src="wyniki2.webp" alt="Wyniki kampanii - 87 kontaktów">
+      </div>
+      <div class="proof-item">
+        <img src="wyniki4.png" alt="Wyniki kampanii - kontakty formularz">
+      </div>
+      <div class="proof-item">
+        <img src="wyniki1.png" alt="Wyniki kampanii - depilacja">
+      </div>
+      <div class="proof-item">
+        <img src="wyniki6.png" alt="Wyniki kampanii - mezoterapia">
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
 <!-- PORTFOLIO -->
 <section class="fade-in">
   <div class="section-tag">Portfolio</div>
@@ -659,8 +724,8 @@
   <p style="color: #777; font-size: 16px; margin-bottom: 40px; margin-top: -20px;">Zobacz, jak wygląda materiał tworzony pod reklamę, a nie tylko pod zasięg.</p>
   <div class="portfolio-grid" id="portfolio-grid">
     <!-- Wideo 1 -->
-    <a href="https://youtube.com/shorts/sN-Xwl0HYnc" target="_blank" class="portfolio-item">
-      <div class="thumb" style="background-image: url('https://img.youtube.com/vi/sN-Xwl0HYnc/hqdefault.jpg');"></div>
+    <a href="https://youtube.com/shorts/jgOCjgYwPcU" target="_blank" class="portfolio-item">
+      <div class="thumb" style="background-image: url('https://img.youtube.com/vi/jgOCjgYwPcU/hqdefault.jpg');"></div>
       <div class="play-btn">
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
           <path d="M6 3.5L14.5 9L6 14.5V3.5Z" fill="#e8401c"/>
@@ -669,8 +734,8 @@
       <span class="portfolio-label">Kampania #1</span>
     </a>
     <!-- Wideo 2 -->
-    <a href="https://youtube.com/shorts/jgOCjgYwPcU" target="_blank" class="portfolio-item">
-      <div class="thumb" style="background-image: url('https://img.youtube.com/vi/jgOCjgYwPcU/hqdefault.jpg');"></div>
+    <a href="https://youtube.com/shorts/0NxsX1KyymY" target="_blank" class="portfolio-item">
+      <div class="thumb" style="background-image: url('https://img.youtube.com/vi/0NxsX1KyymY/hqdefault.jpg');"></div>
       <div class="play-btn">
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
           <path d="M6 3.5L14.5 9L6 14.5V3.5Z" fill="#e8401c"/>
@@ -679,8 +744,8 @@
       <span class="portfolio-label">Kampania #2</span>
     </a>
     <!-- Wideo 3 -->
-    <a href="https://youtube.com/shorts/0NxsX1KyymY" target="_blank" class="portfolio-item">
-      <div class="thumb" style="background-image: url('https://img.youtube.com/vi/0NxsX1KyymY/hqdefault.jpg');"></div>
+    <a href="https://youtube.com/shorts/sN-Xwl0HYnc" target="_blank" class="portfolio-item">
+      <div class="thumb" style="background-image: url('https://img.youtube.com/vi/sN-Xwl0HYnc/hqdefault.jpg');"></div>
       <div class="play-btn">
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
           <path d="M6 3.5L14.5 9L6 14.5V3.5Z" fill="#e8401c"/>
