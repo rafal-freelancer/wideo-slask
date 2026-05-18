@@ -67,9 +67,8 @@
   .hero {
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 0 40px 80px;
+    align-items: center;
+    padding: 120px 40px 80px;
     position: relative;
     overflow: hidden;
   }
@@ -77,54 +76,59 @@
     position: absolute;
     inset: 0;
     background: 
-      radial-gradient(ellipse 60% 50% at 80% 30%, rgba(232,64,28,0.12) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(245,166,35,0.06) 0%, transparent 60%);
+      radial-gradient(ellipse 50% 60% at 70% 40%, rgba(232,64,28,0.13) 0%, transparent 65%),
+      radial-gradient(ellipse 40% 50% at 20% 70%, rgba(245,166,35,0.05) 0%, transparent 60%);
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    width: 100%;
   }
   .hero-tag {
     display: inline-block;
     border: 1px solid var(--accent);
     color: var(--accent);
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 500;
     letter-spacing: 2px;
     text-transform: uppercase;
-    padding: 6px 16px;
-    margin-bottom: 32px;
+    padding: 5px 14px;
+    margin-bottom: 28px;
     width: fit-content;
   }
   .hero h1 {
     font-family: 'Syne', sans-serif;
     font-weight: 800;
-    font-size: clamp(48px, 7vw, 110px);
-    line-height: 0.95;
-    letter-spacing: -3px;
-    max-width: 900px;
-    margin-bottom: 40px;
+    font-size: clamp(42px, 5.5vw, 76px);
+    line-height: 0.97;
+    letter-spacing: -2px;
+    margin-bottom: 28px;
   }
   .hero h1 em {
     font-style: normal;
     color: var(--accent);
   }
   .hero-sub {
-    max-width: 480px;
-    color: #999;
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 48px;
+    color: #888;
+    font-size: 16px;
+    line-height: 1.65;
+    margin-bottom: 40px;
+    max-width: 460px;
   }
   .hero-actions {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 24px;
     flex-wrap: wrap;
   }
   .btn-primary {
     background: var(--accent);
     color: white;
     border: none;
-    padding: 18px 40px;
+    padding: 16px 36px;
     font-family: 'DM Sans', sans-serif;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
     cursor: pointer;
     text-decoration: none;
@@ -134,31 +138,13 @@
   .btn-primary:hover { background: #c93418; transform: translateY(-2px); }
   .hero-scroll {
     color: #555;
-    font-size: 14px;
+    font-size: 13px;
     letter-spacing: 1px;
   }
-  .hero-stats {
-    position: absolute;
-    right: 40px;
-    bottom: 80px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    text-align: right;
-  }
+  .hero-stats { display: none; }
   .stat-item {}
-  .stat-num {
-    font-family: 'Syne', sans-serif;
-    font-size: 42px;
-    font-weight: 800;
-    color: var(--accent);
-    line-height: 1;
-  }
-  .stat-label {
-    font-size: 13px;
-    color: #666;
-    margin-top: 4px;
-  }
+  .stat-num {}
+  .stat-label {}
 
   /* DIVIDER */
   .divider {
@@ -297,13 +283,13 @@
   /* PORTFOLIO */
   .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2px;
-    background: #1a1a1a;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 8px;
+    background: var(--black);
   }
   .portfolio-item {
     background: #111;
-    aspect-ratio: 16/9;
+    aspect-ratio: 9/16;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -311,9 +297,22 @@
     overflow: hidden;
     cursor: pointer;
     text-decoration: none;
-    transition: background 0.2s;
+    transition: all 0.3s;
   }
-  .portfolio-item:hover { background: #161616; }
+  .portfolio-item .thumb {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center top;
+    filter: brightness(0.45);
+    transition: filter 0.3s, transform 0.3s;
+  }
+  .portfolio-item:hover .thumb {
+    filter: brightness(0.6);
+    transform: scale(1.04);
+  }
+  .portfolio-item .play-btn { z-index: 2; }
+  .portfolio-item .portfolio-label { z-index: 2; }
   .portfolio-item:hover .play-btn { transform: scale(1.1); }
   .play-btn {
     width: 60px;
@@ -352,9 +351,16 @@
   /* ABOUT */
   .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
+    grid-template-columns: 300px 1fr 1fr;
+    gap: 60px;
     align-items: start;
+  }
+  .about-photo {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    object-position: top;
+    filter: grayscale(20%);
   }
   .about-text p {
     color: #aaa;
@@ -502,7 +508,7 @@
     nav { padding: 14px 16px; }
     .nav-logo { font-size: 15px; }
     .nav-cta { padding: 8px 14px; font-size: 12px; }
-    .hero { padding: 0 20px 60px; }
+    .hero { min-height: unset; padding: 100px 20px 60px; }
     .hero h1 { font-size: 32px; letter-spacing: -1px; line-height: 1.05; }
     .hero-sub { font-size: 15px; }
     .hero-tag { font-size: 11px; margin-bottom: 20px; }
@@ -513,7 +519,8 @@
     .problem-grid { grid-template-columns: 1fr; }
     .results-grid { grid-template-columns: 1fr; }
     .result-big { font-size: 48px; }
-    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    .about-photo { max-width: 240px; aspect-ratio: 3/4; }
     .form-inner { grid-template-columns: 1fr; gap: 40px; padding: 60px 20px; }
     .form-right { padding: 32px 24px; }
     .step { grid-template-columns: 60px 1fr; }
@@ -534,21 +541,13 @@
 <!-- HERO -->
 <div class="hero">
   <div class="hero-bg"></div>
-  <div class="hero-tag">System wideo reklam · Śląsk</div>
-  <h1>Przyjeżdżam.<br>Nagrywam.<br>Ty <em>sprzedajesz.</em></h1>
-  <p class="hero-sub">Kompleksowy system pozyskiwania klientów przez autentyczne wideo i reklamy Meta Ads. Dla firm usługowych na Śląsku.</p>
-  <div class="hero-actions">
-    <a href="#formularz" class="btn-primary">Sprawdź czy to działa u Ciebie</a>
-    <span class="hero-scroll">↓ Dowiedz się jak to działa</span>
-  </div>
-  <div class="hero-stats">
-    <div class="stat-item">
-      <div class="stat-num">2 zł</div>
-      <div class="stat-label">za kontakt od klienta</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">400+</div>
-      <div class="stat-label">leadów w jednej kampanii</div>
+  <div class="hero-inner">
+    <div class="hero-tag">Lokalne firmy usługowe · Śląsk</div>
+    <h1>Przyjeżdżam.<br>Nagrywam.<br>Ty <em>sprzedajesz.</em></h1>
+    <p class="hero-sub">Przyjeżdżam do Twojej firmy, nagrywam wideo i ustawiam reklamy, które mają dowozić zapytania od klientów. Dla lokalnych firm usługowych na Śląsku.</p>
+    <div class="hero-actions">
+      <a href="#formularz" class="btn-primary">Sprawdź, czy to ma sens u Ciebie</a>
+      <span class="hero-scroll">↓ Jak to działa</span>
     </div>
   </div>
 </div>
@@ -558,27 +557,27 @@
 <!-- PROBLEM -->
 <section class="fade-in">
   <div class="section-tag">Dlaczego nie działa</div>
-  <div class="section-title">Masz dobrą usługę.<br>Brakuje Ci <em>systemu.</em></div>
+  <div class="section-title">Masz dobrą usługę,<br>ale za mało osób<br><em>realnie o niej wie.</em></div>
   <div class="problem-grid">
     <div class="problem-item">
-      <div class="problem-icon">💸</div>
-      <h3>Przepalona kasa na reklamy</h3>
-      <p>Próbowałeś już różnych rzeczy. Posty, rolki, może jakaś agencja. Kasa wyszła — efektów brak.</p>
+      <div class="problem-icon">📉</div>
+      <h3>Reklamy były, ale bez efektu</h3>
+      <p>Próbowałeś postów, rolek albo płatnych reklam. Coś się działo, ale nie było z tego regularnych zapytań ani sprzedaży.</p>
     </div>
     <div class="problem-item">
       <div class="problem-icon">🎬</div>
-      <h3>Brak materiałów wideo</h3>
-      <p>Wiesz że wideo działa. Nie masz czasu, sprzętu ani pomysłu jak to nagrać żeby wyglądało profesjonalnie.</p>
+      <h3>Brak materiałów pokazujących wartość</h3>
+      <p>Zdjęcie, grafika albo zwykły post często nie tłumaczą klientowi, dlaczego Twoja usługa jest warta swojej ceny.</p>
     </div>
     <div class="problem-item">
       <div class="problem-icon">📦</div>
-      <h3>Ogólne pakiety agencji</h3>
-      <p>Nikt nie przyjechał do Ciebie, nie zrozumiał Twojej firmy i nie zbudował czegoś pod Ciebie.</p>
+      <h3>Nie chcesz kolejnej ogólnej agencji</h3>
+      <p>Nie potrzebujesz kogoś, kto zrobi „pakiet social media". Potrzebujesz kogoś, kto zrozumie Twoją usługę i pokaże ją tak, żeby klient chciał zapytać.</p>
     </div>
     <div class="problem-item">
       <div class="problem-icon">📵</div>
-      <h3>Zero systemu sprzedażowego</h3>
-      <p>Nawet jeśli ktoś się zgłosi — nie wiesz co mówić. Brakuje procesu który zamienia zapytanie w klienta.</p>
+      <h3>Brakuje procesu po zgłoszeniu</h3>
+      <p>Samo pozyskanie kontaktu to dopiero początek. Trzeba jeszcze wiedzieć, jak zadzwonić, co powiedzieć i jak poprowadzić rozmowę do decyzji.</p>
     </div>
   </div>
 </section>
@@ -588,41 +587,41 @@
 <!-- HOW IT WORKS -->
 <section class="fade-in">
   <div class="section-tag">Jak to działa</div>
-  <div class="section-title">Od zera do<br><em>gotowych leadów.</em></div>
+  <div class="section-title">Nie dostajesz samego filmu.<br>Dostajesz cały proces<br><em>pozyskiwania zapytań.</em></div>
   <div class="steps">
     <div class="step">
       <div class="step-num">01</div>
       <div class="step-content">
-        <h3>Przyjeżdżam do Ciebie</h3>
-        <p>Poznaję Twoją firmę, klientów i to co Cię wyróżnia. Nie pytam o brief — rozmawiam i słucham.</p>
+        <h3>Rozmawiamy o Twojej usłudze i klientach</h3>
+        <p>Najpierw ustalam, co sprzedajesz, komu, dlaczego ktoś ma wybrać właśnie Ciebie i jakie pytania najczęściej blokują klientów przed zakupem.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">02</div>
       <div class="step-content">
-        <h3>Nagrywam autentyczne wideo sprzedażowe</h3>
-        <p>Nie ładne rolki. Konkretne reklamy do 60 sekund które zatrzymują i przekonują do działania.</p>
+        <h3>Przyjeżdżam i nagrywam materiał u Ciebie</h3>
+        <p>Nie musisz wymyślać scenariuszy, ujęć ani całej koncepcji. Przygotowuję plan, przyjeżdżam i nagrywam materiał pod reklamę.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">03</div>
       <div class="step-content">
-        <h3>Montuję i wrzucam do Meta Ads</h3>
-        <p>Sam montuję, ustawiam kampanię lokalnie na Śląsku i wrzucam do menedżera. Bez Twojego udziału.</p>
+        <h3>Montuję krótkie wideo sprzedażowe</h3>
+        <p>To nie są przypadkowe rolki „żeby coś wrzucić". Materiał ma zatrzymać uwagę, pokazać wartość usługi i zachęcić do zostawienia kontaktu.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">04</div>
       <div class="step-content">
-        <h3>Buduję formularz i prowadzę kampanię</h3>
-        <p>Formularz kwalifikacyjny + codzienna optymalizacja. Kontakty trafiają bezpośrednio do Ciebie.</p>
+        <h3>Ustawiam kampanię Meta Ads</h3>
+        <p>Przygotowuję reklamę, formularz kontaktowy i kampanię lokalną na Facebooku oraz Instagramie. Kontakty trafiają bezpośrednio do Ciebie.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">05</div>
       <div class="step-content">
-        <h3>Układam proces sprzedażowy przez telefon</h3>
-        <p>Dostajesz gotowy schemat rozmowy. Wiesz co mówić, jak odpowiadać na obiekcje i jak domykać.</p>
+        <h3>Daję Ci prosty schemat rozmowy z klientem</h3>
+        <p>Dostajesz wskazówki, jak rozmawiać z osobami, które zostawiły numer: o co zapytać, jak tłumaczyć wartość usługi i jak nie sprowadzić rozmowy tylko do ceny.</p>
       </div>
     </div>
   </div>
@@ -631,22 +630,23 @@
 <!-- RESULTS -->
 <div class="results-section">
   <div class="results-inner fade-in">
-    <div class="section-tag">Wyniki z aktywnych kampanii</div>
-    <div class="section-title">Liczby które<br><em>mówią same.</em></div>
+    <div class="section-tag">Wyniki z kampanii lokalnych</div>
+    <div class="section-title">Takie wyniki potrafią dawać<br><em>dobrze ustawione kampanie.</em></div>
     <div class="results-grid">
       <div class="result-card">
         <div class="result-big">2 zł</div>
-        <div class="result-desc">koszt jednego kontaktu<br>od potencjalnego klienta</div>
+        <div class="result-desc">najniższy koszt kontaktu<br>uzyskany w kampanii lokalnej</div>
       </div>
       <div class="result-card">
         <div class="result-big">80</div>
-        <div class="result-desc">leadów w jednej kampanii<br>za łącznie 160 zł</div>
+        <div class="result-desc">leadów pozyskanych w jednej<br>kampanii przy budżecie 160 zł</div>
       </div>
       <div class="result-card">
-        <div class="result-big">400</div>
-        <div class="result-desc">kontaktów w kampanii<br>przy 5 zł za sztukę</div>
+        <div class="result-big">400+</div>
+        <div class="result-desc">kontaktów w kampanii<br>z kosztem ok. 5 zł za kontakt</div>
       </div>
     </div>
+    <p style="color: #555; font-size: 13px; margin-top: 28px; max-width: 600px; line-height: 1.6;">Wyniki nie są gwarancją dla każdej firmy. Pokazują, co jest możliwe, gdy oferta, materiał wideo i kampania są dobrze dopasowane.</p>
   </div>
 </div>
 
@@ -656,9 +656,11 @@
 <section class="fade-in">
   <div class="section-tag">Portfolio</div>
   <div class="section-title">Reklamy które<br><em>sprzedają.</em></div>
+  <p style="color: #777; font-size: 16px; margin-bottom: 40px; margin-top: -20px;">Zobacz, jak wygląda materiał tworzony pod reklamę, a nie tylko pod zasięg.</p>
   <div class="portfolio-grid" id="portfolio-grid">
     <!-- Wideo 1 -->
-    <a href="#" class="portfolio-item" onclick="return false;">
+    <a href="https://youtube.com/shorts/sN-Xwl0HYnc" target="_blank" class="portfolio-item">
+      <div class="thumb" style="background-image: url('https://img.youtube.com/vi/sN-Xwl0HYnc/hqdefault.jpg');"></div>
       <div class="play-btn">
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
           <path d="M6 3.5L14.5 9L6 14.5V3.5Z" fill="#e8401c"/>
@@ -667,7 +669,8 @@
       <span class="portfolio-label">Kampania #1</span>
     </a>
     <!-- Wideo 2 -->
-    <a href="#" class="portfolio-item" onclick="return false;">
+    <a href="https://youtube.com/shorts/jgOCjgYwPcU" target="_blank" class="portfolio-item">
+      <div class="thumb" style="background-image: url('https://img.youtube.com/vi/jgOCjgYwPcU/hqdefault.jpg');"></div>
       <div class="play-btn">
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
           <path d="M6 3.5L14.5 9L6 14.5V3.5Z" fill="#e8401c"/>
@@ -676,7 +679,8 @@
       <span class="portfolio-label">Kampania #2</span>
     </a>
     <!-- Wideo 3 -->
-    <a href="#" class="portfolio-item" onclick="return false;">
+    <a href="https://youtube.com/shorts/0NxsX1KyymY" target="_blank" class="portfolio-item">
+      <div class="thumb" style="background-image: url('https://img.youtube.com/vi/0NxsX1KyymY/hqdefault.jpg');"></div>
       <div class="play-btn">
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
           <path d="M6 3.5L14.5 9L6 14.5V3.5Z" fill="#e8401c"/>
@@ -685,7 +689,8 @@
       <span class="portfolio-label">Kampania #3</span>
     </a>
     <!-- Wideo 4 -->
-    <a href="#" class="portfolio-item" onclick="return false;">
+    <a href="https://youtube.com/shorts/j1N9nTjndBc" target="_blank" class="portfolio-item">
+      <div class="thumb" style="background-image: url('https://img.youtube.com/vi/j1N9nTjndBc/hqdefault.jpg');"></div>
       <div class="play-btn">
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
           <path d="M6 3.5L14.5 9L6 14.5V3.5Z" fill="#e8401c"/>
@@ -694,7 +699,8 @@
       <span class="portfolio-label">Kampania #4</span>
     </a>
     <!-- Wideo 5 -->
-    <a href="#" class="portfolio-item" onclick="return false;">
+    <a href="https://youtube.com/shorts/p4nToHRd0LM" target="_blank" class="portfolio-item">
+      <div class="thumb" style="background-image: url('https://img.youtube.com/vi/p4nToHRd0LM/hqdefault.jpg');"></div>
       <div class="play-btn">
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
           <path d="M6 3.5L14.5 9L6 14.5V3.5Z" fill="#e8401c"/>
@@ -702,16 +708,8 @@
       </div>
       <span class="portfolio-label">Kampania #5</span>
     </a>
-    <!-- Placeholder -->
-    <div class="portfolio-placeholder">
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-        <rect x="1" y="1" width="30" height="30" rx="2" stroke="#333" stroke-width="1.5"/>
-        <path d="M12 10L22 16L12 22V10Z" stroke="#333" stroke-width="1.5" stroke-linejoin="round"/>
-      </svg>
-      <p>Wkrótce kolejne realizacje</p>
-    </div>
   </div>
-  <p style="color: #444; font-size: 14px; margin-top: 20px;">↑ Podmień href w kodzie na linki do swoich filmów YouTube/Vimeo</p>
+
 </section>
 
 <hr class="divider">
@@ -719,20 +717,22 @@
 <!-- ABOUT -->
 <section class="fade-in">
   <div class="section-tag">O mnie</div>
-  <div class="section-title">Nie agencja.<br><em>Jedna osoba.</em><br>Cały system.</div>
+  <div class="section-title">Nie agencja.<br>Jedna osoba,<br>która ogarnia<br><em>cały proces.</em></div>
   <div class="about-grid">
+    <img src="photo.jpg" alt="Rafał" class="about-photo">
     <div class="about-text">
-      <p>Działam na Śląsku i <strong>dojeżdżam bezpośrednio do klientów</strong>. Nie wysyłam briefów i nie czekam na materiały — sam przyjeżdżam, nagrywam i buduję system od podstaw.</p>
-      <p>Nie sprzedaję pakietów marketingowych. Każda współpraca jest <strong>spersonalizowana pod konkretną firmę</strong>, jej branżę i jej klientów.</p>
-      <p>Masz być dobry w swoją usługę. <strong>Resztą zajmuję się ja.</strong></p>
+      <p>Pracuję bezpośrednio z właścicielami lokalnych firm na Śląsku. <strong>Przyjeżdżam na miejsce</strong>, poznaję usługę, nagrywam materiał i buduję kampanię od początku do końca.</p>
+      <p>Nie wysyłam Ci listy zadań i nie oczekuję, że sam przygotujesz materiały. <strong>Twoją rolą jest pokazać mi firmę i dobrze obsłużyć osoby, które się zgłoszą.</strong> Resztę procesu biorę na siebie.</p>
+      <p>To rozwiązanie dla firm, które nie chcą kolejnej przypadkowej rolki — tylko chcą <strong>zacząć pozyskiwać zapytania w bardziej uporządkowany sposób.</strong></p>
     </div>
     <div class="about-highlights">
-      <div class="highlight-item">✓ Dojazd do klienta na Śląsku</div>
-      <div class="highlight-item">✓ Nagranie + montaż wideo sprzedażowego</div>
-      <div class="highlight-item">✓ Prowadzenie kampanii Meta Ads</div>
-      <div class="highlight-item">✓ Formularz + system pozyskiwania leadów</div>
-      <div class="highlight-item">✓ Proces sprzedażowy przez telefon</div>
-      <div class="highlight-item">✓ Miesięczna współpraca i optymalizacja</div>
+      <div class="highlight-item">✓ Przyjazd do firmy na Śląsku</div>
+      <div class="highlight-item">✓ Pomysł i nagranie materiału wideo</div>
+      <div class="highlight-item">✓ Montaż reklamy sprzedażowej</div>
+      <div class="highlight-item">✓ Kampania Meta Ads na Facebooku i Instagramie</div>
+      <div class="highlight-item">✓ Formularz do pozyskiwania kontaktów</div>
+      <div class="highlight-item">✓ Prosty schemat rozmowy z klientem</div>
+      <div class="highlight-item">✓ Optymalizacja kampanii w trakcie współpracy</div>
     </div>
   </div>
 </section>
@@ -741,8 +741,8 @@
 <div class="form-section" id="formularz">
   <div class="form-inner">
     <div class="form-left">
-      <h2>Sprawdź czy to zadziała u Ciebie.</h2>
-      <p>Wypełnij formularz — odezwę się osobiście i powiem Ci wprost co mogę zrobić dla Twojej firmy. Bez sprzedaży na siłę.</p>
+      <h2>Zostaw kontakt, a sprawdzę, czy taki system ma sens dla Twojej firmy.</h2>
+      <p>Odezwę się osobiście, zadam kilka konkretnych pytań i powiem Ci wprost, czy widzę potencjał na kampanię. Bez wciskania współpracy na siłę.</p>
     </div>
     <div class="form-right">
       <form id="contact-form">
@@ -773,7 +773,7 @@
           <label>Numer telefonu</label>
           <input type="tel" placeholder="+48 XXX XXX XXX" required>
         </div>
-        <button type="submit" class="form-submit">CHCĘ WIEDZIEĆ CZY TO DLA MNIE →</button>
+        <button type="submit" class="form-submit">CHCĘ SPRAWDZIĆ, CZY TO DLA MNIE →</button>
         <p class="form-note">Odezwę się w ciągu 24h. Zero spamu.</p>
       </form>
       <div class="success-msg" id="success-msg">
