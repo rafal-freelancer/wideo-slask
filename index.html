@@ -743,6 +743,44 @@
     .pricing-amount { font-size: 44px; }
     .pricing-addon { flex-direction: column; gap: 16px; padding: 28px 20px; }
   }
+
+  /* CHECKBOXES RODO */
+  .form-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+    cursor: pointer;
+  }
+  .form-checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    margin-top: 2px;
+    accent-color: var(--accent);
+    cursor: pointer;
+    padding: 0;
+    border: none;
+    background: transparent;
+  }
+  .form-checkbox span {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.5;
+  }
+  .form-checkbox span a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: underline;
+  }
+  .form-checkbox span a:hover { color: white; }
+  .form-rodo-note {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    line-height: 1.6;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
 </style>
 </head>
 <body>
@@ -1085,7 +1123,16 @@
           <label>Numer telefonu</label>
           <input type="tel" name="telefon" placeholder="+48 XXX XXX XXX" required>
         </div>
+        <label class="form-checkbox">
+          <input type="checkbox" name="zgoda_rodo" required>
+          <span>Zapoznałem/am się z <a href="https://rafalmalota.pl/polityka-prywatnosci" target="_blank">polityką prywatności</a> i akceptuję zasady przetwarzania moich danych osobowych. *</span>
+        </label>
+        <label class="form-checkbox">
+          <input type="checkbox" name="zgoda_marketing">
+          <span>Wyrażam zgodę na kontakt w celach marketingowych drogą elektroniczną na podany adres e-mail.</span>
+        </label>
         <button type="submit" class="form-submit">CHCĘ SPRAWDZIĆ, CZY TO DLA MNIE →</button>
+        <p class="form-rodo-note">Administratorem danych osobowych jest Rafał Małota. Dane będą przetwarzane w celu udzielenia odpowiedzi na zapytanie. Szczegółowe informacje znajdują się w <a href="https://rafalmalota.pl/polityka-prywatnosci" target="_blank" style="color: rgba(255,255,255,0.5); text-decoration: underline;">polityce prywatności</a>.</p>
         <p class="form-note">Odezwę się w ciągu 24h. Zero spamu.</p>
       </form>
       <div class="success-msg" id="success-msg">
