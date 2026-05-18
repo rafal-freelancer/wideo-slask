@@ -563,6 +563,184 @@
     .step-content { padding: 28px 24px; }
     .portfolio-grid { grid-template-columns: 1fr; }
   }
+
+  /* PRICING */
+  .pricing-section {
+    background: var(--black);
+    border-top: 1px solid #1a1a1a;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .pricing-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 40px;
+  }
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: #1a1a1a;
+    margin-top: 60px;
+  }
+  .pricing-card {
+    background: #0d0d0d;
+    padding: 56px 48px;
+    position: relative;
+  }
+  .pricing-card.featured {
+    background: #111;
+    border: 1px solid var(--accent);
+  }
+  .pricing-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    margin-bottom: 28px;
+  }
+  .pricing-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .pricing-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+  .pricing-desc {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 340px;
+  }
+  .pricing-price {
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .pricing-amount {
+    font-family: 'Syne', sans-serif;
+    font-size: 56px;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+  }
+  .pricing-amount span {
+    font-size: 22px;
+    font-weight: 500;
+    color: #555;
+    margin-left: 4px;
+  }
+  .pricing-period {
+    font-size: 13px;
+    color: #555;
+    margin-top: 8px;
+  }
+  .pricing-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 40px;
+  }
+  .pricing-items li {
+    font-size: 15px;
+    color: #aaa;
+    padding-left: 24px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .pricing-items li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .pricing-items li.muted {
+    color: #444;
+  }
+  .pricing-items li.muted::before {
+    color: #333;
+    content: '—';
+  }
+  .pricing-note {
+    font-size: 13px;
+    color: #444;
+    line-height: 1.6;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid #1a1a1a;
+  }
+  .pricing-cta {
+    display: block;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 16px;
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .pricing-cta:hover { background: #c93418; transform: translateY(-2px); }
+  .pricing-cta.outline {
+    background: transparent;
+    border: 1px solid #333;
+    color: #777;
+  }
+  .pricing-cta.outline:hover { border-color: var(--accent); color: var(--accent); background: transparent; transform: none; }
+  .pricing-addon {
+    margin-top: 2px;
+    background: #0a0a0a;
+    padding: 32px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    border-top: 1px solid #1a1a1a;
+  }
+  .pricing-addon-text h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .pricing-addon-text p {
+    font-size: 14px;
+    color: #555;
+    max-width: 500px;
+    line-height: 1.6;
+  }
+  .pricing-addon-price {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  @media (max-width: 768px) {
+    .pricing-grid { grid-template-columns: 1fr; }
+    .pricing-inner { padding: 60px 20px; }
+    .pricing-card { padding: 40px 28px; }
+    .pricing-amount { font-size: 44px; }
+    .pricing-addon { flex-direction: column; gap: 16px; padding: 28px 20px; }
+  }
 </style>
 </head>
 <body>
@@ -802,6 +980,73 @@
   </div>
 </section>
 
+
+<!-- PRICING -->
+<div class="pricing-section">
+  <div class="pricing-inner fade-in">
+    <div class="section-tag">Cennik</div>
+    <div class="section-title">Prosty model.<br><em>Wiesz za co płacisz.</em></div>
+    <div class="pricing-grid">
+
+      <!-- ETAP 1 -->
+      <div class="pricing-card">
+        <div class="pricing-name">Etap 1</div>
+        <div class="pricing-title">Dzień nagraniowy —<br>wideo + montaż</div>
+        <p class="pricing-desc">Przyjeżdżam do Ciebie, nagrywamy materiał według wcześniej ustalonego planu i montuję gotową reklamę sprzedażową.</p>
+        <div class="pricing-price">
+          <div class="pricing-amount">999<span>zł</span></div>
+          <div class="pricing-period">jednorazowo · przed nagraniem</div>
+        </div>
+        <ul class="pricing-items">
+          <li>Dojazd do firmy na Śląsku</li>
+          <li>Cały dzień zdjęciowy / nagraniowy według planu</li>
+          <li>Scenariusz i plan ujęć przygotowany wcześniej</li>
+          <li>Montaż reklamy sprzedażowej (do 60 sek.)</li>
+          <li>Gotowy materiał pod Meta Ads</li>
+        </ul>
+        <a href="#formularz" class="pricing-cta outline">Zapytaj o termin →</a>
+        <p class="pricing-note">Dojazd powyżej 30 km od Dąbrowy Górniczej wyceniany indywidualnie.</p>
+      </div>
+
+      <!-- ETAP 2 -->
+      <div class="pricing-card featured">
+        <div class="pricing-badge">Pełny system</div>
+        <div class="pricing-name">Etap 2</div>
+        <div class="pricing-title">Wdrożenie systemu<br>+ miesięczne prowadzenie</div>
+        <p class="pricing-desc">Buduję cały system pozyskiwania klientów i prowadzę go miesięcznie. Ty tylko odbierasz telefony od zainteresowanych.</p>
+        <div class="pricing-price">
+          <div class="pricing-amount">1990<span>zł</span></div>
+          <div class="pricing-period">miesięcznie · + budżet reklamowy od 500 zł</div>
+        </div>
+        <ul class="pricing-items">
+          <li>Strategia i dobór grupy docelowej</li>
+          <li>Scenariusze i pomysły na reklamy</li>
+          <li>Formularz kontaktowy i CRM</li>
+          <li>Automatyzacja i przypomnienia dla leadów</li>
+          <li>Playbook sprzedażowy — co mówić po zgłoszeniu</li>
+          <li>Kampania Meta Ads — prowadzenie i optymalizacja</li>
+          <li>Raporty wyników co miesiąc</li>
+          <li>Minimalny okres: 2 miesiące</li>
+        </ul>
+        <a href="#formularz" class="pricing-cta">Sprawdź, czy to dla mnie →</a>
+        <p class="pricing-note">Budżet reklamowy to osobny koszt — trafia wyłącznie na emisję reklam w Meta Ads. Nie jest moim wynagrodzeniem.</p>
+      </div>
+
+    </div>
+
+    <!-- ADDON -->
+    <div class="pricing-addon">
+      <div class="pricing-addon-text">
+        <h4>Kolejne nagranie w trakcie współpracy</h4>
+        <p>Gdy aktualna reklama się zużyje lub chcesz przetestować nowy komunikat — przyjeżdżam ponownie, nagrywam i montuję nową kreację według planu.</p>
+      </div>
+      <div class="pricing-addon-price">+699 zł</div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="divider">
 <!-- FORM -->
 <div class="form-section" id="formularz">
   <div class="form-inner">
