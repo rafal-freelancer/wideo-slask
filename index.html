@@ -781,6 +781,84 @@
     padding-top: 20px;
     border-top: 1px solid rgba(255,255,255,0.1);
   }
+
+  /* ROLE SECTION */
+  .role-section {
+    background: #0d0d0d;
+    border-top: 1px solid #1a1a1a;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .role-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .role-left h2 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+    margin-bottom: 20px;
+  }
+  .role-left h2 em { font-style: normal; color: var(--accent); }
+  .role-left p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .role-items {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .role-item {
+    background: #111;
+    padding: 32px 36px;
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 20px;
+    align-items: start;
+    border-left: 3px solid transparent;
+    transition: border-color 0.3s;
+  }
+  .role-item:hover { border-left-color: var(--accent); }
+  .role-item-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-top: 4px;
+  }
+  .role-item-content h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .role-item-content p {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .role-divider {
+    margin-top: 2px;
+    background: var(--accent);
+    padding: 28px 36px;
+    font-size: 15px;
+    color: white;
+    line-height: 1.6;
+  }
+  .role-divider strong { font-weight: 700; }
+  @media (max-width: 768px) {
+    .role-inner { grid-template-columns: 1fr; gap: 40px; padding: 60px 20px; }
+    .role-item { padding: 24px 20px; }
+  }
 </style>
 </head>
 <body>
@@ -1021,6 +1099,45 @@
 </section>
 
 
+
+<!-- ROLE -->
+<div class="role-section">
+  <div class="role-inner fade-in">
+    <div class="role-left">
+      <div class="section-tag">Twoja rola</div>
+      <h2>Tylko <em>trzy rzeczy.</em><br>Resztą zajmuję się ja.</h2>
+      <p>Nie musisz uczyć się reklam, montować filmów, znać Menedżera reklam ani wymyślać komunikatów od zera. Masz znać swoją firmę i dobrze obsługiwać osoby, które się zgłoszą.</p>
+    </div>
+    <div class="role-items">
+      <div class="role-item">
+        <div class="role-item-num">01</div>
+        <div class="role-item-content">
+          <h3>Pokazujesz mi firmę</h3>
+          <p>Przyjeżdżam do Ciebie. Nagrywam materiał według wcześniej ustalonego planu. Nie musisz wymyślać ujęć, scenariuszy ani przygotowywać nic samodzielnie.</p>
+        </div>
+      </div>
+      <div class="role-item">
+        <div class="role-item-num">02</div>
+        <div class="role-item-content">
+          <h3>Odbierasz telefony</h3>
+          <p>Kontakty od zainteresowanych trafiają bezpośrednio do Ciebie. Dostajesz gotowy schemat rozmowy — co mówić, jak odpowiadać na pytania o cenę i jak poprowadzić do decyzji.</p>
+        </div>
+      </div>
+      <div class="role-item">
+        <div class="role-item-num">03</div>
+        <div class="role-item-content">
+          <h3>Dajesz mi feedback</h3>
+          <p>Mówisz mi jak idą rozmowy, jakie pytania się powtarzają i co klientów interesuje najbardziej. Na tej podstawie optymalizuję kampanię i komunikaty.</p>
+        </div>
+      </div>
+      <div class="role-divider">
+        <strong>Wszystko inne jest po mojej stronie —</strong> strategia, scenariusze, nagranie, montaż, kampania Meta Ads, formularz, CRM, automatyzacje i optymalizacja.
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
 <!-- PRICING -->
 <div class="pricing-section">
   <div class="pricing-inner fade-in">
