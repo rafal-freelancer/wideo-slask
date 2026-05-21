@@ -13,9 +13,9 @@
     --paper:#F9FBFA;
     --ink:#0F221C;
     --ink-soft:#4A615A;
-    --green:#047857;
-    --green-deep:#035C44;
-    --green-bright:#10C775;
+    --green:#012B31;
+    --green-deep:#012B31;
+    --green-bright:#5CF28E;
     --gold:#E8B23A;
     /* szkło */
     --glass:rgba(255,255,255,.55);
@@ -23,8 +23,8 @@
     --glass-border:rgba(255,255,255,.7);
     --glass-line:rgba(15,34,28,.08);
     --blur:18px;
-    --shadow:0 24px 60px -28px rgba(3,92,68,.30);
-    --shadow-soft:0 12px 36px -20px rgba(3,92,68,.22);
+    --shadow:0 24px 60px -28px rgba(1,43,49,.30);
+    --shadow-soft:0 12px 36px -20px rgba(1,43,49,.22);
     --r:22px;
     --safe-b:env(safe-area-inset-bottom,0px);
   }
@@ -38,8 +38,8 @@
   body::before{
     content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
     background:
-      radial-gradient(820px 620px at 82% -4%, rgba(16,199,117,.16), transparent 60%),
-      radial-gradient(720px 680px at -6% 18%, rgba(4,120,87,.10), transparent 55%),
+      radial-gradient(820px 620px at 82% -4%, rgba(92,242,142,.16), transparent 60%),
+      radial-gradient(720px 680px at -6% 18%, rgba(1,43,49,.10), transparent 55%),
       radial-gradient(680px 560px at 50% 108%, rgba(232,178,58,.08), transparent 58%);
   }
   h1,h2,h3,h4{font-family:'Sora',sans-serif;line-height:1.14;letter-spacing:-.022em;font-weight:700}
@@ -57,8 +57,8 @@
   }
 
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:'Sora';font-weight:600;font-size:.98rem;padding:15px 28px;border-radius:999px;border:none;cursor:pointer;text-decoration:none;transition:transform .22s,box-shadow .22s;min-height:50px}
-  .btn-primary{background:#04201E;color:#fff;box-shadow:0 14px 30px -14px rgba(4,32,30,.7)}
-  .btn-primary:hover{transform:translateY(-3px);background:#06302B;box-shadow:0 22px 46px -14px rgba(4,32,30,.6)}
+  .btn-primary{background:#012B31;color:#fff;box-shadow:0 14px 30px -14px rgba(1,43,49,.7)}
+  .btn-primary:hover{transform:translateY(-3px);background:#0A3D44;box-shadow:0 22px 46px -14px rgba(1,43,49,.6)}
   .btn-glass{background:var(--glass-strong);backdrop-filter:blur(10px);color:var(--ink);border:1px solid var(--glass-border)}
 
   /* NAV */
@@ -67,7 +67,7 @@
     background:var(--glass-strong);backdrop-filter:blur(var(--blur)) saturate(140%);-webkit-backdrop-filter:blur(var(--blur)) saturate(140%);
     border:1px solid var(--glass-border);box-shadow:var(--shadow-soft)}
   .logo{font-family:'Sora';font-weight:800;font-size:1.22rem;color:var(--ink);letter-spacing:-.03em;display:flex;align-items:center;gap:8px}
-  .logo .dot{width:10px;height:10px;border-radius:50%;background:var(--green-bright);box-shadow:0 0 0 4px rgba(16,199,117,.18)}
+  .logo .dot{width:10px;height:10px;border-radius:50%;background:var(--green-bright);box-shadow:0 0 0 4px rgba(92,242,142,.18)}
   .logo .ph{font-size:.56rem;font-weight:700;color:var(--ink-soft);background:rgba(15,34,28,.06);padding:2px 6px;border-radius:5px}
   .nav-links{display:flex;gap:26px;align-items:center}
   .nav-links a{color:var(--ink-soft);text-decoration:none;font-size:.92rem;font-weight:500}
@@ -85,7 +85,7 @@
   .pill .live{width:8px;height:8px;border-radius:50%;background:var(--green-bright);animation:pulse 1.8s infinite;flex-shrink:0}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
   .hero h1{font-size:clamp(2rem,4.4vw,3.35rem);font-weight:800;margin-bottom:18px}
-  .hero h1 .hl{color:var(--green)}
+  .hero h1 .hl{color:#5CF28E}
   .hero p.lead{font-size:1.08rem;color:var(--ink-soft);margin-bottom:22px;max-width:540px}
   .hero-cta{display:flex;gap:13px;align-items:center;flex-wrap:wrap;margin-bottom:22px}
   .hero-cta .txt{font-size:.94rem;color:var(--ink-soft);text-decoration:none;border-bottom:1.5px dashed rgba(15,34,28,.2);padding-bottom:2px}
@@ -105,8 +105,8 @@
   .ibox input:focus{outline:none;border-color:var(--green);background:#fff}
   .ibox .cur{position:absolute;right:16px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--ink-soft);font-family:'Sora'}
   .calc .res{border-radius:16px;padding:20px;text-align:center;margin-bottom:14px;color:#fff;
-    background:#04201E;
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 10px 26px -16px rgba(4,32,30,.6)}
+    background:#012B31;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 10px 26px -16px rgba(1,43,49,.6)}
   .calc .res .rl{font-size:.74rem;opacity:.9;letter-spacing:.05em;text-transform:uppercase;font-weight:600}
   .calc .res .rv{font-family:'Sora';font-size:2.15rem;font-weight:800;margin:3px 0}
   .calc .res .rn{font-size:.76rem;opacity:.88}
@@ -131,14 +131,14 @@
   .benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   .bcard{padding:25px;transition:transform .25s,box-shadow .25s}
   .bcard:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-  .bcard .ic{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;color:var(--green);background:rgba(16,199,117,.12)}
+  .bcard .ic{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;color:var(--green);background:rgba(92,242,142,.12)}
   .bcard h3{font-size:1.06rem;margin-bottom:7px}
   .bcard p{font-size:.92rem;color:var(--ink-soft)}
 
   .forwho{display:grid;grid-template-columns:1fr 1fr;gap:18px}
   .fw{padding:28px}
   .fw .tag{font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:999px;display:inline-block;margin-bottom:14px}
-  .fw.yes .tag{background:rgba(16,199,117,.16);color:var(--green-deep)}
+  .fw.yes .tag{background:rgba(92,242,142,.16);color:var(--green-deep)}
   .fw.no .tag{background:rgba(197,80,59,.14);color:#A23B29}
   .fw ul{list-style:none}
   .fw li{display:flex;gap:11px;align-items:flex-start;padding:9px 0;font-size:.94rem;border-top:1px solid var(--glass-line)}
@@ -147,7 +147,7 @@
 
   .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
   .step{padding:24px 22px}
-  .step .n{font-family:'Sora';font-weight:800;width:34px;height:34px;border-radius:50%;background:#04201E;color:#fff;display:flex;align-items:center;justify-content:center;margin-bottom:14px;font-size:.9rem}
+  .step .n{font-family:'Sora';font-weight:800;width:34px;height:34px;border-radius:50%;background:#012B31;color:#fff;display:flex;align-items:center;justify-content:center;margin-bottom:14px;font-size:.9rem}
   .step h3{font-size:1.0rem;margin-bottom:7px}
   .step p{font-size:.87rem;color:var(--ink-soft)}
 
@@ -158,21 +158,21 @@
   .case .arrow{text-align:center;color:var(--green);font-size:1.2rem;margin:6px 0}
   .case .to{font-family:'Sora';font-size:1.85rem;font-weight:800;color:var(--green);text-align:center}
   .case .lbl{text-align:center;font-size:.8rem;color:var(--ink-soft);margin-top:5px}
-  .case .badge{position:absolute;top:16px;right:16px;background:rgba(16,199,117,.14);color:var(--green-deep);font-size:.76rem;font-weight:700;padding:4px 10px;border-radius:999px;font-family:'Sora'}
+  .case .badge{position:absolute;top:16px;right:16px;background:rgba(92,242,142,.14);color:var(--green-deep);font-size:.76rem;font-weight:700;padding:4px 10px;border-radius:999px;font-family:'Sora'}
 
   .testis{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   .testi{padding:25px}
   .testi .stars{color:var(--gold);margin-bottom:11px;letter-spacing:2px}
   .testi p{font-size:.93rem;margin-bottom:16px}
   .testi .who{display:flex;align-items:center;gap:11px}
-  .testi .av{width:40px;height:40px;border-radius:50%;background:#04201E;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Sora';font-weight:700;font-size:.93rem;flex-shrink:0}
+  .testi .av{width:40px;height:40px;border-radius:50%;background:#012B31;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Sora';font-weight:700;font-size:.93rem;flex-shrink:0}
   .testi .nm{font-weight:600;font-size:.9rem}
   .testi .mt{font-size:.78rem;color:var(--ink-soft)}
 
   .compare{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:900px;margin:0 auto}
   .col{padding:30px;border-radius:var(--r)}
   .col.them{background:var(--glass);backdrop-filter:blur(var(--blur));border:1px solid var(--glass-border)}
-  .col.us{color:#fff;background:#04201E;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.08);border-top:2px solid var(--green-bright)}
+  .col.us{color:#fff;background:#012B31;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.08);border-top:2px solid var(--green-bright)}
   .col h3{font-size:1.14rem;margin-bottom:15px}
   .col ul{list-style:none}
   .col li{display:flex;gap:10px;padding:10px 0;font-size:.93rem;align-items:flex-start;border-top:1px solid var(--glass-line)}
@@ -207,7 +207,7 @@
   .assure svg{flex-shrink:0;margin-top:2px}
   .formcard{padding:30px}
   .ftop{display:flex;align-items:center;gap:9px;margin-bottom:6px}
-  .ftop .step-i{font-size:.74rem;font-weight:700;color:var(--green);background:rgba(16,199,117,.12);padding:4px 10px;border-radius:999px}
+  .ftop .step-i{font-size:.74rem;font-weight:700;color:var(--green);background:rgba(92,242,142,.12);padding:4px 10px;border-radius:999px}
   .formcard h3{font-size:1.24rem;margin-bottom:4px}
   .formcard .fsub{font-size:.85rem;color:var(--ink-soft);margin-bottom:18px}
   .frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -270,7 +270,7 @@
     .mobile-menu.open{max-height:400px;margin:8px 4px 0;background:var(--glass)!important;border:1px solid var(--glass-border)!important;box-shadow:var(--shadow-soft)!important}
     .mobile-menu .inner{padding:14px;display:flex;flex-direction:column;gap:4px}
     .mobile-menu a{padding:13px 16px;border-radius:14px;color:var(--ink);text-decoration:none;font-weight:600;font-size:.98rem;font-family:'Sora'}
-    .mobile-menu a:active{background:rgba(16,199,117,.1)}
+    .mobile-menu a:active{background:rgba(92,242,142,.1)}
 
     /* HERO: jeden słupek; nagłówek → kalkulator → korzyści tekstem */
     .hero{padding:30px 0 44px}
@@ -374,13 +374,13 @@
 
 
   /* STOPKA — ciemny szmaragd (akcent marki) */
-  footer .foot-dark{background:#04201E;border:1px solid rgba(255,255,255,.06);box-shadow:0 24px 60px -30px rgba(4,32,30,.6);border-top:2px solid var(--green-bright)}
+  footer .foot-dark{background:#012B31;border:1px solid rgba(255,255,255,.06);box-shadow:0 24px 60px -30px rgba(1,43,49,.6);border-top:2px solid var(--green-bright)}
   footer .foot-dark .fcol h4{color:#EAF4EF}
   footer .foot-dark .fcol a,footer .foot-dark .fcol p{color:#9FB8AE}
   footer .foot-dark .fcol a:hover{color:var(--green-bright)}
   footer .foot-dark .disclaimer{color:#7E9890;background:rgba(255,255,255,.04)!important}
   footer .foot-dark .foot-bot{color:#7E9890;border-top:1px solid rgba(255,255,255,.10)}
-  footer .foot-dark .logo .dot{background:var(--green-bright);box-shadow:0 0 0 4px rgba(16,199,117,.22)}
+  footer .foot-dark .logo .dot{background:var(--green-bright);box-shadow:0 0 0 4px rgba(92,242,142,.22)}
 
 </style>
 </head>
@@ -389,7 +389,7 @@
 <!-- NAV -->
 <header class="nav">
   <div class="nav-inner" id="navInner">
-    <a href="#" class="logo logo--brand" aria-label="Recovero — strona główna"><svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1146.24 318.31"><g id="Warstwa_1" data-name="Warstwa 1"><g><path d="M463.77,207.42c-2.74,0-4.1-1.5-4.1-4.51v-108.67c0-3.01,1.37-4.51,4.1-4.51h39.64c15.81,0,27.26,2.95,34.35,8.86,7.09,5.91,10.63,13.71,10.63,23.39,0,8.54-2.96,15.71-8.89,21.5-5.93,5.8-14.17,9.14-24.73,10.01v.16c5.58,4.16,9.27,7.32,11.08,9.48,1.81,2.16,3.83,5.08,6.07,8.74l17.55,30.12c2.12,3.61,1.73,5.42-1.17,5.42h-8.42c-2.31,0-4.1-1.07-5.36-3.2l-17.07-29.3c-2.46-4.21-5.99-8.34-10.59-12.39-4.6-4.05-10.31-6.07-17.15-6.07h-14.28v46.46c0,3.01-1.37,4.51-4.1,4.51h-7.55ZM475.42,142.99h23.72c10.67,0,18.88-1.41,24.62-4.23,5.75-2.82,8.62-8.74,8.62-17.77,0-6.89-2.63-11.59-7.88-14.08-5.25-2.49-12.39-3.73-21.42-3.73h-27.66v39.81Z"/><path d="M567.1,164.33c0-13.57,3.39-24.38,10.18-32.42,6.78-8.04,16.5-12.07,29.14-12.07,10.51,0,19.22,3.68,26.14,11.04,6.92,7.36,10.38,19.11,10.38,35.25,0,2.46-1.13,3.69-3.38,3.69h-57.52c.94,10.59,3.8,17.96,8.6,22.1,4.79,4.14,10.22,6.21,16.28,6.21,6.39,0,11.3-1.07,14.71-3.21s5.92-4.25,7.52-6.33c1.75-2.3,3.45-2.74,5.09-1.31l4.84,4.19c1.26,1.09,1.26,2.6,0,4.52-1.04,1.58-4.01,4.11-8.91,7.59-4.9,3.48-12.6,5.22-23.1,5.22-13.68,0-23.76-4.02-30.25-12.07s-9.73-18.85-9.73-32.42ZM582.04,159.16h46.37c-.22-7.66-2.19-14.38-5.91-20.15-3.72-5.77-9.19-8.66-16.42-8.66-6.35,0-11.74,2.12-16.17,6.36-4.43,4.24-7.06,11.72-7.88,22.45Z"/><path d="M657.22,164.33c0-12.86,3.19-23.49,9.56-31.89,6.37-8.4,16.13-12.6,29.26-12.6,8.86,0,15.64,1.57,20.31,4.72,4.68,3.15,8.06,6.36,10.14,9.64,1.15,1.81.9,3.26-.74,4.35l-5.17,3.37c-1.64,1.15-3.28.41-4.92-2.22-1.59-2.52-3.82-4.68-6.69-6.48-2.87-1.81-7.18-2.71-12.93-2.71-7.5,0-13.3,2.76-17.4,8.29-4.1,5.53-6.16,14.04-6.16,25.53s2.05,20,6.16,25.53c4.1,5.53,9.9,8.29,17.4,8.29,6.07,0,10.72-1.16,13.95-3.49,3.23-2.33,5.58-4.86,7.06-7.59,1.42-2.57,3.04-3.31,4.84-2.22l5.5,3.28c1.64.98,1.89,2.46.74,4.43-1.37,2.35-4.47,5.65-9.32,9.89-4.84,4.24-12.43,6.36-22.78,6.36-13.13,0-22.89-4.2-29.26-12.6-6.37-8.4-9.56-19.03-9.56-31.89Z"/><path d="M741.44,164.33c0-12.86,3.41-23.49,10.22-31.89,6.81-8.4,16.78-12.6,29.92-12.6s23.1,4.2,29.92,12.6c6.81,8.4,10.22,19.03,10.22,31.89s-3.41,23.49-10.22,31.89c-6.81,8.4-16.78,12.6-29.92,12.6s-23.1-4.2-29.92-12.6c-6.81-8.4-10.22-19.03-10.22-31.89ZM756.7,164.33c0,11.49,2.27,20,6.81,25.53,4.54,5.53,10.56,8.29,18.06,8.29s13.51-2.76,18.06-8.29c4.54-5.53,6.81-14.04,6.81-25.53s-2.27-20-6.81-25.53c-4.54-5.53-10.56-8.29-18.06-8.29s-13.52,2.76-18.06,8.29c-4.54,5.53-6.81,14.04-6.81,25.53Z"/><path d="M833.77,125.26c-.93-2.68-.32-4.02,1.85-4.02h8.03c1.57,0,2.74,1.07,3.51,3.2l18.84,54.17c1.43,4.43,2.41,7.48,2.93,9.15.52,1.67,1,3.73,1.44,6.2h.33c.44-2.46.92-4.53,1.44-6.2.52-1.67,1.5-4.72,2.93-9.15l18.84-54.17c.77-2.13,1.94-3.2,3.51-3.2h8.03c2.16,0,2.78,1.34,1.85,4.02l-26.92,77.15c-1.15,3.34-2.63,5.01-4.43,5.01h-10.83c-1.81,0-3.28-1.67-4.43-5.01l-26.92-77.15Z"/><path d="M916.59,164.33c0-13.57,3.39-24.38,10.18-32.42,6.78-8.04,16.5-12.07,29.14-12.07,10.51,0,19.22,3.68,26.14,11.04,6.92,7.36,10.38,19.11,10.38,35.25,0,2.46-1.13,3.69-3.38,3.69h-57.52c.94,10.59,3.8,17.96,8.6,22.1,4.79,4.14,10.22,6.21,16.28,6.21,6.39,0,11.3-1.07,14.71-3.21,3.42-2.14,5.92-4.25,7.52-6.33,1.75-2.3,3.45-2.74,5.09-1.31l4.84,4.19c1.26,1.09,1.26,2.6,0,4.52-1.04,1.58-4.01,4.11-8.91,7.59-4.9,3.48-12.6,5.22-23.1,5.22-13.68,0-23.76-4.02-30.25-12.07s-9.73-18.85-9.73-32.42ZM931.53,159.16h46.37c-.22-7.66-2.19-14.38-5.91-20.15-3.72-5.77-9.19-8.66-16.42-8.66-6.35,0-11.74,2.12-16.17,6.36-4.43,4.24-7.06,11.72-7.88,22.45Z"/><path d="M1015.04,207.42c-2.43,0-3.65-1.23-3.65-3.69v-78.79c0-2.46,1.23-3.69,3.69-3.69h6.89c2.46,0,3.69,1.23,3.69,3.69v9.85c2.65-4.92,5.78-8.65,9.37-11.16,3.59-2.52,8.07-3.78,13.44-3.78,3.54,0,6.03.3,7.46.9,1.26.49,1.72,1.31,1.4,2.46l-1.89,6.73c-.27.98-.98,1.37-2.13,1.15-1.93-.38-3.74-.57-5.45-.57-6.44,0-11.75,2.89-15.93,8.66-4.18,5.77-6.27,13.64-6.27,23.6v40.96c0,2.46-1.22,3.69-3.65,3.69h-6.98Z"/><path d="M1065.97,164.33c0-12.86,3.41-23.49,10.22-31.89,6.81-8.4,16.78-12.6,29.92-12.6s23.1,4.2,29.92,12.6c6.81,8.4,10.22,19.03,10.22,31.89s-3.41,23.49-10.22,31.89c-6.81,8.4-16.78,12.6-29.92,12.6s-23.1-4.2-29.92-12.6c-6.81-8.4-10.22-19.03-10.22-31.89ZM1081.24,164.33c0,11.49,2.27,20,6.81,25.53,4.54,5.53,10.56,8.29,18.06,8.29s13.51-2.76,18.06-8.29c4.54-5.53,6.81-14.04,6.81-25.53s-2.27-20-6.81-25.53c-4.54-5.53-10.56-8.29-18.06-8.29s-13.52,2.76-18.06,8.29c-4.54,5.53-6.81,14.04-6.81,25.53Z"/></g></g><g id="Warstwa_5" data-name="Warstwa 5"><g><path d="M165.77,223.34h0l15.37,74.43c2.14,10.34-5.76,20.04-16.32,20.04h0c-10.73,0-18.67-9.99-16.24-20.44l17.2-74.02h0Z" stroke="#000" stroke-miterlimit="10"/><path d="M165.77,94.97h0l-15.37-74.43c-2.14-10.34,5.76-20.04,16.32-20.04h0c10.73,0,18.67,9.99,16.24,20.44l-17.2,74.02h0Z" stroke="#000" stroke-miterlimit="10"/><path d="M238.23,160.7h0l74.22-16.33c10.31-2.27,20.11,5.5,20.25,16.06h0c.14,10.73-9.75,18.79-20.23,16.5l-74.24-16.23h0Z" stroke="#000" stroke-miterlimit="10"/><path d="M228.35,193.8h0l73.31,20.03c10.19,2.79,15.25,14.22,10.47,23.64h0c-4.86,9.57-17.36,12.11-25.58,5.21l-58.19-48.88h0Z" stroke="#000" stroke-miterlimit="10"/><path d="M104,125.03h0l-72.97-21.22c-10.14-2.95-15.02-14.47-10.08-23.8h0c5.02-9.48,17.56-11.83,25.66-4.79l57.39,49.82Z" stroke="#000" stroke-miterlimit="10"/><path d="M131.08,101.67h0l-52.85-54.61c-7.34-7.59-5.87-20.01,3.05-25.67h0c9.06-5.75,21.11-1.56,24.66,8.56l25.14,71.72h0Z" stroke="#000" stroke-miterlimit="10"/><path d="M201.94,216.35h0l51.43,55.95c7.15,7.77,5.36,20.15-3.7,25.58h0c-9.2,5.51-21.15,1.02-24.43-9.19l-23.29-72.34h0Z" stroke="#000" stroke-miterlimit="10"/><path d="M200.91,102.44h0l25.96-71.43c3.61-9.93,15.42-14.04,24.41-8.5h0c9.14,5.63,10.65,18.3,3.1,25.92l-53.47,54Z" stroke="#000" stroke-miterlimit="10"/><path d="M227.92,126.44h0l56.61-50.7c7.87-7.05,20.22-5.09,25.53,4.04h0c5.39,9.27.75,21.16-9.51,24.31l-72.64,22.34h0Z" stroke="#000" stroke-miterlimit="10"/><path d="M132.4,215.79h0l-26.46,71.24c-3.68,9.9-15.52,13.93-24.47,8.33h0c-9.1-5.69-10.52-18.37-2.92-25.94l53.85-53.62h0Z" stroke="#000" stroke-miterlimit="10"/><path d="M104.98,193.05h0l-57.62,49.55c-8.01,6.89-20.32,4.69-25.45-4.55h0c-5.21-9.38-.32-21.17,9.99-24.12l73.07-20.89h0Z" stroke="#000" stroke-miterlimit="10"/><path d="M150.8,164.29h0l-124.56,12.81C8.55,179.74-.21,171.21,0,160.65H0c2.98-15.1,10.18-18.87,27.57-16.09l123.22,19.73h0Z" fill="#5cf28e"/></g></g></svg></a>
+    <a href="#" class="logo logo--brand" aria-label="Recovero — strona główna"><svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1146.24 318.31"><g id="Warstwa_1" data-name="Warstwa 1"><g><path d="M463.77,207.42c-2.74,0-4.1-1.5-4.1-4.51v-108.67c0-3.01,1.37-4.51,4.1-4.51h39.64c15.81,0,27.26,2.95,34.35,8.86,7.09,5.91,10.63,13.71,10.63,23.39,0,8.54-2.96,15.71-8.89,21.5-5.93,5.8-14.17,9.14-24.73,10.01v.16c5.58,4.16,9.27,7.32,11.08,9.48,1.81,2.16,3.83,5.08,6.07,8.74l17.55,30.12c2.12,3.61,1.73,5.42-1.17,5.42h-8.42c-2.31,0-4.1-1.07-5.36-3.2l-17.07-29.3c-2.46-4.21-5.99-8.34-10.59-12.39-4.6-4.05-10.31-6.07-17.15-6.07h-14.28v46.46c0,3.01-1.37,4.51-4.1,4.51h-7.55ZM475.42,142.99h23.72c10.67,0,18.88-1.41,24.62-4.23,5.75-2.82,8.62-8.74,8.62-17.77,0-6.89-2.63-11.59-7.88-14.08-5.25-2.49-12.39-3.73-21.42-3.73h-27.66v39.81Z"/><path d="M567.1,164.33c0-13.57,3.39-24.38,10.18-32.42,6.78-8.04,16.5-12.07,29.14-12.07,10.51,0,19.22,3.68,26.14,11.04,6.92,7.36,10.38,19.11,10.38,35.25,0,2.46-1.13,3.69-3.38,3.69h-57.52c.94,10.59,3.8,17.96,8.6,22.1,4.79,4.14,10.22,6.21,16.28,6.21,6.39,0,11.3-1.07,14.71-3.21s5.92-4.25,7.52-6.33c1.75-2.3,3.45-2.74,5.09-1.31l4.84,4.19c1.26,1.09,1.26,2.6,0,4.52-1.04,1.58-4.01,4.11-8.91,7.59-4.9,3.48-12.6,5.22-23.1,5.22-13.68,0-23.76-4.02-30.25-12.07s-9.73-18.85-9.73-32.42ZM582.04,159.16h46.37c-.22-7.66-2.19-14.38-5.91-20.15-3.72-5.77-9.19-8.66-16.42-8.66-6.35,0-11.74,2.12-16.17,6.36-4.43,4.24-7.06,11.72-7.88,22.45Z"/><path d="M657.22,164.33c0-12.86,3.19-23.49,9.56-31.89,6.37-8.4,16.13-12.6,29.26-12.6,8.86,0,15.64,1.57,20.31,4.72,4.68,3.15,8.06,6.36,10.14,9.64,1.15,1.81.9,3.26-.74,4.35l-5.17,3.37c-1.64,1.15-3.28.41-4.92-2.22-1.59-2.52-3.82-4.68-6.69-6.48-2.87-1.81-7.18-2.71-12.93-2.71-7.5,0-13.3,2.76-17.4,8.29-4.1,5.53-6.16,14.04-6.16,25.53s2.05,20,6.16,25.53c4.1,5.53,9.9,8.29,17.4,8.29,6.07,0,10.72-1.16,13.95-3.49,3.23-2.33,5.58-4.86,7.06-7.59,1.42-2.57,3.04-3.31,4.84-2.22l5.5,3.28c1.64.98,1.89,2.46.74,4.43-1.37,2.35-4.47,5.65-9.32,9.89-4.84,4.24-12.43,6.36-22.78,6.36-13.13,0-22.89-4.2-29.26-12.6-6.37-8.4-9.56-19.03-9.56-31.89Z"/><path d="M741.44,164.33c0-12.86,3.41-23.49,10.22-31.89,6.81-8.4,16.78-12.6,29.92-12.6s23.1,4.2,29.92,12.6c6.81,8.4,10.22,19.03,10.22,31.89s-3.41,23.49-10.22,31.89c-6.81,8.4-16.78,12.6-29.92,12.6s-23.1-4.2-29.92-12.6c-6.81-8.4-10.22-19.03-10.22-31.89ZM756.7,164.33c0,11.49,2.27,20,6.81,25.53,4.54,5.53,10.56,8.29,18.06,8.29s13.51-2.76,18.06-8.29c4.54-5.53,6.81-14.04,6.81-25.53s-2.27-20-6.81-25.53c-4.54-5.53-10.56-8.29-18.06-8.29s-13.52,2.76-18.06,8.29c-4.54,5.53-6.81,14.04-6.81,25.53Z"/><path d="M833.77,125.26c-.93-2.68-.32-4.02,1.85-4.02h8.03c1.57,0,2.74,1.07,3.51,3.2l18.84,54.17c1.43,4.43,2.41,7.48,2.93,9.15.52,1.67,1,3.73,1.44,6.2h.33c.44-2.46.92-4.53,1.44-6.2.52-1.67,1.5-4.72,2.93-9.15l18.84-54.17c.77-2.13,1.94-3.2,3.51-3.2h8.03c2.16,0,2.78,1.34,1.85,4.02l-26.92,77.15c-1.15,3.34-2.63,5.01-4.43,5.01h-10.83c-1.81,0-3.28-1.67-4.43-5.01l-26.92-77.15Z"/><path d="M916.59,164.33c0-13.57,3.39-24.38,10.18-32.42,6.78-8.04,16.5-12.07,29.14-12.07,10.51,0,19.22,3.68,26.14,11.04,6.92,7.36,10.38,19.11,10.38,35.25,0,2.46-1.13,3.69-3.38,3.69h-57.52c.94,10.59,3.8,17.96,8.6,22.1,4.79,4.14,10.22,6.21,16.28,6.21,6.39,0,11.3-1.07,14.71-3.21,3.42-2.14,5.92-4.25,7.52-6.33,1.75-2.3,3.45-2.74,5.09-1.31l4.84,4.19c1.26,1.09,1.26,2.6,0,4.52-1.04,1.58-4.01,4.11-8.91,7.59-4.9,3.48-12.6,5.22-23.1,5.22-13.68,0-23.76-4.02-30.25-12.07s-9.73-18.85-9.73-32.42ZM931.53,159.16h46.37c-.22-7.66-2.19-14.38-5.91-20.15-3.72-5.77-9.19-8.66-16.42-8.66-6.35,0-11.74,2.12-16.17,6.36-4.43,4.24-7.06,11.72-7.88,22.45Z"/><path d="M1015.04,207.42c-2.43,0-3.65-1.23-3.65-3.69v-78.79c0-2.46,1.23-3.69,3.69-3.69h6.89c2.46,0,3.69,1.23,3.69,3.69v9.85c2.65-4.92,5.78-8.65,9.37-11.16,3.59-2.52,8.07-3.78,13.44-3.78,3.54,0,6.03.3,7.46.9,1.26.49,1.72,1.31,1.4,2.46l-1.89,6.73c-.27.98-.98,1.37-2.13,1.15-1.93-.38-3.74-.57-5.45-.57-6.44,0-11.75,2.89-15.93,8.66-4.18,5.77-6.27,13.64-6.27,23.6v40.96c0,2.46-1.22,3.69-3.65,3.69h-6.98Z"/><path d="M1065.97,164.33c0-12.86,3.41-23.49,10.22-31.89,6.81-8.4,16.78-12.6,29.92-12.6s23.1,4.2,29.92,12.6c6.81,8.4,10.22,19.03,10.22,31.89s-3.41,23.49-10.22,31.89c-6.81,8.4-16.78,12.6-29.92,12.6s-23.1-4.2-29.92-12.6c-6.81-8.4-10.22-19.03-10.22-31.89ZM1081.24,164.33c0,11.49,2.27,20,6.81,25.53,4.54,5.53,10.56,8.29,18.06,8.29s13.51-2.76,18.06-8.29c4.54-5.53,6.81-14.04,6.81-25.53s-2.27-20-6.81-25.53c-4.54-5.53-10.56-8.29-18.06-8.29s-13.52,2.76-18.06,8.29c-4.54,5.53-6.81,14.04-6.81,25.53Z"/></g></g><g id="Warstwa_5" data-name="Warstwa 5"><g><path d="M165.77,223.34h0l15.37,74.43c2.14,10.34-5.76,20.04-16.32,20.04h0c-10.73,0-18.67-9.99-16.24-20.44l17.2-74.02h0Z" stroke="#000" stroke-miterlimit="10"/><path d="M165.77,94.97h0l-15.37-74.43c-2.14-10.34,5.76-20.04,16.32-20.04h0c10.73,0,18.67,9.99,16.24,20.44l-17.2,74.02h0Z" stroke="#000" stroke-miterlimit="10"/><path d="M238.23,160.7h0l74.22-16.33c10.31-2.27,20.11,5.5,20.25,16.06h0c.14,10.73-9.75,18.79-20.23,16.5l-74.24-16.23h0Z" stroke="#000" stroke-miterlimit="10"/><path d="M228.35,193.8h0l73.31,20.03c10.19,2.79,15.25,14.22,10.47,23.64h0c-4.86,9.57-17.36,12.11-25.58,5.21l-58.19-48.88h0Z" stroke="#000" stroke-miterlimit="10"/><path d="M104,125.03h0l-72.97-21.22c-10.14-2.95-15.02-14.47-10.08-23.8h0c5.02-9.48,17.56-11.83,25.66-4.79l57.39,49.82Z" stroke="#000" stroke-miterlimit="10"/><path d="M131.08,101.67h0l-52.85-54.61c-7.34-7.59-5.87-20.01,3.05-25.67h0c9.06-5.75,21.11-1.56,24.66,8.56l25.14,71.72h0Z" stroke="#000" stroke-miterlimit="10"/><path d="M201.94,216.35h0l51.43,55.95c7.15,7.77,5.36,20.15-3.7,25.58h0c-9.2,5.51-21.15,1.02-24.43-9.19l-23.29-72.34h0Z" stroke="#000" stroke-miterlimit="10"/><path d="M200.91,102.44h0l25.96-71.43c3.61-9.93,15.42-14.04,24.41-8.5h0c9.14,5.63,10.65,18.3,3.1,25.92l-53.47,54Z" stroke="#000" stroke-miterlimit="10"/><path d="M227.92,126.44h0l56.61-50.7c7.87-7.05,20.22-5.09,25.53,4.04h0c5.39,9.27.75,21.16-9.51,24.31l-72.64,22.34h0Z" stroke="#000" stroke-miterlimit="10"/><path d="M132.4,215.79h0l-26.46,71.24c-3.68,9.9-15.52,13.93-24.47,8.33h0c-9.1-5.69-10.52-18.37-2.92-25.94l53.85-53.62h0Z" stroke="#000" stroke-miterlimit="10"/><path d="M104.98,193.05h0l-57.62,49.55c-8.01,6.89-20.32,4.69-25.45-4.55h0c-5.21-9.38-.32-21.17,9.99-24.12l73.07-20.89h0Z" stroke="#000" stroke-miterlimit="10"/><path d="M150.8,164.29h0l-124.56,12.81C8.55,179.74-.21,171.21,0,160.65H0c2.98-15.1,10.18-18.87,27.57-16.09l123.22,19.73h0Z" fill="#5CF28E"/></g></g></svg></a>
     <nav class="nav-links">
       <a href="#jak">Jak to działa</a>
       <a href="#dlakogo">Dla kogo</a>
@@ -424,9 +424,9 @@
         <a href="#jak" class="txt">Zobacz, jak to działa →</a>
       </div>
       <div class="trust-row">
-        <div class="ti"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#047857" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#047857" stroke-width="2.2"/></svg>Bez sądu</div>
-        <div class="ti"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#047857" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#047857" stroke-width="2.2"/></svg>Bez kosztów</div>
-        <div class="ti"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#047857" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#047857" stroke-width="2.2"/></svg>Decyzja w kilka godzin</div>
+        <div class="ti"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#012B31" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#012B31" stroke-width="2.2"/></svg>Bez sądu</div>
+        <div class="ti"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#012B31" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#012B31" stroke-width="2.2"/></svg>Bez kosztów</div>
+        <div class="ti"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#012B31" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#012B31" stroke-width="2.2"/></svg>Decyzja w kilka godzin</div>
       </div>
     </div>
     <div class="calc glass reveal in">
@@ -444,7 +444,7 @@
 
 <!-- TRUST STRIP -->
 <div class="wrap"><div class="strip glass reveal">
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z" stroke="#047857" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="#047857" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z" stroke="#012B31" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="#012B31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   <span>Współpracujemy z <b>licencjonowaną kancelarią</b>, która przejmuje roszczenie i wypłaca pieniądze. <b>Nie sprzedajemy Twoich danych</b> — łączymy Cię z jednym sprawdzonym partnerem.</span>
 </div></div>
 
@@ -477,11 +477,11 @@
     <div class="fw yes glass reveal">
       <span class="tag">To dla Ciebie, jeśli</span>
       <ul>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#047857"/><path d="M8 12l2.5 2.5L16 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>miałeś stłuczkę z OC sprawcy</li>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#047857"/><path d="M8 12l2.5 2.5L16 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>dostałeś już przelew od ubezpieczyciela</li>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#047857"/><path d="M8 12l2.5 2.5L16 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>naprawiłeś auto sam lub jeszcze nie naprawiłeś</li>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#047857"/><path d="M8 12l2.5 2.5L16 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>masz decyzję i kosztorys (wycenę naprawy)</li>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#047857"/><path d="M8 12l2.5 2.5L16 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>chcesz gotówkę bez sądu i formalności</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#012B31"/><path d="M8 12l2.5 2.5L16 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>miałeś stłuczkę z OC sprawcy</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#012B31"/><path d="M8 12l2.5 2.5L16 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>dostałeś już przelew od ubezpieczyciela</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#012B31"/><path d="M8 12l2.5 2.5L16 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>naprawiłeś auto sam lub jeszcze nie naprawiłeś</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#012B31"/><path d="M8 12l2.5 2.5L16 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>masz decyzję i kosztorys (wycenę naprawy)</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#012B31"/><path d="M8 12l2.5 2.5L16 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>chcesz gotówkę bez sądu i formalności</li>
       </ul>
     </div>
     <div class="fw no glass reveal">
@@ -544,10 +544,10 @@
     <div class="col us reveal">
       <h3>Recovero</h3>
       <ul>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#10C775"/><path d="M8 12l2.5 2.5L16 9" stroke="#04201E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Konkretna oferta i wypłata gotówki przez kancelarię</li>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#10C775"/><path d="M8 12l2.5 2.5L16 9" stroke="#04201E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bezpośredni kontakt — rozmawiasz z nami, nie z botem</li>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#10C775"/><path d="M8 12l2.5 2.5L16 9" stroke="#04201E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Prosta, legalna umowa cesji</li>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#10C775"/><path d="M8 12l2.5 2.5L16 9" stroke="#04201E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Całość online, bez stresu</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#5CF28E"/><path d="M8 12l2.5 2.5L16 9" stroke="#012B31" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Konkretna oferta i wypłata gotówki przez kancelarię</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#5CF28E"/><path d="M8 12l2.5 2.5L16 9" stroke="#012B31" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bezpośredni kontakt — rozmawiasz z nami, nie z botem</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#5CF28E"/><path d="M8 12l2.5 2.5L16 9" stroke="#012B31" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Prosta, legalna umowa cesji</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#5CF28E"/><path d="M8 12l2.5 2.5L16 9" stroke="#012B31" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Całość online, bez stresu</li>
       </ul>
     </div>
   </div>
@@ -598,9 +598,9 @@
       <h2>Odzyskaj swoje pieniądze po stłuczce</h2>
       <p>Zostaw kontakt — oddzwonimy w ciągu 30–60 minut i powiemy, czy należy Ci się dodatkowa gotówka. Resztę szczegółów ustalimy przez telefon.</p>
       <div class="assure">
-        <div class="ai"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#047857" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#047857" stroke-width="2.2"/></svg>Wstępna analiza jest bezpłatna i niezobowiązująca.</div>
-        <div class="ai"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#047857" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#047857" stroke-width="2.2"/></svg>Bez dokumentów na tym etapie — wystarczy kontakt.</div>
-        <div class="ai"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#047857" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#047857" stroke-width="2.2"/></svg>Twoje dane trafiają tylko do nas — nie sprzedajemy ich dalej.</div>
+        <div class="ai"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#012B31" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#012B31" stroke-width="2.2"/></svg>Wstępna analiza jest bezpłatna i niezobowiązująca.</div>
+        <div class="ai"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#012B31" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#012B31" stroke-width="2.2"/></svg>Bez dokumentów na tym etapie — wystarczy kontakt.</div>
+        <div class="ai"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#012B31" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#012B31" stroke-width="2.2"/></svg>Twoje dane trafiają tylko do nas — nie sprzedajemy ich dalej.</div>
       </div>
     </div>
     <div class="formcard glass reveal">
@@ -624,7 +624,7 @@
   <div class="foot-dark" style="padding:32px 28px;border-radius:var(--r)">
     <div class="foot-grid">
       <div class="fcol">
-        <div class="logo--brand logo--foot" style="margin-bottom:14px"><svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1146.24 317.31"><g id="Warstwa_1" data-name="Warstwa 1"><g><path d="M463.77,206.92c-2.74,0-4.1-1.5-4.1-4.51v-108.67c0-3.01,1.37-4.51,4.1-4.51h39.64c15.81,0,27.26,2.95,34.35,8.86,7.09,5.91,10.63,13.71,10.63,23.39,0,8.54-2.96,15.71-8.89,21.5-5.93,5.8-14.17,9.14-24.73,10.01v.16c5.58,4.16,9.27,7.32,11.08,9.48,1.81,2.16,3.83,5.08,6.07,8.74l17.55,30.12c2.12,3.61,1.73,5.42-1.17,5.42h-8.42c-2.31,0-4.1-1.07-5.36-3.2l-17.07-29.3c-2.46-4.21-5.99-8.34-10.59-12.39-4.6-4.05-10.31-6.07-17.15-6.07h-14.28v46.46c0,3.01-1.37,4.51-4.1,4.51h-7.55ZM475.42,142.49h23.72c10.67,0,18.88-1.41,24.62-4.23,5.75-2.82,8.62-8.74,8.62-17.77,0-6.89-2.63-11.59-7.88-14.08-5.25-2.49-12.39-3.73-21.42-3.73h-27.66v39.81Z" fill="#fff"/><path d="M567.1,163.83c0-13.57,3.39-24.38,10.18-32.42,6.78-8.04,16.5-12.07,29.14-12.07,10.51,0,19.22,3.68,26.14,11.04,6.92,7.36,10.38,19.11,10.38,35.25,0,2.46-1.13,3.69-3.38,3.69h-57.52c.94,10.59,3.8,17.96,8.6,22.1,4.79,4.14,10.22,6.21,16.28,6.21,6.39,0,11.3-1.07,14.71-3.21s5.92-4.25,7.52-6.33c1.75-2.3,3.45-2.74,5.09-1.31l4.84,4.19c1.26,1.09,1.26,2.6,0,4.52-1.04,1.58-4.01,4.11-8.91,7.59-4.9,3.48-12.6,5.22-23.1,5.22-13.68,0-23.76-4.02-30.25-12.07s-9.73-18.85-9.73-32.42ZM582.04,158.66h46.37c-.22-7.66-2.19-14.38-5.91-20.15-3.72-5.77-9.19-8.66-16.42-8.66-6.35,0-11.74,2.12-16.17,6.36-4.43,4.24-7.06,11.72-7.88,22.45Z" fill="#fff"/><path d="M657.22,163.83c0-12.86,3.19-23.49,9.56-31.89,6.37-8.4,16.13-12.6,29.26-12.6,8.86,0,15.64,1.57,20.31,4.72,4.68,3.15,8.06,6.36,10.14,9.64,1.15,1.81.9,3.26-.74,4.35l-5.17,3.37c-1.64,1.15-3.28.41-4.92-2.22-1.59-2.52-3.82-4.68-6.69-6.48-2.87-1.81-7.18-2.71-12.93-2.71-7.5,0-13.3,2.76-17.4,8.29-4.1,5.53-6.16,14.04-6.16,25.53s2.05,20,6.16,25.53c4.1,5.53,9.9,8.29,17.4,8.29,6.07,0,10.72-1.16,13.95-3.49,3.23-2.33,5.58-4.86,7.06-7.59,1.42-2.57,3.04-3.31,4.84-2.22l5.5,3.28c1.64.98,1.89,2.46.74,4.43-1.37,2.35-4.47,5.65-9.32,9.89-4.84,4.24-12.43,6.36-22.78,6.36-13.13,0-22.89-4.2-29.26-12.6-6.37-8.4-9.56-19.03-9.56-31.89Z" fill="#fff"/><path d="M741.44,163.83c0-12.86,3.41-23.49,10.22-31.89,6.81-8.4,16.78-12.6,29.92-12.6s23.1,4.2,29.92,12.6c6.81,8.4,10.22,19.03,10.22,31.89s-3.41,23.49-10.22,31.89c-6.81,8.4-16.78,12.6-29.92,12.6s-23.1-4.2-29.92-12.6c-6.81-8.4-10.22-19.03-10.22-31.89ZM756.7,163.83c0,11.49,2.27,20,6.81,25.53,4.54,5.53,10.56,8.29,18.06,8.29s13.51-2.76,18.06-8.29c4.54-5.53,6.81-14.04,6.81-25.53s-2.27-20-6.81-25.53c-4.54-5.53-10.56-8.29-18.06-8.29s-13.52,2.76-18.06,8.29c-4.54,5.53-6.81,14.04-6.81,25.53Z" fill="#fff"/><path d="M833.77,124.76c-.93-2.68-.32-4.02,1.85-4.02h8.03c1.57,0,2.74,1.07,3.51,3.2l18.84,54.17c1.43,4.43,2.41,7.48,2.93,9.15.52,1.67,1,3.73,1.44,6.2h.33c.44-2.46.92-4.53,1.44-6.2.52-1.67,1.5-4.72,2.93-9.15l18.84-54.17c.77-2.13,1.94-3.2,3.51-3.2h8.03c2.16,0,2.78,1.34,1.85,4.02l-26.92,77.15c-1.15,3.34-2.63,5.01-4.43,5.01h-10.83c-1.81,0-3.28-1.67-4.43-5.01l-26.92-77.15Z" fill="#fff"/><path d="M916.59,163.83c0-13.57,3.39-24.38,10.18-32.42,6.78-8.04,16.5-12.07,29.14-12.07,10.51,0,19.22,3.68,26.14,11.04,6.92,7.36,10.38,19.11,10.38,35.25,0,2.46-1.13,3.69-3.38,3.69h-57.52c.94,10.59,3.8,17.96,8.6,22.1,4.79,4.14,10.22,6.21,16.28,6.21,6.39,0,11.3-1.07,14.71-3.21,3.42-2.14,5.92-4.25,7.52-6.33,1.75-2.3,3.45-2.74,5.09-1.31l4.84,4.19c1.26,1.09,1.26,2.6,0,4.52-1.04,1.58-4.01,4.11-8.91,7.59-4.9,3.48-12.6,5.22-23.1,5.22-13.68,0-23.76-4.02-30.25-12.07s-9.73-18.85-9.73-32.42ZM931.53,158.66h46.37c-.22-7.66-2.19-14.38-5.91-20.15-3.72-5.77-9.19-8.66-16.42-8.66-6.35,0-11.74,2.12-16.17,6.36-4.43,4.24-7.06,11.72-7.88,22.45Z" fill="#fff"/><path d="M1015.04,206.92c-2.43,0-3.65-1.23-3.65-3.69v-78.79c0-2.46,1.23-3.69,3.69-3.69h6.89c2.46,0,3.69,1.23,3.69,3.69v9.85c2.65-4.92,5.78-8.65,9.37-11.16,3.59-2.52,8.07-3.78,13.44-3.78,3.54,0,6.03.3,7.46.9,1.26.49,1.72,1.31,1.4,2.46l-1.89,6.73c-.27.98-.98,1.37-2.13,1.15-1.93-.38-3.74-.57-5.45-.57-6.44,0-11.75,2.89-15.93,8.66-4.18,5.77-6.27,13.64-6.27,23.6v40.96c0,2.46-1.22,3.69-3.65,3.69h-6.98Z" fill="#fff"/><path d="M1065.97,163.83c0-12.86,3.41-23.49,10.22-31.89,6.81-8.4,16.78-12.6,29.92-12.6s23.1,4.2,29.92,12.6c6.81,8.4,10.22,19.03,10.22,31.89s-3.41,23.49-10.22,31.89c-6.81,8.4-16.78,12.6-29.92,12.6s-23.1-4.2-29.92-12.6c-6.81-8.4-10.22-19.03-10.22-31.89ZM1081.24,163.83c0,11.49,2.27,20,6.81,25.53,4.54,5.53,10.56,8.29,18.06,8.29s13.51-2.76,18.06-8.29c4.54-5.53,6.81-14.04,6.81-25.53s-2.27-20-6.81-25.53c-4.54-5.53-10.56-8.29-18.06-8.29s-13.52,2.76-18.06,8.29c-4.54,5.53-6.81,14.04-6.81,25.53Z" fill="#fff"/></g></g><g id="Warstwa_5" data-name="Warstwa 5"><g><path d="M165.77,222.84h0l15.37,74.43c2.14,10.34-5.76,20.04-16.32,20.04h0c-10.73,0-18.67-9.99-16.24-20.44l17.2-74.02h0Z" fill="#fff"/><path d="M165.77,94.47h0l-15.37-74.43c-2.14-10.34,5.76-20.04,16.32-20.04h0c10.73,0,18.67,9.99,16.24,20.44l-17.2,74.02h0Z" fill="#fff"/><path d="M238.23,160.2h0l74.22-16.33c10.31-2.27,20.11,5.5,20.25,16.06h0c.14,10.73-9.75,18.79-20.23,16.5l-74.24-16.23h0Z" fill="#fff"/><path d="M228.35,193.3h0l73.31,20.03c10.19,2.79,15.25,14.22,10.47,23.64h0c-4.86,9.57-17.36,12.11-25.58,5.21l-58.19-48.88h0Z" fill="#fff"/><path d="M104,124.53h0l-72.97-21.22c-10.14-2.95-15.02-14.47-10.08-23.8h0c5.02-9.48,17.56-11.83,25.66-4.79l57.39,49.82Z" fill="#fff"/><path d="M131.08,101.17h0l-52.85-54.61c-7.34-7.59-5.87-20.01,3.05-25.67h0c9.06-5.75,21.11-1.56,24.66,8.56l25.14,71.72h0Z" fill="#fff"/><path d="M201.94,215.85h0l51.43,55.95c7.15,7.77,5.36,20.15-3.7,25.58h0c-9.2,5.51-21.15,1.02-24.43-9.19l-23.29-72.34h0Z" fill="#fff"/><path d="M200.91,101.94h0l25.96-71.43c3.61-9.93,15.42-14.04,24.41-8.5h0c9.14,5.63,10.65,18.3,3.1,25.92l-53.47,54Z" fill="#fff"/><path d="M227.92,125.94h0l56.61-50.7c7.87-7.05,20.22-5.09,25.53,4.04h0c5.39,9.27.75,21.16-9.51,24.31l-72.64,22.34h0Z" fill="#fff"/><path d="M132.4,215.29h0l-26.46,71.24c-3.68,9.9-15.52,13.93-24.47,8.33h0c-9.1-5.69-10.52-18.37-2.92-25.94l53.85-53.62h0Z" fill="#fff"/><path d="M104.98,192.55h0l-57.62,49.55c-8.01,6.89-20.32,4.69-25.45-4.55h0c-5.21-9.38-.32-21.17,9.99-24.12l73.07-20.89h0Z" fill="#fff"/><path d="M150.8,163.79h0l-124.56,12.81C8.55,179.24-.21,170.71,0,160.15H0c2.98-15.1,10.18-18.87,27.57-16.09l123.22,19.73h0Z" fill="#5cf28e"/></g></g></svg></div>
+        <div class="logo--brand logo--foot" style="margin-bottom:14px"><svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1146.24 317.31"><g id="Warstwa_1" data-name="Warstwa 1"><g><path d="M463.77,206.92c-2.74,0-4.1-1.5-4.1-4.51v-108.67c0-3.01,1.37-4.51,4.1-4.51h39.64c15.81,0,27.26,2.95,34.35,8.86,7.09,5.91,10.63,13.71,10.63,23.39,0,8.54-2.96,15.71-8.89,21.5-5.93,5.8-14.17,9.14-24.73,10.01v.16c5.58,4.16,9.27,7.32,11.08,9.48,1.81,2.16,3.83,5.08,6.07,8.74l17.55,30.12c2.12,3.61,1.73,5.42-1.17,5.42h-8.42c-2.31,0-4.1-1.07-5.36-3.2l-17.07-29.3c-2.46-4.21-5.99-8.34-10.59-12.39-4.6-4.05-10.31-6.07-17.15-6.07h-14.28v46.46c0,3.01-1.37,4.51-4.1,4.51h-7.55ZM475.42,142.49h23.72c10.67,0,18.88-1.41,24.62-4.23,5.75-2.82,8.62-8.74,8.62-17.77,0-6.89-2.63-11.59-7.88-14.08-5.25-2.49-12.39-3.73-21.42-3.73h-27.66v39.81Z" fill="#fff"/><path d="M567.1,163.83c0-13.57,3.39-24.38,10.18-32.42,6.78-8.04,16.5-12.07,29.14-12.07,10.51,0,19.22,3.68,26.14,11.04,6.92,7.36,10.38,19.11,10.38,35.25,0,2.46-1.13,3.69-3.38,3.69h-57.52c.94,10.59,3.8,17.96,8.6,22.1,4.79,4.14,10.22,6.21,16.28,6.21,6.39,0,11.3-1.07,14.71-3.21s5.92-4.25,7.52-6.33c1.75-2.3,3.45-2.74,5.09-1.31l4.84,4.19c1.26,1.09,1.26,2.6,0,4.52-1.04,1.58-4.01,4.11-8.91,7.59-4.9,3.48-12.6,5.22-23.1,5.22-13.68,0-23.76-4.02-30.25-12.07s-9.73-18.85-9.73-32.42ZM582.04,158.66h46.37c-.22-7.66-2.19-14.38-5.91-20.15-3.72-5.77-9.19-8.66-16.42-8.66-6.35,0-11.74,2.12-16.17,6.36-4.43,4.24-7.06,11.72-7.88,22.45Z" fill="#fff"/><path d="M657.22,163.83c0-12.86,3.19-23.49,9.56-31.89,6.37-8.4,16.13-12.6,29.26-12.6,8.86,0,15.64,1.57,20.31,4.72,4.68,3.15,8.06,6.36,10.14,9.64,1.15,1.81.9,3.26-.74,4.35l-5.17,3.37c-1.64,1.15-3.28.41-4.92-2.22-1.59-2.52-3.82-4.68-6.69-6.48-2.87-1.81-7.18-2.71-12.93-2.71-7.5,0-13.3,2.76-17.4,8.29-4.1,5.53-6.16,14.04-6.16,25.53s2.05,20,6.16,25.53c4.1,5.53,9.9,8.29,17.4,8.29,6.07,0,10.72-1.16,13.95-3.49,3.23-2.33,5.58-4.86,7.06-7.59,1.42-2.57,3.04-3.31,4.84-2.22l5.5,3.28c1.64.98,1.89,2.46.74,4.43-1.37,2.35-4.47,5.65-9.32,9.89-4.84,4.24-12.43,6.36-22.78,6.36-13.13,0-22.89-4.2-29.26-12.6-6.37-8.4-9.56-19.03-9.56-31.89Z" fill="#fff"/><path d="M741.44,163.83c0-12.86,3.41-23.49,10.22-31.89,6.81-8.4,16.78-12.6,29.92-12.6s23.1,4.2,29.92,12.6c6.81,8.4,10.22,19.03,10.22,31.89s-3.41,23.49-10.22,31.89c-6.81,8.4-16.78,12.6-29.92,12.6s-23.1-4.2-29.92-12.6c-6.81-8.4-10.22-19.03-10.22-31.89ZM756.7,163.83c0,11.49,2.27,20,6.81,25.53,4.54,5.53,10.56,8.29,18.06,8.29s13.51-2.76,18.06-8.29c4.54-5.53,6.81-14.04,6.81-25.53s-2.27-20-6.81-25.53c-4.54-5.53-10.56-8.29-18.06-8.29s-13.52,2.76-18.06,8.29c-4.54,5.53-6.81,14.04-6.81,25.53Z" fill="#fff"/><path d="M833.77,124.76c-.93-2.68-.32-4.02,1.85-4.02h8.03c1.57,0,2.74,1.07,3.51,3.2l18.84,54.17c1.43,4.43,2.41,7.48,2.93,9.15.52,1.67,1,3.73,1.44,6.2h.33c.44-2.46.92-4.53,1.44-6.2.52-1.67,1.5-4.72,2.93-9.15l18.84-54.17c.77-2.13,1.94-3.2,3.51-3.2h8.03c2.16,0,2.78,1.34,1.85,4.02l-26.92,77.15c-1.15,3.34-2.63,5.01-4.43,5.01h-10.83c-1.81,0-3.28-1.67-4.43-5.01l-26.92-77.15Z" fill="#fff"/><path d="M916.59,163.83c0-13.57,3.39-24.38,10.18-32.42,6.78-8.04,16.5-12.07,29.14-12.07,10.51,0,19.22,3.68,26.14,11.04,6.92,7.36,10.38,19.11,10.38,35.25,0,2.46-1.13,3.69-3.38,3.69h-57.52c.94,10.59,3.8,17.96,8.6,22.1,4.79,4.14,10.22,6.21,16.28,6.21,6.39,0,11.3-1.07,14.71-3.21,3.42-2.14,5.92-4.25,7.52-6.33,1.75-2.3,3.45-2.74,5.09-1.31l4.84,4.19c1.26,1.09,1.26,2.6,0,4.52-1.04,1.58-4.01,4.11-8.91,7.59-4.9,3.48-12.6,5.22-23.1,5.22-13.68,0-23.76-4.02-30.25-12.07s-9.73-18.85-9.73-32.42ZM931.53,158.66h46.37c-.22-7.66-2.19-14.38-5.91-20.15-3.72-5.77-9.19-8.66-16.42-8.66-6.35,0-11.74,2.12-16.17,6.36-4.43,4.24-7.06,11.72-7.88,22.45Z" fill="#fff"/><path d="M1015.04,206.92c-2.43,0-3.65-1.23-3.65-3.69v-78.79c0-2.46,1.23-3.69,3.69-3.69h6.89c2.46,0,3.69,1.23,3.69,3.69v9.85c2.65-4.92,5.78-8.65,9.37-11.16,3.59-2.52,8.07-3.78,13.44-3.78,3.54,0,6.03.3,7.46.9,1.26.49,1.72,1.31,1.4,2.46l-1.89,6.73c-.27.98-.98,1.37-2.13,1.15-1.93-.38-3.74-.57-5.45-.57-6.44,0-11.75,2.89-15.93,8.66-4.18,5.77-6.27,13.64-6.27,23.6v40.96c0,2.46-1.22,3.69-3.65,3.69h-6.98Z" fill="#fff"/><path d="M1065.97,163.83c0-12.86,3.41-23.49,10.22-31.89,6.81-8.4,16.78-12.6,29.92-12.6s23.1,4.2,29.92,12.6c6.81,8.4,10.22,19.03,10.22,31.89s-3.41,23.49-10.22,31.89c-6.81,8.4-16.78,12.6-29.92,12.6s-23.1-4.2-29.92-12.6c-6.81-8.4-10.22-19.03-10.22-31.89ZM1081.24,163.83c0,11.49,2.27,20,6.81,25.53,4.54,5.53,10.56,8.29,18.06,8.29s13.51-2.76,18.06-8.29c4.54-5.53,6.81-14.04,6.81-25.53s-2.27-20-6.81-25.53c-4.54-5.53-10.56-8.29-18.06-8.29s-13.52,2.76-18.06,8.29c-4.54,5.53-6.81,14.04-6.81,25.53Z" fill="#fff"/></g></g><g id="Warstwa_5" data-name="Warstwa 5"><g><path d="M165.77,222.84h0l15.37,74.43c2.14,10.34-5.76,20.04-16.32,20.04h0c-10.73,0-18.67-9.99-16.24-20.44l17.2-74.02h0Z" fill="#fff"/><path d="M165.77,94.47h0l-15.37-74.43c-2.14-10.34,5.76-20.04,16.32-20.04h0c10.73,0,18.67,9.99,16.24,20.44l-17.2,74.02h0Z" fill="#fff"/><path d="M238.23,160.2h0l74.22-16.33c10.31-2.27,20.11,5.5,20.25,16.06h0c.14,10.73-9.75,18.79-20.23,16.5l-74.24-16.23h0Z" fill="#fff"/><path d="M228.35,193.3h0l73.31,20.03c10.19,2.79,15.25,14.22,10.47,23.64h0c-4.86,9.57-17.36,12.11-25.58,5.21l-58.19-48.88h0Z" fill="#fff"/><path d="M104,124.53h0l-72.97-21.22c-10.14-2.95-15.02-14.47-10.08-23.8h0c5.02-9.48,17.56-11.83,25.66-4.79l57.39,49.82Z" fill="#fff"/><path d="M131.08,101.17h0l-52.85-54.61c-7.34-7.59-5.87-20.01,3.05-25.67h0c9.06-5.75,21.11-1.56,24.66,8.56l25.14,71.72h0Z" fill="#fff"/><path d="M201.94,215.85h0l51.43,55.95c7.15,7.77,5.36,20.15-3.7,25.58h0c-9.2,5.51-21.15,1.02-24.43-9.19l-23.29-72.34h0Z" fill="#fff"/><path d="M200.91,101.94h0l25.96-71.43c3.61-9.93,15.42-14.04,24.41-8.5h0c9.14,5.63,10.65,18.3,3.1,25.92l-53.47,54Z" fill="#fff"/><path d="M227.92,125.94h0l56.61-50.7c7.87-7.05,20.22-5.09,25.53,4.04h0c5.39,9.27.75,21.16-9.51,24.31l-72.64,22.34h0Z" fill="#fff"/><path d="M132.4,215.29h0l-26.46,71.24c-3.68,9.9-15.52,13.93-24.47,8.33h0c-9.1-5.69-10.52-18.37-2.92-25.94l53.85-53.62h0Z" fill="#fff"/><path d="M104.98,192.55h0l-57.62,49.55c-8.01,6.89-20.32,4.69-25.45-4.55h0c-5.21-9.38-.32-21.17,9.99-24.12l73.07-20.89h0Z" fill="#fff"/><path d="M150.8,163.79h0l-124.56,12.81C8.55,179.24-.21,170.71,0,160.15H0c2.98-15.1,10.18-18.87,27.57-16.09l123.22,19.73h0Z" fill="#5CF28E"/></g></g></svg></div>
         <p>Dąbrowa Górnicza</p>
         <p>kontakt@recovero.pl</p>
         <p><a href="tel:+48882834423">+48 882 834 423</a></p>
