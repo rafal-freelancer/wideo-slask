@@ -13,9 +13,9 @@
     --paper:#F9FBFA;
     --ink:#0F221C;
     --ink-soft:#4A615A;
-    --green:#0E7C5A;
-    --green-deep:#0A5C43;
-    --green-bright:#13B981;
+    --green:#047857;
+    --green-deep:#035C44;
+    --green-bright:#10C775;
     --gold:#E8B23A;
     /* szkło */
     --glass:rgba(255,255,255,.55);
@@ -23,8 +23,8 @@
     --glass-border:rgba(255,255,255,.7);
     --glass-line:rgba(15,34,28,.08);
     --blur:18px;
-    --shadow:0 24px 60px -28px rgba(10,92,67,.30);
-    --shadow-soft:0 12px 36px -20px rgba(10,92,67,.22);
+    --shadow:0 24px 60px -28px rgba(3,92,68,.30);
+    --shadow-soft:0 12px 36px -20px rgba(3,92,68,.22);
     --r:22px;
     --safe-b:env(safe-area-inset-bottom,0px);
   }
@@ -38,8 +38,8 @@
   body::before{
     content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
     background:
-      radial-gradient(820px 620px at 82% -4%, rgba(19,185,129,.16), transparent 60%),
-      radial-gradient(720px 680px at -6% 18%, rgba(14,124,90,.10), transparent 55%),
+      radial-gradient(820px 620px at 82% -4%, rgba(16,199,117,.16), transparent 60%),
+      radial-gradient(720px 680px at -6% 18%, rgba(4,120,87,.10), transparent 55%),
       radial-gradient(680px 560px at 50% 108%, rgba(232,178,58,.08), transparent 58%);
   }
   h1,h2,h3,h4{font-family:'Sora',sans-serif;line-height:1.14;letter-spacing:-.022em;font-weight:700}
@@ -57,8 +57,8 @@
   }
 
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:'Sora';font-weight:600;font-size:.98rem;padding:15px 28px;border-radius:999px;border:none;cursor:pointer;text-decoration:none;transition:transform .22s,box-shadow .22s;min-height:50px}
-  .btn-primary{background:linear-gradient(135deg,var(--green-bright),var(--green));color:#fff;box-shadow:0 14px 30px -12px rgba(14,124,90,.6)}
-  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 22px 42px -14px rgba(14,124,90,.7)}
+  .btn-primary{background:linear-gradient(135deg,var(--green-bright),var(--green));color:#fff;box-shadow:0 14px 30px -12px rgba(4,120,87,.6)}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 22px 42px -14px rgba(4,120,87,.7)}
   .btn-glass{background:var(--glass-strong);backdrop-filter:blur(10px);color:var(--ink);border:1px solid var(--glass-border)}
 
   /* NAV */
@@ -67,7 +67,7 @@
     background:var(--glass-strong);backdrop-filter:blur(var(--blur)) saturate(140%);-webkit-backdrop-filter:blur(var(--blur)) saturate(140%);
     border:1px solid var(--glass-border);box-shadow:var(--shadow-soft)}
   .logo{font-family:'Sora';font-weight:800;font-size:1.22rem;color:var(--ink);letter-spacing:-.03em;display:flex;align-items:center;gap:8px}
-  .logo .dot{width:10px;height:10px;border-radius:50%;background:var(--green-bright);box-shadow:0 0 0 4px rgba(19,185,129,.18)}
+  .logo .dot{width:10px;height:10px;border-radius:50%;background:var(--green-bright);box-shadow:0 0 0 4px rgba(16,199,117,.18)}
   .logo .ph{font-size:.56rem;font-weight:700;color:var(--ink-soft);background:rgba(15,34,28,.06);padding:2px 6px;border-radius:5px}
   .nav-links{display:flex;gap:26px;align-items:center}
   .nav-links a{color:var(--ink-soft);text-decoration:none;font-size:.92rem;font-weight:500}
@@ -105,8 +105,8 @@
   .ibox input:focus{outline:none;border-color:var(--green);background:#fff}
   .ibox .cur{position:absolute;right:16px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--ink-soft);font-family:'Sora'}
   .calc .res{border-radius:16px;padding:20px;text-align:center;margin-bottom:14px;color:#fff;
-    background:linear-gradient(135deg,rgba(19,185,129,.95),rgba(10,92,67,.95));
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 10px 26px -14px rgba(10,92,67,.6)}
+    background:linear-gradient(135deg,rgba(16,199,117,.95),rgba(3,92,68,.95));
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 10px 26px -14px rgba(3,92,68,.6)}
   .calc .res .rl{font-size:.74rem;opacity:.9;letter-spacing:.05em;text-transform:uppercase;font-weight:600}
   .calc .res .rv{font-family:'Sora';font-size:2.15rem;font-weight:800;margin:3px 0}
   .calc .res .rn{font-size:.76rem;opacity:.88}
@@ -131,14 +131,14 @@
   .benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   .bcard{padding:25px;transition:transform .25s,box-shadow .25s}
   .bcard:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-  .bcard .ic{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;color:var(--green);background:rgba(19,185,129,.12)}
+  .bcard .ic{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;color:var(--green);background:rgba(16,199,117,.12)}
   .bcard h3{font-size:1.06rem;margin-bottom:7px}
   .bcard p{font-size:.92rem;color:var(--ink-soft)}
 
   .forwho{display:grid;grid-template-columns:1fr 1fr;gap:18px}
   .fw{padding:28px}
   .fw .tag{font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:999px;display:inline-block;margin-bottom:14px}
-  .fw.yes .tag{background:rgba(19,185,129,.16);color:var(--green-deep)}
+  .fw.yes .tag{background:rgba(16,199,117,.16);color:var(--green-deep)}
   .fw.no .tag{background:rgba(197,80,59,.14);color:#A23B29}
   .fw ul{list-style:none}
   .fw li{display:flex;gap:11px;align-items:flex-start;padding:9px 0;font-size:.94rem;border-top:1px solid var(--glass-line)}
@@ -158,7 +158,7 @@
   .case .arrow{text-align:center;color:var(--green);font-size:1.2rem;margin:6px 0}
   .case .to{font-family:'Sora';font-size:1.85rem;font-weight:800;color:var(--green);text-align:center}
   .case .lbl{text-align:center;font-size:.8rem;color:var(--ink-soft);margin-top:5px}
-  .case .badge{position:absolute;top:16px;right:16px;background:rgba(19,185,129,.14);color:var(--green-deep);font-size:.76rem;font-weight:700;padding:4px 10px;border-radius:999px;font-family:'Sora'}
+  .case .badge{position:absolute;top:16px;right:16px;background:rgba(16,199,117,.14);color:var(--green-deep);font-size:.76rem;font-weight:700;padding:4px 10px;border-radius:999px;font-family:'Sora'}
 
   .testis{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   .testi{padding:25px}
@@ -172,7 +172,7 @@
   .compare{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:900px;margin:0 auto}
   .col{padding:30px;border-radius:var(--r)}
   .col.them{background:var(--glass);backdrop-filter:blur(var(--blur));border:1px solid var(--glass-border)}
-  .col.us{color:#fff;background:linear-gradient(165deg,rgba(19,185,129,.95),rgba(10,92,67,.97));box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.18)}
+  .col.us{color:#fff;background:linear-gradient(165deg,rgba(16,199,117,.95),rgba(3,92,68,.97));box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.18)}
   .col h3{font-size:1.14rem;margin-bottom:15px}
   .col ul{list-style:none}
   .col li{display:flex;gap:10px;padding:10px 0;font-size:.93rem;align-items:flex-start;border-top:1px solid var(--glass-line)}
@@ -207,7 +207,7 @@
   .assure svg{flex-shrink:0;margin-top:2px}
   .formcard{padding:30px}
   .ftop{display:flex;align-items:center;gap:9px;margin-bottom:6px}
-  .ftop .step-i{font-size:.74rem;font-weight:700;color:var(--green);background:rgba(19,185,129,.12);padding:4px 10px;border-radius:999px}
+  .ftop .step-i{font-size:.74rem;font-weight:700;color:var(--green);background:rgba(16,199,117,.12);padding:4px 10px;border-radius:999px}
   .formcard h3{font-size:1.24rem;margin-bottom:4px}
   .formcard .fsub{font-size:.85rem;color:var(--ink-soft);margin-bottom:18px}
   .frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -270,7 +270,7 @@
     .mobile-menu.open{max-height:400px;margin:8px 4px 0;background:var(--glass)!important;border:1px solid var(--glass-border)!important;box-shadow:var(--shadow-soft)!important}
     .mobile-menu .inner{padding:14px;display:flex;flex-direction:column;gap:4px}
     .mobile-menu a{padding:13px 16px;border-radius:14px;color:var(--ink);text-decoration:none;font-weight:600;font-size:.98rem;font-family:'Sora'}
-    .mobile-menu a:active{background:rgba(19,185,129,.1)}
+    .mobile-menu a:active{background:rgba(16,199,117,.1)}
 
     /* HERO: jeden słupek; nagłówek → kalkulator → korzyści tekstem */
     .hero{padding:30px 0 44px}
@@ -414,9 +414,9 @@
         <a href="#jak" class="txt">Zobacz, jak to działa →</a>
       </div>
       <div class="trust-row">
-        <div class="ti"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#0E7C5A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#0E7C5A" stroke-width="2.2"/></svg>Bez sądu</div>
-        <div class="ti"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#0E7C5A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#0E7C5A" stroke-width="2.2"/></svg>Bez kosztów</div>
-        <div class="ti"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#0E7C5A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#0E7C5A" stroke-width="2.2"/></svg>Decyzja w kilka godzin</div>
+        <div class="ti"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#047857" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#047857" stroke-width="2.2"/></svg>Bez sądu</div>
+        <div class="ti"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#047857" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#047857" stroke-width="2.2"/></svg>Bez kosztów</div>
+        <div class="ti"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#047857" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#047857" stroke-width="2.2"/></svg>Decyzja w kilka godzin</div>
       </div>
     </div>
     <div class="calc glass reveal in">
@@ -434,7 +434,7 @@
 
 <!-- TRUST STRIP -->
 <div class="wrap"><div class="strip glass reveal">
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z" stroke="#0E7C5A" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="#0E7C5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z" stroke="#047857" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="#047857" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   <span>Współpracujemy z <b>licencjonowaną kancelarią</b>, która przejmuje roszczenie i wypłaca pieniądze. <b>Nie sprzedajemy Twoich danych</b> — łączymy Cię z jednym sprawdzonym partnerem.</span>
 </div></div>
 
@@ -467,11 +467,11 @@
     <div class="fw yes glass reveal">
       <span class="tag">To dla Ciebie, jeśli</span>
       <ul>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#0E7C5A"/><path d="M8 12l2.5 2.5L16 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>miałeś stłuczkę z OC sprawcy</li>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#0E7C5A"/><path d="M8 12l2.5 2.5L16 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>dostałeś już przelew od ubezpieczyciela</li>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#0E7C5A"/><path d="M8 12l2.5 2.5L16 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>naprawiłeś auto sam lub jeszcze nie naprawiłeś</li>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#0E7C5A"/><path d="M8 12l2.5 2.5L16 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>masz decyzję i kosztorys (wycenę naprawy)</li>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#0E7C5A"/><path d="M8 12l2.5 2.5L16 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>chcesz gotówkę bez sądu i formalności</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#047857"/><path d="M8 12l2.5 2.5L16 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>miałeś stłuczkę z OC sprawcy</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#047857"/><path d="M8 12l2.5 2.5L16 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>dostałeś już przelew od ubezpieczyciela</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#047857"/><path d="M8 12l2.5 2.5L16 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>naprawiłeś auto sam lub jeszcze nie naprawiłeś</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#047857"/><path d="M8 12l2.5 2.5L16 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>masz decyzję i kosztorys (wycenę naprawy)</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#047857"/><path d="M8 12l2.5 2.5L16 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>chcesz gotówkę bez sądu i formalności</li>
       </ul>
     </div>
     <div class="fw no glass reveal">
@@ -534,10 +534,10 @@
     <div class="col us reveal">
       <h3>Recovero</h3>
       <ul>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="rgba(255,255,255,.95)"/><path d="M8 12l2.5 2.5L16 9" stroke="#0A5C43" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Konkretna oferta i wypłata gotówki przez kancelarię</li>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="rgba(255,255,255,.95)"/><path d="M8 12l2.5 2.5L16 9" stroke="#0A5C43" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bezpośredni kontakt — rozmawiasz z nami, nie z botem</li>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="rgba(255,255,255,.95)"/><path d="M8 12l2.5 2.5L16 9" stroke="#0A5C43" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Prosta, legalna umowa cesji</li>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="rgba(255,255,255,.95)"/><path d="M8 12l2.5 2.5L16 9" stroke="#0A5C43" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Całość online, bez stresu</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="rgba(255,255,255,.95)"/><path d="M8 12l2.5 2.5L16 9" stroke="#035C44" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Konkretna oferta i wypłata gotówki przez kancelarię</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="rgba(255,255,255,.95)"/><path d="M8 12l2.5 2.5L16 9" stroke="#035C44" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bezpośredni kontakt — rozmawiasz z nami, nie z botem</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="rgba(255,255,255,.95)"/><path d="M8 12l2.5 2.5L16 9" stroke="#035C44" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Prosta, legalna umowa cesji</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="rgba(255,255,255,.95)"/><path d="M8 12l2.5 2.5L16 9" stroke="#035C44" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Całość online, bez stresu</li>
       </ul>
     </div>
   </div>
@@ -588,9 +588,9 @@
       <h2>Odzyskaj swoje pieniądze po stłuczce</h2>
       <p>Zostaw kontakt — oddzwonimy w ciągu 30–60 minut i powiemy, czy należy Ci się dodatkowa gotówka. Resztę szczegółów ustalimy przez telefon.</p>
       <div class="assure">
-        <div class="ai"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#0E7C5A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#0E7C5A" stroke-width="2.2"/></svg>Wstępna analiza jest bezpłatna i niezobowiązująca.</div>
-        <div class="ai"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#0E7C5A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#0E7C5A" stroke-width="2.2"/></svg>Bez dokumentów na tym etapie — wystarczy kontakt.</div>
-        <div class="ai"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#0E7C5A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#0E7C5A" stroke-width="2.2"/></svg>Twoje dane trafiają tylko do nas — nie sprzedajemy ich dalej.</div>
+        <div class="ai"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#047857" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#047857" stroke-width="2.2"/></svg>Wstępna analiza jest bezpłatna i niezobowiązująca.</div>
+        <div class="ai"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#047857" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#047857" stroke-width="2.2"/></svg>Bez dokumentów na tym etapie — wystarczy kontakt.</div>
+        <div class="ai"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#047857" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#047857" stroke-width="2.2"/></svg>Twoje dane trafiają tylko do nas — nie sprzedajemy ich dalej.</div>
       </div>
     </div>
     <div class="formcard glass reveal">
