@@ -3,204 +3,282 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Swiss Longevity — redesign minimalistyczny (koncept)</title>
+<title>Swiss Longevity — redesign strony głównej (koncept)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#FCFBF8;
-    --bone:#F4F2EC;
-    --ink:#171712;
-    --soft:#6E6C63;
-    --faint:#9C9A90;
-    --line:rgba(23,23,18,.10);
-    --accent:#3A5249;      /* quiet sage-green, used very sparingly */
-    --r:4px;
-    --max:1180px;
-    --ease:cubic-bezier(.2,.8,.2,1);
+    --bone:#F3EFE6;
+    --paper:#FBF9F3;
+    --ink:#15150F;
+    --ink-soft:#3A3A30;
+    --alpine:#1E3D34;
+    --alpine-deep:#142A24;
+    --sage:#5F7268;
+    --gold:#A8884A;
+    --gold-soft:#C4A968;
+    --line:rgba(21,21,15,.12);
+    --line-light:rgba(255,255,255,.16);
+    --shadow:0 24px 60px -28px rgba(20,42,36,.45);
+    --r:14px;
+    --max:1280px;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{
     font-family:'Hanken Grotesk',sans-serif;
-    background:var(--paper);color:var(--ink);
-    line-height:1.6;font-weight:300;
-    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+    background:var(--bone);
+    color:var(--ink);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
   }
-  h1,h2,h3{font-family:'Fraunces',serif;font-weight:300;line-height:1.08;letter-spacing:-.015em}
+  h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:400;line-height:1.05;letter-spacing:-.01em}
   img{display:block;max-width:100%}
   a{color:inherit;text-decoration:none}
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 32px}
-  .lbl{font-size:11px;letter-spacing:.26em;text-transform:uppercase;font-weight:500;color:var(--faint)}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+  .eyebrow{font-size:11.5px;letter-spacing:.28em;text-transform:uppercase;font-weight:600;color:var(--gold)}
   .btn{
-    display:inline-flex;align-items:center;gap:9px;font-family:'Hanken Grotesk';
-    font-weight:500;font-size:13.5px;letter-spacing:.02em;
-    padding:0 0 4px;border:none;border-bottom:1px solid var(--ink);background:none;color:var(--ink);
-    cursor:pointer;transition:gap .35s var(--ease),opacity .25s;
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:'Hanken Grotesk';font-weight:600;font-size:14px;letter-spacing:.02em;
+    padding:15px 30px;border-radius:50px;border:1px solid var(--ink);
+    background:var(--ink);color:var(--paper);cursor:pointer;
+    transition:transform .35s cubic-bezier(.2,.8,.2,1),background .3s,color .3s,box-shadow .35s;
   }
-  .btn:hover{gap:15px}
-  .btn .ar{transition:transform .35s var(--ease)}
-  .btn:hover .ar{transform:translateX(3px)}
-  .btn--fill{padding:14px 30px;border:1px solid var(--ink);border-radius:40px;background:var(--ink);color:var(--paper)}
-  .btn--fill:hover{gap:9px;background:transparent;color:var(--ink)}
-  .btn--out{padding:14px 30px;border:1px solid var(--line);border-radius:40px}
-  .btn--out:hover{gap:9px;border-color:var(--ink)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 16px 30px -16px rgba(20,42,36,.5)}
+  .btn--ghost{background:transparent;color:var(--ink)}
+  .btn--ghost:hover{background:var(--ink);color:var(--paper)}
+  .btn--gold{background:var(--gold);border-color:var(--gold);color:#1c1505}
+  .btn--gold:hover{background:var(--gold-soft);border-color:var(--gold-soft)}
+  .btn--light{background:var(--paper);border-color:var(--paper);color:var(--ink)}
+  .arrow{transition:transform .35s}
+  .btn:hover .arrow{transform:translateX(4px)}
 
-  .reveal{opacity:0;transform:translateY(22px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
-  .reveal.in{opacity:1;transform:none}
-  .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+  /* announcement */
+  .announce{background:var(--alpine-deep);color:var(--paper);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;overflow:hidden}
+  .announce .track{display:flex;gap:64px;white-space:nowrap;padding:10px 0;animation:marq 32s linear infinite}
+  .announce span{display:inline-flex;align-items:center;gap:12px;opacity:.85}
+  .announce span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold-soft)}
+  @keyframes marq{to{transform:translateX(-50%)}}
 
   /* header */
-  header{position:sticky;top:0;z-index:50;background:rgba(252,251,248,.8);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s}
-  header.scrolled{border-color:var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:84px}
-  .logo{font-family:'Fraunces';font-size:20px;letter-spacing:.04em;display:flex;align-items:center;gap:8px}
-  .logo b{font-weight:400}
-  .menu{display:flex;gap:38px;list-style:none;font-size:13.5px;font-weight:400;color:var(--soft)}
-  .menu a{transition:color .25s}
-  .menu a:hover{color:var(--ink)}
-  .right{display:flex;align-items:center;gap:26px;font-size:13.5px;font-weight:400}
-  .right button{background:none;border:none;cursor:pointer;font:inherit;color:var(--ink)}
+  header{position:sticky;top:0;z-index:60;background:rgba(243,239,230,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);transition:background .3s}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+  .nav__logo{font-family:'Fraunces';font-size:22px;letter-spacing:.02em;display:flex;align-items:center;gap:9px;font-weight:500}
+  .nav__logo b{font-weight:600}
+  .flag{font-size:15px}
+  .nav__menu{display:flex;gap:34px;list-style:none;font-size:14.5px;font-weight:500}
+  .nav__menu a{position:relative;padding:4px 0;color:var(--ink-soft);transition:color .25s}
+  .nav__menu a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1.5px;background:var(--gold);transition:width .3s}
+  .nav__menu a:hover{color:var(--ink)}
+  .nav__menu a:hover::after{width:100%}
+  .nav__icons{display:flex;align-items:center;gap:20px}
+  .nav__icons button{background:none;border:none;cursor:pointer;color:var(--ink);display:flex;align-items:center;gap:7px;font-size:14px;font-weight:500}
+  .cart-pill{background:var(--ink);color:var(--paper);padding:9px 17px;border-radius:50px;font-weight:600;font-size:13px}
+  .cart-pill b{color:var(--gold-soft)}
   .burger{display:none}
 
   /* hero */
-  .hero{padding:60px 0 90px}
-  .hero .wrap{display:grid;grid-template-columns:1fr;gap:48px}
-  .hero h1{font-size:clamp(46px,8vw,104px);font-weight:300;letter-spacing:-.03em;max-width:14ch}
-  .hero h1 em{font-style:italic;color:var(--soft)}
-  .hero__row{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:end}
-  .hero__sub{font-size:17px;color:var(--soft);max-width:380px}
-  .hero__cta{display:flex;gap:26px;align-items:center;margin-top:30px;flex-wrap:wrap}
-  .hero__fig{aspect-ratio:5/3;overflow:hidden;border-radius:var(--r);background:var(--bone)}
-  .hero__fig img{width:100%;height:100%;object-fit:cover}
+  .hero{position:relative;min-height:90vh;display:flex;align-items:flex-end;color:var(--paper);overflow:hidden}
+  .hero__media{position:absolute;inset:0;z-index:0}
+  .hero__media img{width:100%;height:100%;object-fit:cover}
+  .hero__media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,24,20,.30) 0%,rgba(11,24,20,.20) 40%,rgba(11,24,20,.85) 100%)}
+  .hero__inner{position:relative;z-index:2;width:100%;padding-bottom:64px}
+  .hero__grid{display:grid;grid-template-columns:1.4fr .9fr;gap:40px;align-items:end}
+  .hero h1{font-size:clamp(44px,6.4vw,90px);font-weight:300;letter-spacing:-.025em}
+  .hero h1 em{font-style:italic;color:var(--gold-soft)}
+  .hero__sub{font-size:18px;line-height:1.6;max-width:430px;margin:22px 0 30px;color:rgba(251,249,243,.9);font-weight:300}
+  .hero__cta{display:flex;gap:14px;flex-wrap:wrap}
+  .hero__trust{display:flex;flex-direction:column;gap:16px;border-left:1px solid var(--line-light);padding-left:26px}
+  .hero__trust .t{display:flex;align-items:center;gap:13px;font-size:14px;font-weight:300}
+  .hero__trust .t b{font-family:'Fraunces';font-size:26px;font-weight:400;color:var(--gold-soft);min-width:54px}
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
 
-  /* thin trust line */
-  .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .trust .wrap{display:flex;justify-content:space-between;gap:24px;padding:22px 32px;flex-wrap:wrap}
-  .trust div{font-size:12.5px;color:var(--soft);letter-spacing:.02em;display:flex;align-items:center;gap:9px}
-  .trust div::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--accent)}
+  /* logos / trust strip */
+  .trustbar{background:var(--paper);border-bottom:1px solid var(--line)}
+  .trustbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:30px;padding-top:26px;padding-bottom:26px;flex-wrap:wrap}
+  .trustbar .lbl{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--sage);font-weight:600}
+  .trustbar .seals{display:flex;gap:38px;align-items:center;flex-wrap:wrap}
+  .seal{display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:500;color:var(--ink-soft)}
+  .seal svg{width:20px;height:20px;color:var(--alpine)}
 
-  /* sections */
-  .pad{padding:110px 0}
-  .secthead{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:54px;gap:30px}
-  .secthead h2{font-size:clamp(28px,4vw,46px)}
-  .secthead .lbl{align-self:flex-start;padding-top:10px}
+  /* section base */
+  section{position:relative}
+  .pad{padding:96px 0}
+  .head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:46px}
+  .head h2{font-size:clamp(30px,3.8vw,50px);font-weight:300}
+  .head p{max-width:380px;color:var(--ink-soft);font-size:15.5px}
 
-  /* products */
-  .prods{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
-  .prod{display:flex;flex-direction:column}
-  .prod__img{aspect-ratio:3/4;background:var(--bone);border-radius:var(--r);overflow:hidden;margin-bottom:18px;position:relative}
-  .prod__img img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
-  .prod:hover .prod__img img{transform:scale(1.04)}
-  .prod__img .b{position:absolute;top:14px;left:14px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft)}
-  .prod h3{font-size:18px;font-weight:400;margin-bottom:3px}
-  .prod .tag{font-size:13px;color:var(--faint);margin-bottom:12px}
-  .prod .pr{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:13px;margin-top:auto}
-  .prod .pr .price{font-family:'Fraunces';font-size:17px}
-  .prod .pr a{font-size:12.5px;color:var(--soft);border-bottom:1px solid var(--line);padding-bottom:2px;transition:color .25s,border-color .25s}
-  .prod:hover .pr a{color:var(--ink);border-color:var(--ink)}
+  /* quiz / diagnostic */
+  .quiz{background:var(--alpine);color:var(--paper);border-radius:28px;overflow:hidden;display:grid;grid-template-columns:1.1fr .9fr}
+  .quiz__txt{padding:64px 56px}
+  .quiz__txt h2{font-size:clamp(30px,3.6vw,46px);font-weight:300;margin:14px 0 16px}
+  .quiz__txt h2 em{font-style:italic;color:var(--gold-soft)}
+  .quiz__txt p{color:rgba(251,249,243,.82);max-width:400px;margin-bottom:30px;font-weight:300;font-size:16px}
+  .quiz__steps{display:flex;gap:10px;margin-bottom:30px}
+  .quiz__steps .s{flex:1;text-align:center;padding:14px 8px;border:1px solid var(--line-light);border-radius:12px;font-size:12.5px}
+  .quiz__steps .s b{display:block;font-family:'Fraunces';font-size:22px;color:var(--gold-soft);margin-bottom:3px}
+  .quiz__media{position:relative;background:var(--alpine-deep)}
+  .quiz__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.9}
 
-  /* statement / quiz minimal */
-  .statement{text-align:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .statement .wrap{max-width:840px}
-  .statement h2{font-size:clamp(30px,4.6vw,56px);font-weight:300;line-height:1.12}
-  .statement h2 em{font-style:italic;color:var(--soft)}
-  .statement p{font-size:16px;color:var(--soft);max-width:480px;margin:26px auto 34px}
+  /* product cards */
+  .grid-products{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .card{background:var(--paper);border-radius:var(--r);overflow:hidden;border:1px solid var(--line);transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s;display:flex;flex-direction:column}
+  .card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+  .card__img{position:relative;aspect-ratio:4/4.4;overflow:hidden;background:#e8e3d8}
+  .card__img img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+  .card:hover .card__img img{transform:scale(1.05)}
+  .badge{position:absolute;top:13px;left:13px;background:var(--gold);color:#1c1505;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 11px;border-radius:50px}
+  .card__body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .stars{color:var(--gold);font-size:13px;letter-spacing:1px}
+  .stars span{color:var(--sage);font-size:12px;margin-left:5px}
+  .card__body h3{font-size:19px;font-weight:500}
+  .card__tag{font-size:13px;color:var(--sage)}
+  .card__foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;padding-top:12px}
+  .price{font-family:'Fraunces';font-size:20px}
+  .price s{font-size:14px;color:var(--sage);margin-right:6px}
+  .add{border:1px solid var(--ink);background:none;border-radius:50px;padding:9px 18px;font-size:13px;font-weight:600;cursor:pointer;transition:background .25s,color .25s}
+  .add:hover{background:var(--ink);color:var(--paper)}
 
-  /* collections — minimal list */
-  .colist{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line)}
-  .colist a{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:30px 6px;border-bottom:1px solid var(--line);transition:padding-left .35s var(--ease)}
-  .colist a:hover{padding-left:18px}
-  .colist .ttl{font-family:'Fraunces';font-size:24px;font-weight:300}
-  .colist .meta{font-size:13px;color:var(--faint);margin-top:3px}
-  .colist .ar{font-size:18px;color:var(--soft);transition:transform .35s var(--ease)}
-  .colist a:hover .ar{transform:translateX(6px)}
-  @media(min-width:760px){.colist a:nth-child(odd){border-right:1px solid var(--line);padding-right:30px}.colist a:nth-child(even){padding-left:30px}.colist a:nth-child(even):hover{padding-left:42px}}
+  /* collections */
+  .coll{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:240px;gap:18px}
+  .coll a{position:relative;border-radius:var(--r);overflow:hidden;color:var(--paper);display:flex;align-items:flex-end;padding:26px;isolation:isolate}
+  .coll a::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,42,36,0) 30%,rgba(20,42,36,.82));z-index:-1}
+  .coll a img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .7s}
+  .coll a:hover img{transform:scale(1.06)}
+  .coll .big{grid-column:span 2;grid-row:span 2}
+  .coll h3{font-size:23px;font-weight:400}
+  .coll .meta{font-size:13px;opacity:.85;margin-top:4px}
+  .coll .go{position:absolute;top:22px;right:22px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line-light);display:flex;align-items:center;justify-content:center;transition:background .3s,color .3s}
+  .coll a:hover .go{background:var(--paper);color:var(--ink)}
 
-  /* science split */
-  .sci .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
-  .sci__fig{aspect-ratio:4/5;border-radius:var(--r);overflow:hidden;background:var(--bone)}
-  .sci__fig img{width:100%;height:100%;object-fit:cover}
-  .sci h2{font-size:clamp(28px,3.6vw,44px);margin:14px 0 18px}
-  .sci h2 em{font-style:italic;color:var(--soft)}
-  .sci p{color:var(--soft);max-width:430px;font-size:16px}
-  .sci__stats{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin:36px 0 34px}
-  .sci__stats b{font-family:'Fraunces';font-size:38px;font-weight:300;display:block;line-height:1}
-  .sci__stats span{font-size:13px;color:var(--faint)}
-  .sci__stats .it{border-top:1px solid var(--line);padding-top:14px}
+  /* science / stats */
+  .science{background:var(--alpine-deep);color:var(--paper)}
+  .science .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .science h2{font-size:clamp(30px,3.8vw,52px);font-weight:300;margin:16px 0 20px}
+  .science h2 em{font-style:italic;color:var(--gold-soft)}
+  .science p{color:rgba(251,249,243,.82);font-weight:300;font-size:16px;max-width:460px;margin-bottom:34px}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:30px 40px;margin-bottom:36px}
+  .stat b{font-family:'Fraunces';font-size:46px;font-weight:300;color:var(--gold-soft);display:block;line-height:1}
+  .stat span{font-size:14px;color:rgba(251,249,243,.75);font-weight:300}
+  .science__media{position:relative;aspect-ratio:4/4.6;border-radius:20px;overflow:hidden}
+  .science__media img{width:100%;height:100%;object-fit:cover}
+  .science__media .float{position:absolute;bottom:20px;left:20px;right:20px;background:rgba(20,42,36,.78);backdrop-filter:blur(8px);border:1px solid var(--line-light);border-radius:14px;padding:16px 18px;font-size:13.5px;display:flex;gap:13px;align-items:center}
+  .science__media .float b{font-family:'Fraunces';color:var(--gold-soft);font-size:15px}
 
-  /* testimonials minimal */
-  .testi{text-align:center;background:var(--bone)}
-  .testi .lbl{margin-bottom:30px}
-  .testi blockquote{font-family:'Fraunces';font-weight:300;font-size:clamp(24px,3.2vw,38px);line-height:1.35;max-width:880px;margin:0 auto;letter-spacing:-.01em}
-  .testi .who{margin-top:30px;font-size:13.5px;color:var(--soft)}
-  .testi .who b{font-weight:500;color:var(--ink)}
-  .dots{display:flex;gap:8px;justify-content:center;margin-top:40px}
-  .dots button{width:7px;height:7px;border-radius:50%;border:none;background:var(--line);cursor:pointer;transition:background .3s,width .3s}
-  .dots button.on{background:var(--ink);width:22px;border-radius:5px}
+  /* testimonials */
+  .testi{background:var(--paper)}
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .t-card{border:1px solid var(--line);border-radius:var(--r);padding:30px 28px;background:var(--bone);display:flex;flex-direction:column;gap:16px}
+  .t-card .stars{font-size:15px}
+  .t-card p{font-size:16px;line-height:1.6;font-family:'Fraunces';font-weight:300;font-style:italic}
+  .t-card .who{margin-top:auto;display:flex;align-items:center;gap:13px}
+  .t-card .who .av{width:44px;height:44px;border-radius:50%;background:var(--alpine);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:'Fraunces';font-size:17px}
+  .t-card .who b{font-size:14.5px;font-weight:600;display:block}
+  .t-card .who span{font-size:12.5px;color:var(--sage)}
+  .verified{font-size:11px;color:var(--alpine);font-weight:600;display:inline-flex;gap:5px;align-items:center}
 
   /* brands */
-  .brands{text-align:center;border-top:1px solid var(--line)}
-  .brands .row{display:flex;justify-content:center;align-items:center;gap:90px;flex-wrap:wrap;margin-top:30px;filter:grayscale(1);opacity:.55}
-  .brands .row img{max-height:40px}
+  .brands{text-align:center}
+  .brands .row{display:flex;justify-content:center;align-items:center;gap:80px;flex-wrap:wrap;margin-top:34px;filter:saturate(0);opacity:.7}
+  .brands .row img{max-height:46px}
 
-  /* newsletter minimal */
-  .news{text-align:center}
-  .news h2{font-size:clamp(28px,4vw,48px)}
-  .news p{color:var(--soft);max-width:420px;margin:18px auto 30px}
-  .news form{display:flex;max-width:420px;margin:0 auto;border-bottom:1px solid var(--ink);gap:12px;align-items:center}
-  .news input{flex:1;border:none;background:none;padding:12px 0;font:inherit;font-size:15px;color:var(--ink);outline:none}
-  .news input::placeholder{color:var(--faint)}
-  .news button{background:none;border:none;font:inherit;font-weight:500;font-size:13.5px;cursor:pointer;white-space:nowrap}
-  .news small{display:block;margin-top:16px;font-size:12px;color:var(--faint)}
+  /* blog */
+  .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .post{border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--paper);transition:transform .4s,box-shadow .4s}
+  .post:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+  .post .ph{aspect-ratio:16/10;overflow:hidden;background:#e8e3d8}
+  .post .ph img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
+  .post:hover .ph img{transform:scale(1.05)}
+  .post .pb{padding:22px}
+  .post .pb .k{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  .post .pb h3{font-size:21px;font-weight:400;margin:9px 0 6px}
+  .post .pb p{font-size:14px;color:var(--ink-soft)}
+
+  /* newsletter */
+  .news{background:var(--alpine);color:var(--paper);border-radius:28px;padding:70px 40px;text-align:center;position:relative;overflow:hidden}
+  .news::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(196,169,104,.18),transparent 60%)}
+  .news>*{position:relative}
+  .news h2{font-size:clamp(28px,3.6vw,44px);font-weight:300;margin:14px 0 12px}
+  .news h2 em{font-style:italic;color:var(--gold-soft)}
+  .news p{color:rgba(251,249,243,.82);max-width:440px;margin:0 auto 28px;font-weight:300}
+  .news form{display:flex;gap:10px;max-width:440px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+  .news input{flex:1;min-width:220px;padding:15px 20px;border-radius:50px;border:1px solid var(--line-light);background:rgba(255,255,255,.06);color:var(--paper);font-size:14px;font-family:inherit}
+  .news input::placeholder{color:rgba(251,249,243,.6)}
+  .news small{display:block;margin-top:14px;font-size:12px;opacity:.6}
 
   /* footer */
-  footer{border-top:1px solid var(--line);padding:70px 0 36px}
-  .fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:46px}
-  .fgrid .logo{margin-bottom:16px}
-  .fgrid p{font-size:14px;color:var(--soft);max-width:280px}
-  .fgrid h4{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);font-weight:500;margin-bottom:16px}
-  .fgrid ul{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:14px}
-  .fgrid ul a{color:var(--soft);transition:color .2s}
-  .fgrid ul a:hover{color:var(--ink)}
-  .fbot{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--faint);flex-wrap:wrap;gap:12px}
-  .pay{display:flex;gap:14px;flex-wrap:wrap;font-size:11px;letter-spacing:.06em}
+  footer{background:var(--ink);color:rgba(251,249,243,.8);padding:70px 0 30px}
+  .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;padding-bottom:46px;border-bottom:1px solid rgba(255,255,255,.12)}
+  .foot-grid h4{font-family:'Hanken Grotesk';font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft);font-weight:700;margin-bottom:18px}
+  .foot-grid ul{list-style:none;display:flex;flex-direction:column;gap:11px;font-size:14px}
+  .foot-grid ul a{color:rgba(251,249,243,.7);transition:color .2s}
+  .foot-grid ul a:hover{color:var(--paper)}
+  .foot-brand p{font-size:14px;max-width:280px;margin:16px 0 18px;color:rgba(251,249,243,.65);font-weight:300}
+  .foot-logo{font-family:'Fraunces';font-size:24px;color:var(--paper);font-weight:500;display:flex;gap:8px;align-items:center}
+  .pay{display:flex;gap:8px;flex-wrap:wrap}
+  .pay span{font-size:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);padding:5px 9px;border-radius:5px;letter-spacing:.05em}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;font-size:12.5px;color:rgba(251,249,243,.5);flex-wrap:wrap;gap:12px}
 
-  .note{position:fixed;bottom:18px;left:18px;z-index:90;background:var(--ink);color:var(--paper);font-size:12px;padding:9px 15px;border-radius:30px;max-width:300px}
-  .note button{background:none;border:none;color:var(--faint);cursor:pointer;margin-left:8px;font-weight:600}
+  /* note ribbon */
+  .note{position:fixed;bottom:18px;left:18px;z-index:90;background:var(--ink);color:var(--paper);font-size:12px;padding:10px 16px;border-radius:50px;box-shadow:var(--shadow);max-width:300px;line-height:1.4}
+  .note b{color:var(--gold-soft)}
+  .note button{background:none;border:none;color:var(--gold-soft);cursor:pointer;margin-left:8px;font-weight:700}
 
-  @media(max-width:880px){
-    .menu,.right .srch{display:none}
-    .burger{display:block;background:none;border:none;font-size:22px;cursor:pointer}
-    .hero__row,.sci .wrap{grid-template-columns:1fr;gap:36px}
-    .prods{grid-template-columns:1fr 1fr}
-    .fgrid{grid-template-columns:1fr 1fr}
+  @media(max-width:980px){
+    .nav__menu,.nav__icons button.search-txt{display:none}
+    .burger{display:flex;background:none;border:none;font-size:22px;cursor:pointer}
+    .hero__grid,.science .wrap,.quiz{grid-template-columns:1fr}
+    .quiz__media{min-height:260px;position:relative}
+    .quiz__media img{position:absolute}
+    .grid-products,.testi-grid,.blog-grid{grid-template-columns:repeat(2,1fr)}
+    .coll{grid-template-columns:1fr 1fr}
+    .coll .big{grid-column:span 2;grid-row:span 1}
+    .foot-grid{grid-template-columns:1fr 1fr}
   }
-  @media(max-width:560px){
-    .wrap{padding:0 20px}.pad{padding:72px 0}
-    .prods,.colist,.fgrid{grid-template-columns:1fr}
-    .sci__stats{grid-template-columns:1fr 1fr}
+  @media(max-width:620px){
+    .wrap{padding:0 18px}
+    .pad{padding:64px 0}
+    .grid-products,.testi-grid,.blog-grid,.coll{grid-template-columns:1fr}
+    .quiz__txt{padding:42px 28px}
+    .stats{grid-template-columns:1fr 1fr}
+    .head{flex-direction:column;align-items:flex-start}
+    .foot-grid{grid-template-columns:1fr}
     .note{display:none}
   }
 </style>
 </head>
 <body>
 
+<!-- ANNOUNCEMENT -->
+<div class="announce">
+  <div class="track">
+    <span>Darmowa wysyłka od 300 zł</span><span>100% Made in Switzerland</span><span>Płatność BLIK · Klarna · Apple Pay</span><span>Dyskretna dostawa 24–48h</span>
+    <span>Darmowa wysyłka od 300 zł</span><span>100% Made in Switzerland</span><span>Płatność BLIK · Klarna · Apple Pay</span><span>Dyskretna dostawa 24–48h</span>
+  </div>
+</div>
+
+<!-- HEADER -->
 <header>
   <div class="wrap nav">
-    <a href="#" class="logo">🇨🇭 Swiss <b>Longevity</b></a>
-    <ul class="menu">
-      <li><a href="#bestsellery">Suplementy</a></li>
-      <li><a href="#kolekcje">Kolekcje</a></li>
-      <li><a href="#nauka">Nauka</a></li>
-      <li><a href="#opinie">Opinie</a></li>
-      <li><a href="#o-nas">O nas</a></li>
-    </ul>
-    <div class="right">
-      <button class="srch">Szukaj</button>
+    <a href="#" class="nav__logo"><span class="flag">🇨🇭</span> Swiss<b>Longevity</b></a>
+    <nav>
+      <ul class="nav__menu">
+        <li><a href="#bestsellery">Bestsellery</a></li>
+        <li><a href="#kolekcje">Suplementy</a></li>
+        <li><a href="#nauka">Nauka</a></li>
+        <li><a href="#opinie">Opinie</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#o-nas">O nas</a></li>
+      </ul>
+    </nav>
+    <div class="nav__icons">
+      <button class="search-txt">Szukaj</button>
       <button>Konto</button>
-      <button>Koszyk (0)</button>
+      <button class="cart-pill">Koszyk <b>(0)</b></button>
       <button class="burger">☰</button>
     </div>
   </div>
@@ -208,201 +286,293 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="wrap">
-    <p class="lbl reveal in">Długowieczność to nowy luksus</p>
-    <div class="hero__row">
-      <h1 class="reveal in d1">Spokój.<br>Precyzja.<br><em>Długowieczność.</em></h1>
-      <div class="reveal in d2">
-        <p class="hero__sub">Szwajcarskie formuły premium wspierające odnowę komórek, energię i zdrowe starzenie. Czysty skład, najwyższe normy, zero kompromisów.</p>
-        <div class="hero__cta">
-          <a href="#bestsellery" class="btn--fill btn">Odkryj kolekcję</a>
-          <a href="#quiz" class="btn">Dobierz dla siebie <span class="ar">→</span></a>
+  <div class="hero__media">
+    <img src="https://www.swisslongevity.pl/cdn/shop/files/preview_images/4be4c971baee4d4d82c39241bd07f9e1.thumbnail.0000000000_1100x.jpg?v=1757334946" alt="" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(160deg,#1E3D34,#142A24)'">
+  </div>
+  <div class="hero__inner">
+    <div class="wrap">
+      <div class="hero__grid">
+        <div>
+          <p class="eyebrow reveal in">Długowieczność to nowy luksus</p>
+          <h1 class="reveal in d1">Starzej się<br><em>na własnych</em><br>zasadach.</h1>
+          <p class="hero__sub reveal in d2">Szwajcarskie formuły premium, które wspierają odnowę komórek, energię i zdrowe starzenie — opracowane przez laboratoria spełniające najwyższe normy czystości.</p>
+          <div class="hero__cta reveal in d3">
+            <a href="#quiz" class="btn btn--gold">Dobierz suplement dla siebie <span class="arrow">→</span></a>
+            <a href="#bestsellery" class="btn btn--light">Zobacz bestsellery</a>
+          </div>
+        </div>
+        <div class="hero__trust reveal in d4">
+          <div class="t"><b>100%</b><span>Wyprodukowane i konfekcjonowane w Szwajcarii</span></div>
+          <div class="t"><b>4.9</b><span>Średnia ocena z opinii klientów</span></div>
+          <div class="t"><b>+12k</b><span>Świadomych klientów w całej Europie</span></div>
         </div>
       </div>
     </div>
-    <div class="hero__fig reveal in d3">
-      <img src="https://www.swisslongevity.pl/cdn/shop/files/preview_images/4be4c971baee4d4d82c39241bd07f9e1.thumbnail.0000000000_1100x.jpg?v=1757334946" alt="" onerror="this.parentElement.style.background='linear-gradient(120deg,#e6e2d8,#d4cfc2)'">
-    </div>
   </div>
 </section>
 
-<!-- TRUST -->
-<div class="trust">
+<!-- TRUST STRIP -->
+<div class="trustbar">
   <div class="wrap">
-    <div>100% Made in Switzerland</div>
-    <div>Składniki potwierdzone badaniami</div>
-    <div>Dyskretna dostawa 24–48h</div>
-    <div>30 dni na zwrot</div>
+    <span class="lbl">Dlaczego Swiss Longevity</span>
+    <div class="seals">
+      <div class="seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>100% Made in Switzerland</div>
+      <div class="seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18M5 8h14M5 16h14"/></svg>Składniki potwierdzone badaniami</div>
+      <div class="seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Dyskretna dostawa 24–48h</div>
+      <div class="seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 6L9 17l-5-5"/></svg>30 dni na zwrot</div>
+    </div>
   </div>
 </div>
 
-<!-- BESTSELLERS -->
-<section class="pad" id="bestsellery">
+<!-- QUIZ / DIAGNOSTIC -->
+<section class="pad" id="quiz">
   <div class="wrap">
-    <div class="secthead reveal">
-      <span class="lbl">Najczęściej wybierane</span>
-      <h2>Bestsellery</h2>
-    </div>
-    <div class="prods">
-
-      <article class="prod reveal">
-        <div class="prod__img"><span class="b">Bestseller</span><img src="https://www.swisslongevity.pl/cdn/shop/files/9.png?v=1757932714&width=600" alt="" onerror="this.parentElement.style.background='linear-gradient(140deg,#e6e2d8,#d4cfc2)'"></div>
-        <h3>Holistyczna odnowa ciała</h3>
-        <p class="tag">Kompleksowy protokół longevity</p>
-        <div class="pr"><span class="price">749 zł</span><a href="#">Do koszyka →</a></div>
-      </article>
-
-      <article class="prod reveal d1">
-        <div class="prod__img"><span class="b">Bestseller</span><img src="https://www.swisslongevity.pl/cdn/shop/files/Leonardo_Vision_XL_make_a_blue_biological_molecule_in_swiss_al_0.jpg?v=1756463394&width=600" alt="" onerror="this.parentElement.style.background='linear-gradient(140deg,#e6e2d8,#d4cfc2)'"></div>
-        <h3>EPIGEN12</h3>
-        <p class="tag">Odnowa na poziomie komórek</p>
-        <div class="pr"><span class="price">692 zł</span><a href="#">Do koszyka →</a></div>
-      </article>
-
-      <article class="prod reveal d2">
-        <div class="prod__img"><img src="https://www.swisslongevity.pl/cdn/shop/files/sanbera_mood_mirror.jpg?v=1758570158&width=600" alt="" onerror="this.parentElement.style.background='linear-gradient(140deg,#e6e2d8,#d4cfc2)'"></div>
-        <h3>Epigen9 Serum</h3>
-        <p class="tag">Rewitalizacja anti-aging</p>
-        <div class="pr"><span class="price">589 zł</span><a href="#">Do koszyka →</a></div>
-      </article>
-
-      <article class="prod reveal d3">
-        <div class="prod__img"><img src="https://www.swisslongevity.pl/cdn/shop/files/Niance-GOLD-ROT_CMYK.png?v=1756463540&width=600" alt="" onerror="this.parentElement.style.background='linear-gradient(140deg,#e6e2d8,#d4cfc2)'"></div>
-        <h3>GENR8</h3>
-        <p class="tag">Oczyszczanie i metabolizm</p>
-        <div class="pr"><span class="price">682 zł</span><a href="#">Do koszyka →</a></div>
-      </article>
-
+    <div class="quiz reveal">
+      <div class="quiz__txt">
+        <p class="eyebrow" style="color:var(--gold-soft)">Diagnoza longevity · 60 sekund</p>
+        <h2>Nie wiesz od czego<br><em>zacząć?</em></h2>
+        <p>Odpowiedz na kilka pytań o swojej energii, śnie i celach. Dobierzemy protokół suplementacji dopasowany dokładnie do Ciebie — bez zgadywania.</p>
+        <div class="quiz__steps">
+          <div class="s"><b>01</b>Twój cel</div>
+          <div class="s"><b>02</b>Styl życia</div>
+          <div class="s"><b>03</b>Rekomendacja</div>
+        </div>
+        <a href="#" class="btn btn--gold">Rozpocznij diagnozę <span class="arrow">→</span></a>
+      </div>
+      <div class="quiz__media">
+        <img src="https://www.swisslongevity.pl/cdn/shop/files/sanbera_mood_mirror.jpg?v=1758570158&width=1200" alt="" onerror="this.style.display='none'">
+      </div>
     </div>
   </div>
 </section>
 
-<!-- STATEMENT / QUIZ -->
-<section class="pad statement" id="quiz">
-  <div class="wrap reveal">
-    <p class="lbl">Diagnoza longevity · 60 sekund</p>
-    <h2 style="margin-top:18px">Suplementacja zaczyna się<br>od <em>jednego pytania:</em><br>czego potrzebuje Twoje ciało?</h2>
-    <p>Odpowiedz na kilka pytań o energii, śnie i celach. Dobierzemy protokół dopasowany do Ciebie — bez zgadywania, bez nadmiaru.</p>
-    <a href="#" class="btn--out btn">Rozpocznij diagnozę <span class="ar">→</span></a>
+<!-- BESTSELLERS -->
+<section class="pad" id="bestsellery" style="padding-top:0">
+  <div class="wrap">
+    <div class="head reveal">
+      <div>
+        <p class="eyebrow">Najczęściej wybierane</p>
+        <h2>Bestsellery</h2>
+      </div>
+      <p>Sprawdzone formuły, po które klienci wracają najczęściej. Każda z czytelnym składem i działaniem.</p>
+    </div>
+    <div class="grid-products">
+
+      <article class="card reveal">
+        <div class="card__img"><span class="badge">Bestseller</span><img src="https://www.swisslongevity.pl/cdn/shop/files/9.png?v=1757932714&width=600" alt="" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(160deg,#2c5246,#1E3D34)'"></div>
+        <div class="card__body">
+          <div class="stars">★★★★★ <span>(214)</span></div>
+          <h3>Holistyczna odnowa ciała</h3>
+          <p class="card__tag">Kompleksowy protokół longevity</p>
+          <div class="card__foot"><div class="price">749,00 zł</div><button class="add">Do koszyka</button></div>
+        </div>
+      </article>
+
+      <article class="card reveal d1">
+        <div class="card__img"><span class="badge">Bestseller</span><img src="https://www.swisslongevity.pl/cdn/shop/files/Leonardo_Vision_XL_make_a_blue_biological_molecule_in_swiss_al_0.jpg?v=1756463394&width=600" alt="" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(160deg,#2c5246,#1E3D34)'"></div>
+        <div class="card__body">
+          <div class="stars">★★★★★ <span>(168)</span></div>
+          <h3>EPIGEN12 — odnowa komórkowa</h3>
+          <p class="card__tag">Wsparcie regeneracji na poziomie komórek</p>
+          <div class="card__foot"><div class="price">692,00 zł</div><button class="add">Do koszyka</button></div>
+        </div>
+      </article>
+
+      <article class="card reveal d2">
+        <div class="card__img"><img src="https://www.swisslongevity.pl/cdn/shop/files/sanbera_mood_mirror.jpg?v=1758570158&width=600" alt="" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(160deg,#2c5246,#1E3D34)'"></div>
+        <div class="card__body">
+          <div class="stars">★★★★★ <span>(97)</span></div>
+          <h3>Epigen9 Serum Rewitalizujące</h3>
+          <p class="card__tag">Pielęgnacja anti-aging od zewnątrz</p>
+          <div class="card__foot"><div class="price">589,00 zł</div><button class="add">Do koszyka</button></div>
+        </div>
+      </article>
+
+      <article class="card reveal d3">
+        <div class="card__img"><span class="badge" style="background:var(--alpine);color:#fff">-12%</span><img src="https://www.swisslongevity.pl/cdn/shop/files/Niance-GOLD-ROT_CMYK.png?v=1756463540&width=600" alt="" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(160deg,#2c5246,#1E3D34)'"></div>
+        <div class="card__body">
+          <div class="stars">★★★★☆ <span>(83)</span></div>
+          <h3>GENR8 — oczyszczanie organizmu</h3>
+          <p class="card__tag">Detoks i równowaga metaboliczna</p>
+          <div class="card__foot"><div class="price"><s>682 zł</s>599,00 zł</div><button class="add">Do koszyka</button></div>
+        </div>
+      </article>
+
+    </div>
   </div>
 </section>
 
 <!-- COLLECTIONS -->
-<section class="pad" id="kolekcje">
+<section class="pad" id="kolekcje" style="padding-top:0">
   <div class="wrap">
-    <div class="secthead reveal">
-      <span class="lbl">Wybierz według potrzeby</span>
-      <h2>Kolekcje</h2>
+    <div class="head reveal">
+      <div>
+        <p class="eyebrow">Wybierz według potrzeby</p>
+        <h2>Kolekcje</h2>
+      </div>
+      <p>Od odnowy komórkowej po piękno od wewnątrz — uporządkowane tak, byś szybko trafił/a do swojego celu.</p>
     </div>
-    <div class="colist reveal">
-      <a href="#"><div><div class="ttl">Longevity & odnowa komórkowa</div><div class="meta">Spowolnienie starzenia</div></div><span class="ar">→</span></a>
-      <a href="#"><div><div class="ttl">Energia i witalność</div><div class="meta">Codzienne wsparcie energii</div></div><span class="ar">→</span></a>
-      <a href="#"><div><div class="ttl">Stres i sen</div><div class="meta">Równowaga i regeneracja</div></div><span class="ar">→</span></a>
-      <a href="#"><div><div class="ttl">Metabolizm i równowaga</div><div class="meta">Detoks i oczyszczanie</div></div><span class="ar">→</span></a>
-      <a href="#"><div><div class="ttl">Piękno i zdrowa skóra</div><div class="meta">Kolagen i anti-aging</div></div><span class="ar">→</span></a>
-      <a href="#"><div><div class="ttl">Kosmetyki longevity</div><div class="meta">Pielęgnacja od zewnątrz</div></div><span class="ar">→</span></a>
+    <div class="coll reveal">
+      <a href="#" class="big">
+        <img src="https://www.swisslongevity.pl/cdn/shop/files/Leonardo_Vision_XL_make_a_blue_biological_molecule_in_swiss_al_0.jpg?v=1756463394&width=1200" alt="" onerror="this.style.display='none'">
+        <span class="go">→</span>
+        <div><h3>Longevity & odnowa komórkowa</h3><div class="meta">Spowolnienie starzenia na poziomie biologicznym</div></div>
+      </a>
+      <a href="#"><img src="https://www.swisslongevity.pl/cdn/shop/files/9.png?v=1757932714&width=800" alt="" onerror="this.style.display='none'"><span class="go">→</span><div><h3>Energia i witalność</h3><div class="meta">Codzienne wsparcie energii</div></div></a>
+      <a href="#"><img src="https://www.swisslongevity.pl/cdn/shop/files/sanbera_mood_mirror.jpg?v=1758570158&width=800" alt="" onerror="this.style.display='none'"><span class="go">→</span><div><h3>Stres i sen</h3><div class="meta">Równowaga i regeneracja</div></div></a>
+      <a href="#"><img src="https://www.swisslongevity.pl/cdn/shop/files/Leonardo_Vision_XL_make_a_blue_biological_molecule_in_swiss_al_0.jpg?v=1756463394&width=800" alt="" onerror="this.style.display='none'"><span class="go">→</span><div><h3>Metabolizm i równowaga</h3><div class="meta">Detoks i oczyszczanie</div></div></a>
+      <a href="#"><img src="https://www.swisslongevity.pl/cdn/shop/files/9.png?v=1757932714&width=800" alt="" onerror="this.style.display='none'"><span class="go">→</span><div><h3>Piękno i zdrowa skóra</h3><div class="meta">Kolagen i anti-aging od wewnątrz</div></div></a>
     </div>
   </div>
 </section>
 
 <!-- SCIENCE -->
-<section class="pad sci" id="nauka">
+<section class="science pad" id="nauka">
   <div class="wrap">
-    <div class="sci__fig reveal">
-      <img src="https://www.swisslongevity.pl/cdn/shop/files/Leonardo_Vision_XL_make_a_blue_biological_molecule_in_swiss_al_0.jpg?v=1756463394&width=900" alt="" onerror="this.parentElement.style.background='linear-gradient(140deg,#e6e2d8,#d4cfc2)'">
-    </div>
-    <div class="reveal d1">
-      <p class="lbl">Made in Switzerland</p>
-      <h2>Czysta formuła.<br><em>Nic ponadto.</em></h2>
-      <p>Biotechnologia i szwajcarska precyzja. Każda partia powstaje w laboratoriach spełniających najwyższe europejskie normy jakości i czystości — bez zbędnych wypełniaczy.</p>
-      <div class="sci__stats">
-        <div class="it"><b>100%</b><span>Produkcja w Szwajcarii</span></div>
-        <div class="it"><b>GMP</b><span>Standard wytwarzania</span></div>
-        <div class="it"><b>0</b><span>Zbędnych wypełniaczy</span></div>
-        <div class="it"><b>3rd</b><span>Niezależne badania partii</span></div>
+    <div class="reveal">
+      <p class="eyebrow" style="color:var(--gold-soft)">Made in Switzerland · od formuły po flakon</p>
+      <h2>Nauka, której<br>możesz <em>zaufać.</em></h2>
+      <p>Łączymy biotechnologię, szwajcarską precyzję i czyste składniki. Każda partia powstaje w laboratoriach spełniających najwyższe europejskie normy jakości i czystości.</p>
+      <div class="stats">
+        <div class="stat"><b>100%</b><span>Produkcja w Szwajcarii</span></div>
+        <div class="stat"><b>0</b><span>Zbędnych wypełniaczy</span></div>
+        <div class="stat"><b>GMP</b><span>Standard wytwarzania</span></div>
+        <div class="stat"><b>3rd</b><span>Niezależne badania partii</span></div>
       </div>
-      <a href="#o-nas" class="btn">Poznaj naszą historię <span class="ar">→</span></a>
+      <a href="#o-nas" class="btn btn--light">Poznaj naszą historię <span class="arrow">→</span></a>
+    </div>
+    <div class="science__media reveal d2">
+      <img src="https://www.swisslongevity.pl/cdn/shop/files/Leonardo_Vision_XL_make_a_blue_biological_molecule_in_swiss_al_0.jpg?v=1756463394&width=900" alt="" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(160deg,#2c5246,#0f1f1a)'">
+      <div class="float"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C4A968" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg><div><b>Certyfikat szwajcarskiej jakości</b><br>Każda formuła z pełną kartą składu</div></div>
     </div>
   </div>
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="pad testi" id="opinie">
+<section class="testi pad" id="opinie">
   <div class="wrap">
-    <p class="lbl">4.9 / 5 — opinie klientów</p>
-    <blockquote id="quote">„Wreszcie marka, która tłumaczy skład i działanie zamiast obiecywać cuda. Po sześciu tygodniach realnie więcej energii."</blockquote>
-    <div class="who" id="author"><b>Anna K.</b> · Warszawa · klientka zweryfikowana</div>
-    <div class="dots">
-      <button class="on" data-i="0"></button>
-      <button data-i="1"></button>
-      <button data-i="2"></button>
+    <div class="head reveal">
+      <div>
+        <p class="eyebrow">4.9 / 5 — średnia z opinii</p>
+        <h2>Co mówią klienci</h2>
+      </div>
+      <p>Prawdziwe doświadczenia osób, które wybrały świadome, długofalowe dbanie o zdrowie.</p>
     </div>
+    <div class="testi-grid">
+      <div class="t-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>„Po sześciu tygodniach EPIGEN12 mam realnie więcej energii rano. Jakość wykonania i opakowanie na poziomie, jakiego szukałam."</p>
+        <div class="who"><div class="av">AK</div><div><b>Anna K.</b><span>Warszawa · klientka zweryfikowana</span></div></div>
+      </div>
+      <div class="t-card reveal d1">
+        <div class="stars">★★★★★</div>
+        <p>„Wreszcie marka, która tłumaczy skład i działanie zamiast obiecywać cuda. Serum Epigen9 weszło na stałe do mojej pielęgnacji."</p>
+        <div class="who"><div class="av">MW</div><div><b>Magdalena W.</b><span>Kraków · klientka zweryfikowana</span></div></div>
+      </div>
+      <div class="t-card reveal d2">
+        <div class="stars">★★★★★</div>
+        <p>„Zamówienie dotarło następnego dnia, dyskretnie zapakowane. Czuć, że to produkt premium — i widać różnicę w samopoczuciu."</p>
+        <div class="who"><div class="av">PT</div><div><b>Piotr T.</b><span>Gdańsk · klient zweryfikowany</span></div></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:34px" class="reveal"><a href="#" class="btn btn--ghost">Przeczytaj wszystkie opinie <span class="arrow">→</span></a></div>
   </div>
 </section>
 
 <!-- BRANDS -->
-<section class="pad brands">
+<section class="brands pad" style="padding-top:0">
   <div class="wrap reveal">
-    <p class="lbl">Marki, które dystrybuujemy</p>
+    <p class="eyebrow">Marki, które dystrybuujemy</p>
     <div class="row">
-      <img src="https://www.swisslongevity.pl/cdn/shop/files/Niance-GOLD-ROT_CMYK.png?v=1756463540&width=400" alt="Niance" onerror="this.outerHTML='<span style=&quot;font-family:Fraunces;font-size:24px;letter-spacing:.1em&quot;>NIANCE</span>'">
-      <img src="https://www.swisslongevity.pl/cdn/shop/files/sanbera_logo_black.png?v=1757501512&width=400" alt="Sanbera" onerror="this.outerHTML='<span style=&quot;font-family:Fraunces;font-size:24px;letter-spacing:.1em&quot;>SANBERA</span>'">
+      <img src="https://www.swisslongevity.pl/cdn/shop/files/Niance-GOLD-ROT_CMYK.png?v=1756463540&width=400" alt="Niance" onerror="this.outerHTML='<span style=&quot;font-family:Fraunces;font-size:26px&quot;>NIANCE</span>'">
+      <img src="https://www.swisslongevity.pl/cdn/shop/files/sanbera_logo_black.png?v=1757501512&width=400" alt="Sanbera" onerror="this.outerHTML='<span style=&quot;font-family:Fraunces;font-size:26px&quot;>SANBERA</span>'">
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="pad testi" id="blog" style="padding-top:0;background:var(--bone)">
+  <div class="wrap">
+    <div class="head reveal">
+      <div>
+        <p class="eyebrow">Sekrety longevity</p>
+        <h2>Z naszego bloga</h2>
+      </div>
+      <p>Wiedza oparta na nauce — bez marketingowych obietnic, za to z konkretem.</p>
+    </div>
+    <div class="blog-grid">
+      <a href="#" class="post reveal">
+        <div class="ph"><img src="https://www.swisslongevity.pl/cdn/shop/files/Copy_of_Sage_Collection_Post_Template.png?v=1757334489&width=800" alt="" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(160deg,#2c5246,#1E3D34)'"></div>
+        <div class="pb"><span class="k">Podstawy</span><h3>Czym właściwie jest longevity?</h3><p>Filozofia zdrowia oparta na prewencji i świadomych wyborach.</p></div>
+      </a>
+      <a href="#" class="post reveal d1">
+        <div class="ph"><img src="https://www.swisslongevity.pl/cdn/shop/files/9.png?v=1757932714&width=800" alt="" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(160deg,#2c5246,#1E3D34)'"></div>
+        <div class="pb"><span class="k">Składniki</span><h3>Odnowa komórkowa — co działa naprawdę</h3><p>Które substancje mają poparcie w badaniach, a które to moda.</p></div>
+      </a>
+      <a href="#" class="post reveal d2">
+        <div class="ph"><img src="https://www.swisslongevity.pl/cdn/shop/files/sanbera_mood_mirror.jpg?v=1758570158&width=800" alt="" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(160deg,#2c5246,#1E3D34)'"></div>
+        <div class="pb"><span class="k">Rutyna</span><h3>Sen i regeneracja jako fundament</h3><p>Dlaczego bez snu żaden suplement nie zadziała w pełni.</p></div>
+      </a>
     </div>
   </div>
 </section>
 
 <!-- NEWSLETTER -->
-<section class="pad news" id="o-nas">
-  <div class="wrap reveal">
-    <p class="lbl">Dołącz do społeczności</p>
-    <h2 style="margin-top:14px">Wiedza, nie spam.</h2>
-    <p>Zapisz się i odbierz przewodnik „Pierwsze kroki w longevity" oraz -10% na pierwsze zamówienie.</p>
-    <form onsubmit="return false">
-      <input type="email" placeholder="Twój adres e-mail" aria-label="Email">
-      <button type="submit">Zapisz się →</button>
-    </form>
-    <small>Możesz wypisać się w każdej chwili.</small>
+<section class="pad" id="o-nas" style="padding-top:0">
+  <div class="wrap">
+    <div class="news reveal">
+      <p class="eyebrow" style="color:var(--gold-soft)">Dołącz do społeczności</p>
+      <h2>Zgarnij <em>-10%</em> na pierwsze zamówienie</h2>
+      <p>Zapisz się i odbierz przewodnik „Pierwsze kroki w longevity" oraz kod rabatowy. Bez spamu — tylko konkretna wiedza i wczesny dostęp do nowości.</p>
+      <form onsubmit="return false">
+        <input type="email" placeholder="Twój adres e-mail" aria-label="Email">
+        <button class="btn btn--gold" type="submit">Zapisz się <span class="arrow">→</span></button>
+      </form>
+      <small>Zapisując się akceptujesz politykę prywatności. Możesz wypisać się w każdej chwili.</small>
+    </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="wrap">
-    <div class="fgrid">
-      <div>
-        <div class="logo">🇨🇭 Swiss <b>Longevity</b></div>
-        <p>Suplementacja premium, w 100% wyprodukowana w Szwajcarii — dla osób, które dbają o siebie świadomie i długofalowo.</p>
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="foot-logo"><span class="flag">🇨🇭</span> Swiss<b>Longevity</b></div>
+        <p>Zaufane źródło suplementacji premium, stworzonej w 100% w Szwajcarii — dla osób, które dbają o siebie świadomie i długofalowo.</p>
+        <div class="pay">
+          <span>BLIK</span><span>Klarna</span><span>Apple Pay</span><span>Google Pay</span><span>Visa</span><span>Mastercard</span><span>Shop Pay</span>
+        </div>
       </div>
-      <div><h4>Sklep</h4><ul><li><a href="#">Wszystkie produkty</a></li><li><a href="#">Suplementy</a></li><li><a href="#">Kosmetyki</a></li><li><a href="#">Bestsellery</a></li></ul></div>
-      <div><h4>Pomoc</h4><ul><li><a href="#">Kontakt</a></li><li><a href="#">Dostawa</a></li><li><a href="#">Zwroty</a></li><li><a href="#">FAQ</a></li></ul></div>
-      <div><h4>Firma</h4><ul><li><a href="#">O nas</a></li><li><a href="#">Blog</a></li><li><a href="#">Prywatność</a></li><li><a href="#">Regulamin</a></li></ul></div>
+      <div>
+        <h4>Sklep</h4>
+        <ul><li><a href="#">Wszystkie produkty</a></li><li><a href="#">Suplementy longevity</a></li><li><a href="#">Kosmetyki longevity</a></li><li><a href="#">Bestsellery</a></li></ul>
+      </div>
+      <div>
+        <h4>Pomoc</h4>
+        <ul><li><a href="#">Kontakt</a></li><li><a href="#">Dostawa</a></li><li><a href="#">Zwroty</a></li><li><a href="#">FAQ</a></li></ul>
+      </div>
+      <div>
+        <h4>Firma</h4>
+        <ul><li><a href="#">O nas</a></li><li><a href="#">Blog</a></li><li><a href="#">Polityka prywatności</a></li><li><a href="#">Regulamin</a></li></ul>
+      </div>
     </div>
-    <div class="fbot">
+    <div class="foot-bottom">
       <span>© 2026 Swiss Longevity · 100% Swiss Made. 100% świadomie.</span>
-      <div class="pay"><span>BLIK</span><span>KLARNA</span><span>APPLE PAY</span><span>VISA</span><span>MASTERCARD</span></div>
+      <span>Wyłączny dystrybutor · Instagram @swisslongevity.pl</span>
     </div>
   </div>
 </footer>
 
-<div class="note" id="note">Makieta — wersja minimalistyczna <button onclick="document.getElementById('note').remove()">×</button></div>
+<div class="note" id="note">Makieta koncepcyjna — pełny redesign strony głównej. <b>Swiss Longevity</b> <button onclick="document.getElementById('note').remove()">×</button></div>
 
 <script>
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  // Scroll reveal
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
   document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
+  // Header bg on scroll
   const h=document.querySelector('header');
-  addEventListener('scroll',()=>h.classList.toggle('scrolled',scrollY>30));
-
-  // testimonial rotator
-  const data=[
-    ['„Wreszcie marka, która tłumaczy skład i działanie zamiast obiecywać cuda. Po sześciu tygodniach realnie więcej energii."','<b>Anna K.</b> · Warszawa · klientka zweryfikowana'],
-    ['„Zamówienie dotarło następnego dnia, dyskretnie zapakowane. Czuć, że to produkt z najwyższej półki."','<b>Piotr T.</b> · Gdańsk · klient zweryfikowany'],
-    ['„Serum Epigen9 weszło na stałe do mojej pielęgnacji. Minimalistycznie, skutecznie, elegancko."','<b>Magdalena W.</b> · Kraków · klientka zweryfikowana']
-  ];
-  const q=document.getElementById('quote'),a=document.getElementById('author'),dots=[...document.querySelectorAll('.dots button')];
-  let i=0;
-  function show(n){i=n;q.style.opacity=0;a.style.opacity=0;setTimeout(()=>{q.textContent=data[n][0];a.innerHTML=data[n][1];q.style.transition=a.style.transition='opacity .5s';q.style.opacity=1;a.style.opacity=1},250);dots.forEach((d,x)=>d.classList.toggle('on',x===n))}
-  dots.forEach(d=>d.onclick=()=>show(+d.dataset.i));
-  setInterval(()=>show((i+1)%data.length),6000);
+  addEventListener('scroll',()=>{h.style.background=scrollY>40?'rgba(243,239,230,.95)':'rgba(243,239,230,.82)'});
 </script>
 </body>
 </html>
