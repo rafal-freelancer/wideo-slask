@@ -103,7 +103,7 @@
   .trustbar .lbl{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--sage);font-weight:600}
   .trustbar .seals{display:flex;gap:38px;align-items:center;flex-wrap:wrap}
   .seal{display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:500;color:var(--ink-soft)}
-  .seal svg{width:20px;height:20px;color:var(--alpine)}
+  .seal svg{width:20px;height:20px;color:var(--alpine);flex-shrink:0}
 
   /* section base */
   section{position:relative}
@@ -144,15 +144,14 @@
   .add:hover{background:var(--ink);color:var(--paper)}
 
   /* collections */
-  .coll{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:240px;gap:18px}
-  .coll a{position:relative;border-radius:var(--r);overflow:hidden;color:var(--paper);display:flex;align-items:flex-end;padding:26px;isolation:isolate}
-  .coll a::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,42,36,0) 30%,rgba(20,42,36,.82));z-index:-1}
+  .coll{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .coll a{position:relative;border-radius:var(--r);overflow:hidden;color:var(--paper);display:flex;align-items:flex-end;aspect-ratio:1/1;padding:24px;isolation:isolate}
+  .coll a::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,42,36,0) 35%,rgba(15,28,24,.88));z-index:-1}
   .coll a img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .7s}
   .coll a:hover img{transform:scale(1.06)}
-  .coll .big{grid-column:span 2;grid-row:span 2}
-  .coll h3{font-size:23px;font-weight:400}
-  .coll .meta{font-size:13px;opacity:.85;margin-top:4px}
-  .coll .go{position:absolute;top:22px;right:22px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line-light);display:flex;align-items:center;justify-content:center;transition:background .3s,color .3s}
+  .coll h3{font-size:21px;font-weight:400;line-height:1.15}
+  .coll .meta{font-size:13px;opacity:.85;margin-top:5px}
+  .coll .go{position:absolute;top:20px;right:20px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line-light);display:flex;align-items:center;justify-content:center;transition:background .3s,color .3s;background:rgba(15,28,24,.35);backdrop-filter:blur(4px)}
   .coll a:hover .go{background:var(--paper);color:var(--ink)}
 
   /* science / stats */
@@ -229,14 +228,15 @@
   .note button{background:none;border:none;color:var(--gold-soft);cursor:pointer;margin-left:8px;font-weight:700}
 
   @media(max-width:980px){
-    .nav__menu,.nav__icons button.search-txt{display:none}
+    .nav__menu,.nav__icons button.search-txt,.nav__icons button.acct-btn{display:none}
+    .nav__icons{gap:14px}
+    .nav__logo{font-size:19px}
     .burger{display:flex;background:none;border:none;font-size:22px;cursor:pointer}
     .hero__grid,.science .wrap,.quiz{grid-template-columns:1fr}
     .quiz__media{min-height:260px;position:relative}
     .quiz__media img{position:absolute}
     .grid-products,.testi-grid,.blog-grid{grid-template-columns:repeat(2,1fr)}
     .coll{grid-template-columns:1fr 1fr}
-    .coll .big{grid-column:span 2;grid-row:span 1}
     .foot-grid{grid-template-columns:1fr 1fr}
   }
   @media(max-width:620px){
@@ -248,6 +248,10 @@
     .head{flex-direction:column;align-items:flex-start}
     .foot-grid{grid-template-columns:1fr}
     .note{display:none}
+    .trustbar .wrap{flex-direction:column;align-items:flex-start;gap:0;padding-top:8px;padding-bottom:8px}
+    .trustbar .lbl{padding:16px 0 6px}
+    .trustbar .seals{flex-direction:column;align-items:stretch;gap:0;width:100%}
+    .seal{justify-content:flex-start;padding:15px 0;border-top:1px solid var(--line);width:100%}
   }
 </style>
 </head>
@@ -277,7 +281,7 @@
     </nav>
     <div class="nav__icons">
       <button class="search-txt">Szukaj</button>
-      <button>Konto</button>
+      <button class="acct-btn">Konto</button>
       <button class="cart-pill">Koszyk <b>(0)</b></button>
       <button class="burger">☰</button>
     </div>
@@ -359,42 +363,42 @@
     <div class="grid-products">
 
       <article class="card reveal">
-        <div class="card__img"><span class="badge">Bestseller</span><img src="https://www.swisslongevity.pl/cdn/shop/files/9.png?v=1757932714&width=600" alt="" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(160deg,#2c5246,#1E3D34)'"></div>
+        <div class="card__img"><span class="badge">Bestseller</span><img src="https://www.swisslongevity.pl/cdn/shop/files/Promo2-1_85bdb0c2-9d1f-4ecd-affe-1157d5f85bac.jpg?v=1777720490&width=700" alt="Holistyczna odnowa ciała" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(160deg,#2c5246,#1E3D34)'"></div>
         <div class="card__body">
           <div class="stars">★★★★★ <span>(214)</span></div>
           <h3>Holistyczna odnowa ciała</h3>
           <p class="card__tag">Kompleksowy protokół longevity</p>
-          <div class="card__foot"><div class="price">749,00 zł</div><button class="add">Do koszyka</button></div>
+          <div class="card__foot"><div class="price">1.199,00 zł</div><button class="add">Do koszyka</button></div>
         </div>
       </article>
 
       <article class="card reveal d1">
-        <div class="card__img"><span class="badge">Bestseller</span><img src="https://www.swisslongevity.pl/cdn/shop/files/Leonardo_Vision_XL_make_a_blue_biological_molecule_in_swiss_al_0.jpg?v=1756463394&width=600" alt="" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(160deg,#2c5246,#1E3D34)'"></div>
+        <div class="card__img"><span class="badge">Bestseller</span><img src="https://www.swisslongevity.pl/cdn/shop/files/volta_pic.jpg?v=1770367534&width=700" alt="EPIGEN12 odnowienie komórkowe" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(160deg,#2c5246,#1E3D34)'"></div>
         <div class="card__body">
           <div class="stars">★★★★★ <span>(168)</span></div>
           <h3>EPIGEN12 — odnowa komórkowa</h3>
           <p class="card__tag">Wsparcie regeneracji na poziomie komórek</p>
-          <div class="card__foot"><div class="price">692,00 zł</div><button class="add">Do koszyka</button></div>
+          <div class="card__foot"><div class="price">1.199,00 zł</div><button class="add">Do koszyka</button></div>
         </div>
       </article>
 
       <article class="card reveal d2">
-        <div class="card__img"><img src="https://www.swisslongevity.pl/cdn/shop/files/sanbera_mood_mirror.jpg?v=1758570158&width=600" alt="" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(160deg,#2c5246,#1E3D34)'"></div>
+        <div class="card__img"><img src="https://www.swisslongevity.pl/cdn/shop/files/Untitled_design_24.png?v=1769004128&width=700" alt="Epigen9 Serum Rewitalizujące" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(160deg,#2c5246,#1E3D34)'"></div>
         <div class="card__body">
           <div class="stars">★★★★★ <span>(97)</span></div>
           <h3>Epigen9 Serum Rewitalizujące</h3>
           <p class="card__tag">Pielęgnacja anti-aging od zewnątrz</p>
-          <div class="card__foot"><div class="price">589,00 zł</div><button class="add">Do koszyka</button></div>
+          <div class="card__foot"><div class="price">885,00 zł</div><button class="add">Do koszyka</button></div>
         </div>
       </article>
 
       <article class="card reveal d3">
-        <div class="card__img"><span class="badge" style="background:var(--alpine);color:#fff">-12%</span><img src="https://www.swisslongevity.pl/cdn/shop/files/Niance-GOLD-ROT_CMYK.png?v=1756463540&width=600" alt="" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(160deg,#2c5246,#1E3D34)'"></div>
+        <div class="card__img"><img src="https://www.swisslongevity.pl/cdn/shop/files/Untitled_design_17.png?v=1757932925&width=700" alt="GENR8 na oczyszczanie organizmu" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(160deg,#2c5246,#1E3D34)'"></div>
         <div class="card__body">
           <div class="stars">★★★★☆ <span>(83)</span></div>
           <h3>GENR8 — oczyszczanie organizmu</h3>
           <p class="card__tag">Detoks i równowaga metaboliczna</p>
-          <div class="card__foot"><div class="price"><s>682 zł</s>599,00 zł</div><button class="add">Do koszyka</button></div>
+          <div class="card__foot"><div class="price">682,00 zł</div><button class="add">Do koszyka</button></div>
         </div>
       </article>
 
@@ -413,15 +417,16 @@
       <p>Od odnowy komórkowej po piękno od wewnątrz — uporządkowane tak, byś szybko trafił/a do swojego celu.</p>
     </div>
     <div class="coll reveal">
-      <a href="#" class="big">
-        <img src="https://www.swisslongevity.pl/cdn/shop/files/Leonardo_Vision_XL_make_a_blue_biological_molecule_in_swiss_al_0.jpg?v=1756463394&width=1200" alt="" onerror="this.style.display='none'">
+      <a href="#">
+        <img src="https://www.swisslongevity.pl/cdn/shop/files/volta_pic.jpg?v=1770367534&width=700" alt="" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(160deg,#2c5246,#142A24)'">
         <span class="go">→</span>
         <div><h3>Longevity & odnowa komórkowa</h3><div class="meta">Spowolnienie starzenia na poziomie biologicznym</div></div>
       </a>
-      <a href="#"><img src="https://www.swisslongevity.pl/cdn/shop/files/9.png?v=1757932714&width=800" alt="" onerror="this.style.display='none'"><span class="go">→</span><div><h3>Energia i witalność</h3><div class="meta">Codzienne wsparcie energii</div></div></a>
-      <a href="#"><img src="https://www.swisslongevity.pl/cdn/shop/files/sanbera_mood_mirror.jpg?v=1758570158&width=800" alt="" onerror="this.style.display='none'"><span class="go">→</span><div><h3>Stres i sen</h3><div class="meta">Równowaga i regeneracja</div></div></a>
-      <a href="#"><img src="https://www.swisslongevity.pl/cdn/shop/files/Leonardo_Vision_XL_make_a_blue_biological_molecule_in_swiss_al_0.jpg?v=1756463394&width=800" alt="" onerror="this.style.display='none'"><span class="go">→</span><div><h3>Metabolizm i równowaga</h3><div class="meta">Detoks i oczyszczanie</div></div></a>
-      <a href="#"><img src="https://www.swisslongevity.pl/cdn/shop/files/9.png?v=1757932714&width=800" alt="" onerror="this.style.display='none'"><span class="go">→</span><div><h3>Piękno i zdrowa skóra</h3><div class="meta">Kolagen i anti-aging od wewnątrz</div></div></a>
+      <a href="#"><img src="https://www.swisslongevity.pl/cdn/shop/files/Promo2-1_85bdb0c2-9d1f-4ecd-affe-1157d5f85bac.jpg?v=1777720490&width=700" alt="" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(160deg,#2c5246,#142A24)'"><span class="go">→</span><div><h3>Energia i witalność</h3><div class="meta">Codzienne wsparcie energii</div></div></a>
+      <a href="#"><img src="https://www.swisslongevity.pl/cdn/shop/files/sanbera_mood_mirror.jpg?v=1758570158&width=700" alt="" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(160deg,#2c5246,#142A24)'"><span class="go">→</span><div><h3>Stres i sen</h3><div class="meta">Równowaga i regeneracja</div></div></a>
+      <a href="#"><img src="https://www.swisslongevity.pl/cdn/shop/files/Untitled_design_17.png?v=1757932925&width=700" alt="" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(160deg,#2c5246,#142A24)'"><span class="go">→</span><div><h3>Metabolizm i równowaga</h3><div class="meta">Detoks i oczyszczanie</div></div></a>
+      <a href="#"><img src="https://www.swisslongevity.pl/cdn/shop/files/Untitled_design_24.png?v=1769004128&width=700" alt="" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(160deg,#2c5246,#142A24)'"><span class="go">→</span><div><h3>Piękno i zdrowa skóra</h3><div class="meta">Kolagen i anti-aging od wewnątrz</div></div></a>
+      <a href="#"><img src="https://www.swisslongevity.pl/cdn/shop/files/Epigen_Capsule_2.png?v=1770367534&width=700" alt="" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(160deg,#2c5246,#142A24)'"><span class="go">→</span><div><h3>Kosmetyki longevity</h3><div class="meta">Pielęgnacja od zewnątrz</div></div></a>
     </div>
   </div>
 </section>
@@ -442,7 +447,7 @@
       <a href="#o-nas" class="btn btn--light">Poznaj naszą historię <span class="arrow">→</span></a>
     </div>
     <div class="science__media reveal d2">
-      <img src="https://www.swisslongevity.pl/cdn/shop/files/Leonardo_Vision_XL_make_a_blue_biological_molecule_in_swiss_al_0.jpg?v=1756463394&width=900" alt="" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(160deg,#2c5246,#0f1f1a)'">
+      <img src="https://www.swisslongevity.pl/cdn/shop/files/EPIGEN12_LANDSCAPE_1.jpg?v=1757148608&width=1200" alt="" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(160deg,#2c5246,#0f1f1a)'">
       <div class="float"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C4A968" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg><div><b>Certyfikat szwajcarskiej jakości</b><br>Każda formuła z pełną kartą składu</div></div>
     </div>
   </div>
