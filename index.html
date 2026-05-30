@@ -940,18 +940,6 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
 }
 .ft-bot a:hover { color: var(--white); }
 
-/* ════════════════════════════════════════ MOBILE STICKY CTA ════════════════════════════════════════ */
-.mobile-cta {
-  display: none;
-  position: fixed; bottom: 0; left: 0; right: 0; z-index: 90;
-  background: rgba(245,245,247,.95);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border-top: 1px solid var(--line);
-  padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
-}
-.mobile-cta .btn { width: 100%; }
-
 /* ════════════════════════════════════════ REVEAL ANIMATIONS ════════════════════════════════════════ */
 .r { opacity: 0; transform: translateY(28px); transition: opacity .9s cubic-bezier(.22,.61,.36,1), transform .9s cubic-bezier(.22,.61,.36,1); }
 .r.in { opacity: 1; transform: none; }
@@ -1046,9 +1034,6 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
   .form-grid { gap: 36px; }
   .form-row { grid-template-columns: 1fr; gap: 0; }
   .form-card { padding: 28px 24px 30px; }
-
-  .mobile-cta { display: block; }
-  body { padding-bottom: 80px; }
 
   .ft-top { flex-direction: column; align-items: flex-start; gap: 16px; }
   .ft-bot { flex-direction: column; gap: 8px; }
@@ -1347,11 +1332,6 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
     </div>
   </div>
 </footer>
-
-<!-- MOBILE STICKY CTA -->
-<div class="mobile-cta">
-  <a href="#formularz" class="btn btn-dark">Umów konsultację telefoniczną <span class="arr" aria-hidden="true">→</span></a>
-</div>
 
 <script>
   // Reveal on scroll
