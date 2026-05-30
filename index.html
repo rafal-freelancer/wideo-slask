@@ -500,19 +500,43 @@ header {
 }
 .price-tag .star { color: var(--ink); }
 .price-amount-block { margin-bottom: 36px; }
-.price-headline {
-  font-family: 'Inter', sans-serif;
-  font-size: clamp(2.4rem, 4.8vw, 3.2rem);
-  font-weight: 500;
-  letter-spacing: -.025em;
-  line-height: 1.05;
+.price-figure {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(3.6rem, 7.2vw, 5rem);
+  font-weight: 400;
+  line-height: .95;
+  letter-spacing: -.035em;
   color: var(--ink);
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
 }
-.price-period {
-  font-family: 'Inter', sans-serif;
-  font-size: .92rem;
+.price-figure .zl {
+  font-size: .42em;
+  font-weight: 400;
   color: var(--silver);
-  margin-top: 10px;
+  letter-spacing: -.01em;
+  font-style: italic;
+}
+.price-meta {
+  display: flex; align-items: center; gap: 12px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+.price-meta-pill {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: .76rem; font-weight: 500;
+  letter-spacing: .04em;
+  padding: 6px 12px;
+  background: var(--ink);
+  color: var(--white);
+  border-radius: 100px;
+}
+.price-meta-note {
+  font-family: 'Inter', sans-serif;
+  font-size: .84rem;
+  color: var(--silver);
   letter-spacing: -.005em;
 }
 .price-list {
@@ -1119,28 +1143,28 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
     <div class="results-head">
       <div class="r">
         <span class="eyebrow">Dowód</span>
-        <h2 id="results-h" class="title">Wyniki kampanii moich <em>klientów</em>.</h2>
+        <h2 id="results-h" class="title">Realne wyniki <em>depilacji laserowej</em>.</h2>
       </div>
-      <p class="sub r d1">Trzy realne kampanie z trzech różnych nisz beauty — depilacja, mezoterapia, makijaż permanentny. Każda na zbliżonym budżecie ~1 500 zł miesięcznie.</p>
+      <p class="sub r d1">Trzy kampanie z trzech miast — Warszawa, Gdańsk, Kielce. Każda przy zbliżonym budżecie ok. 1 500 zł miesięcznie. Bez koloryzowania, bez wyciętych „typowych przypadków".</p>
     </div>
     <div class="results-grid">
       <div class="result-card r">
         <div class="result-img" style="padding:0;background:#fff;">
-          <img src="assets/depilacja.png" alt="Wyniki kampanii Meta Ads dla depilacji laserowej: 60 kontaktów, koszt 24,97 zł za leada, wydatki 1498,47 zł" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+          <img src="depilacja.png" alt="Wyniki kampanii depilacji laserowej Warszawa: 60 kontaktów, koszt 24,97 zł za leada, wydatki 1498,47 zł" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
         </div>
-        <div class="result-cap"><b>Depilacja laserowa</b><span>60 kontaktów · 24,97&nbsp;zł / lead · budżet 1 498&nbsp;zł</span></div>
+        <div class="result-cap"><b>Warszawa</b><span>60 kontaktów · 24,97&nbsp;zł&nbsp;/&nbsp;lead · budżet 1&nbsp;498&nbsp;zł</span></div>
       </div>
       <div class="result-card r d1">
         <div class="result-img" style="padding:0;background:#fff;">
-          <img src="assets/mezoterapia.png" alt="Wyniki kampanii Meta Ads dla mezoterapii: 37 kontaktów, koszt 40,37 zł za leada, wydatki 1493,84 zł" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+          <img src="mezoterapia.png" alt="Wyniki kampanii depilacji laserowej Gdańsk: 37 kontaktów, koszt 40,37 zł za leada, wydatki 1493,84 zł" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
         </div>
-        <div class="result-cap"><b>Mezoterapia igłowa</b><span>37 kontaktów · 40,37&nbsp;zł / lead · budżet 1 494&nbsp;zł</span></div>
+        <div class="result-cap"><b>Gdańsk</b><span>37 kontaktów · 40,37&nbsp;zł&nbsp;/&nbsp;lead · budżet 1&nbsp;494&nbsp;zł</span></div>
       </div>
       <div class="result-card r d2">
         <div class="result-img" style="padding:0;background:#fff;">
-          <img src="assets/makijaz.png" alt="Wyniki kampanii Meta Ads dla makijażu permanentnego: 25 kontaktów, koszt 59,65 zł za leada, wydatki 1491,26 zł" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+          <img src="makijaz.png" alt="Wyniki kampanii depilacji laserowej Kielce: 25 kontaktów, koszt 59,65 zł za leada, wydatki 1491,26 zł" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
         </div>
-        <div class="result-cap"><b>Makijaż permanentny</b><span>25 kontaktów · 59,65&nbsp;zł / lead · budżet 1 491&nbsp;zł</span></div>
+        <div class="result-cap"><b>Kielce</b><span>25 kontaktów · 59,65&nbsp;zł&nbsp;/&nbsp;lead · budżet 1&nbsp;491&nbsp;zł</span></div>
       </div>
     </div>
   </div>
@@ -1182,8 +1206,11 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
       <div class="price-card r">
         <span class="price-tag"><span class="star">★</span> Pakiet Start</span>
         <div class="price-amount-block">
-          <div class="price-headline">2 500 zł brutto</div>
-          <div class="price-period">miesięcznie · min. 2 miesiące</div>
+          <div class="price-figure">2 500 <span class="zl">zł</span></div>
+          <div class="price-meta">
+            <span class="price-meta-pill">brutto / miesiąc</span>
+            <span class="price-meta-note">min. 2 miesiące współpracy</span>
+          </div>
         </div>
         <ul class="price-list">
           <li><span class="li-num">—</span><span class="li-text">Strategia i pozycjonowanie usługi frontowej</span></li>
@@ -1205,36 +1232,6 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
         <p class="budget-fine">Stawka 2 500 zł/mies. obowiązuje przez pierwsze 2 miesiące współpracy.</p>
       </div>
     </div>
-
-    <!-- Guarantee -->
-    <div class="guarantee r">
-      <div class="g-top">
-        <div class="g-seal" aria-hidden="true">
-          <div class="g-seal-inner">2 mies.<span>WSPÓŁPRACY</span></div>
-        </div>
-        <div>
-          <h3>2 miesiące to nie wdrożenie. To <em>dwie pełne strategie</em>&nbsp;i&nbsp;osiem materiałów&nbsp;w&nbsp;teście.</h3>
-          <p>Reklamy ruszają już w pierwszym miesiącu — od dnia, w którym uruchamiamy pierwsze kreacje. Najwięcej pracy jest na starcie: strategia, scenariusze, montaże, formularz, CRM. Dwa miesiące potrzebujemy, żeby przetestować dwa różne podejścia po cztery materiały każde, zebrać realne dane i wyciągnąć wnioski.</p>
-        </div>
-      </div>
-      <div class="g-bottom">
-        <div class="g-point">
-          <span class="num" aria-hidden="true">i.</span>
-          <b>Wyłączność na miasto</b>
-          <p>Nie pracuję z konkurencją w Twojej okolicy. Twój komunikat jest tylko Twój.</p>
-        </div>
-        <div class="g-point">
-          <span class="num" aria-hidden="true">ii.</span>
-          <b>Pełna transparentność</b>
-          <p>Widzisz każde zgłoszenie w CRM, każdy koszt reklamy i każdy etap kampanii.</p>
-        </div>
-        <div class="g-point">
-          <span class="num" aria-hidden="true">iii.</span>
-          <b>2 strategie · 8 materiałów</b>
-          <p>W ciągu 2 miesięcy testujemy 2 podejścia po 4 kreacje każde — pełen cykl decyzyjny.</p>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1243,7 +1240,7 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
   <div class="wrap about-grid">
     <div class="r">
       <div class="about-portrait" style="background:#fff;padding:0;overflow:hidden;">
-        <img src="assets/rafal.png" alt="Rafał Małota — portret" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
+        <img src="rafal.png" alt="Rafał Małota — portret" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
       </div>
     </div>
     <div class="about-body r d1">
