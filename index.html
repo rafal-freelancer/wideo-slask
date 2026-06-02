@@ -940,6 +940,177 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
 }
 .ft-bot a:hover { color: var(--white); }
 
+/* ════════════════════════════════════════ PORTFOLIO (dark) ════════════════════════════════════════ */
+.portfolio {
+  background: var(--ink);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+.portfolio::before {
+  content: '';
+  position: absolute; top: -10%; left: -10%;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(110,110,115,.1), transparent 65%);
+  pointer-events: none;
+}
+.portfolio .wrap { position: relative; z-index: 2; }
+
+.portfolio-options {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 52px;
+}
+.po-card {
+  background: var(--ink-2);
+  border: 1px solid var(--line-d);
+  border-radius: var(--r-xl);
+  padding: clamp(24px, 3vw, 32px);
+  display: flex; flex-direction: column;
+}
+.po-card-featured {
+  border-color: rgba(255,255,255,.22);
+  background: linear-gradient(160deg, #18181b 0%, var(--ink-2) 100%);
+}
+.po-head { margin-bottom: 22px; }
+.po-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+.po-tag {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: .68rem; font-weight: 500;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--silver-3);
+  border: 1px solid var(--line-d);
+  padding: 6px 13px; border-radius: 100px;
+}
+.po-status {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: .68rem; font-weight: 500;
+  letter-spacing: .04em;
+  padding: 6px 13px; border-radius: 100px;
+}
+.po-status-incl {
+  background: var(--white);
+  color: var(--ink);
+}
+.po-status-extra {
+  background: transparent;
+  color: var(--silver-3);
+  border: 1px solid rgba(255,255,255,.22);
+}
+.po-card h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: clamp(1.4rem, 2.6vw, 1.75rem);
+  color: var(--white);
+  letter-spacing: -.02em;
+  line-height: 1.1;
+}
+.po-video { margin-bottom: 22px; }
+.po-video-inner {
+  position: relative;
+  aspect-ratio: 9/16;
+  max-width: 260px;
+  margin: 0 auto;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--ink-3);
+  cursor: pointer;
+  border: 1px solid var(--line-d);
+}
+.po-poster {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  transition: transform .7s cubic-bezier(.22,.61,.36,1);
+}
+.po-video-inner:hover .po-poster { transform: scale(1.04); }
+.po-poster::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(10,10,11,.15), rgba(10,10,11,.5));
+}
+.po-badge {
+  position: absolute; top: 12px; left: 12px;
+  background: rgba(255,255,255,.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--white);
+  font-size: .64rem; font-weight: 500;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 6px 11px; border-radius: 100px;
+  border: 1px solid rgba(255,255,255,.16);
+  z-index: 3; pointer-events: none;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.po-badge .dot {
+  width: 5px; height: 5px; border-radius: 50%; background: var(--white);
+  animation: pulse 1.6s ease-in-out infinite;
+}
+.po-play {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.96);
+  display: grid; place-items: center;
+  cursor: pointer; border: none;
+  transition: transform .3s cubic-bezier(.22,.61,.36,1);
+  z-index: 3;
+  box-shadow: 0 8px 30px rgba(0,0,0,.4);
+}
+.po-play::before {
+  content: '';
+  width: 0; height: 0;
+  border-left: 17px solid var(--ink);
+  border-top: 11px solid transparent;
+  border-bottom: 11px solid transparent;
+  margin-left: 4px;
+}
+.po-video-inner:hover .po-play { transform: translate(-50%, -50%) scale(1.06); }
+.po-video-iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; z-index: 4; }
+.po-desc {
+  font-size: .94rem;
+  color: var(--silver-3);
+  line-height: 1.6;
+}
+.po-desc strong { color: var(--white); font-weight: 500; }
+.po-foot {
+  margin-top: auto;
+  padding-top: 18px;
+  font-family: 'Inter', sans-serif;
+  font-size: .8rem;
+  color: var(--silver);
+  line-height: 1.5;
+  border-top: 1px solid var(--line-d);
+}
+.po-card .po-video { margin-top: 0; }
+.po-card .po-desc { margin-bottom: 20px; }
+
+.po-grid-label {
+  font-family: 'Inter', sans-serif;
+  font-size: .68rem; font-weight: 500;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--silver);
+  margin: 56px 0 18px;
+}
+.po-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.po-shot {
+  aspect-ratio: 1;
+  border-radius: var(--r);
+  overflow: hidden;
+  background: var(--ink-3);
+}
+.po-shot img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .6s cubic-bezier(.22,.61,.36,1);
+}
+.po-shot:hover img { transform: scale(1.06); }
+
 /* ════════════════════════════════════════ REVEAL ANIMATIONS ════════════════════════════════════════ */
 .r { opacity: 0; transform: translateY(28px); transition: opacity .9s cubic-bezier(.22,.61,.36,1), transform .9s cubic-bezier(.22,.61,.36,1); }
 .r.in { opacity: 1; transform: none; }
@@ -958,6 +1129,7 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
 @media (max-width: 960px) {
   .wrap, .nav { padding-left: 24px; padding-right: 24px; }
   .pain-grid, .system-head, .results-head, .pricing-grid, .about-grid, .form-grid { grid-template-columns: 1fr; gap: 40px; }
+  .portfolio-options { grid-template-columns: 1fr; gap: 16px; }
   .results-grid, .testi-grid { grid-template-columns: 1fr 1fr; }
   .sys-row { grid-template-columns: 50px 1fr; row-gap: 6px; }
   .sys-row p { grid-column: 2; }
@@ -1034,6 +1206,10 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
   .form-grid { gap: 36px; }
   .form-row { grid-template-columns: 1fr; gap: 0; }
   .form-card { padding: 28px 24px 30px; }
+
+  .po-grid { gap: 6px; }
+  .po-grid-label { margin: 40px 0 14px; }
+  .po-video-inner { max-width: 220px; }
 
   .ft-top { flex-direction: column; align-items: flex-start; gap: 16px; }
   .ft-bot { flex-direction: column; gap: 8px; }
@@ -1237,6 +1413,73 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
   </div>
 </section>
 
+<!-- PORTFOLIO -->
+<section class="pad portfolio dark" aria-labelledby="portfolio-h">
+  <div class="wrap">
+    <div class="r" style="max-width:620px">
+      <span class="eyebrow">Portfolio · realizacje</span>
+      <h2 id="portfolio-h" class="title" style="color:#fff">Materiały tworzymy na <em>dwa sposoby</em>.</h2>
+      <p class="sub" style="margin-top:18px;color:var(--silver-3)">To dwie osobne opcje współpracy — z osobną wyceną. Wybierasz tę, która pasuje do Twojego salonu i tempa pracy.</p>
+    </div>
+
+    <div class="portfolio-options">
+      <!-- OPTION A — dodatkowo płatna (premium) -->
+      <div class="po-card po-card-featured r">
+        <div class="po-head">
+          <div class="po-tags">
+            <span class="po-tag">Opcja A</span>
+            <span class="po-status po-status-extra">Dodatkowo płatne</span>
+          </div>
+          <h3>Sesja z dojazdem</h3>
+        </div>
+        <div class="po-video">
+          <div class="po-video-inner" data-yt="ID_WIDEO_1" role="button" tabindex="0" aria-label="Odtwórz wideo: sesja z dojazdem">
+            <div class="po-poster" style="background-image:url('portfolio-6.jpg')"></div>
+            <span class="po-badge"><span class="dot" aria-hidden="true"></span> Reel 9:16</span>
+            <button class="po-play" type="button" aria-label="Odtwórz wideo"></button>
+          </div>
+        </div>
+        <p class="po-desc">Przyjeżdżam do Twojego salonu z kamerą i gimbalem. Sam reżyseruję ujęcia, światło i kadr — mam pełną kontrolę nad jakością i wyciskam z materiału maksimum efektywności. <strong>Najmocniejsza opcja:</strong> najwyższa jakość obrazu i materiały, których nie da się nagrać telefonem.</p>
+        <div class="po-foot">Wyceniana osobno, poza pakietem — zależnie od lokalizacji i zakresu sesji.</div>
+      </div>
+
+      <!-- OPTION B — w pakiecie -->
+      <div class="po-card r d1">
+        <div class="po-head">
+          <div class="po-tags">
+            <span class="po-tag">Opcja B</span>
+            <span class="po-status po-status-incl">W pakiecie 2&nbsp;500&nbsp;zł</span>
+          </div>
+          <h3>Nagrywasz — montuję zdalnie</h3>
+        </div>
+        <div class="po-video">
+          <div class="po-video-inner" data-yt="ID_WIDEO_2" role="button" tabindex="0" aria-label="Odtwórz wideo: materiały nagrane zdalnie">
+            <div class="po-poster" style="background-image:url('portfolio-4.jpg')"></div>
+            <span class="po-badge"><span class="dot" aria-hidden="true"></span> Reel 9:16</span>
+            <button class="po-play" type="button" aria-label="Odtwórz wideo"></button>
+          </div>
+        </div>
+        <p class="po-desc">Dostajesz gotową instrukcję, co nagrać telefonem. Nagrywasz <strong>jedną głosówkę</strong> — klonuję Twój głos w narzędziu i tworzę narrację do kolejnych wariantów. Z jednego montażu robię <strong>minimum 4 materiały</strong> reklamowe do testów.</p>
+        <div class="po-foot">Scenariusze i montaż wchodzą w stałą stawkę pakietu — bez dopłat.</div>
+      </div>
+    </div>
+
+    <!-- PHOTO GRID -->
+    <div class="po-grid-label r">Kadry z sesji</div>
+    <div class="po-grid">
+      <div class="po-shot r"><img src="portfolio-1.jpg" alt="Gabinet depilacji laserowej z laserem DEKA przy oknie — wnętrze premium" loading="lazy"></div>
+      <div class="po-shot r"><img src="portfolio-2.jpg" alt="Nogi klientki podczas zabiegu depilacji laserowej, sprzęt w tle" loading="lazy"></div>
+      <div class="po-shot r"><img src="portfolio-3.jpg" alt="Zabieg depilacji laserowej w trakcie — kosmetolożka z głowicą lasera" loading="lazy"></div>
+      <div class="po-shot r"><img src="portfolio-4.jpg" alt="Zbliżenie na zabieg depilacji laserowej z zielonym światłem celownika" loading="lazy"></div>
+      <div class="po-shot r"><img src="portfolio-5.jpg" alt="Przygotowanie do zabiegu — kosmetolożka w rękawiczkach zaznacza obszar" loading="lazy"></div>
+      <div class="po-shot r"><img src="portfolio-6.jpg" alt="Nagrywanie materiału wideo w salonie — telefon na gimbalu, kulisy" loading="lazy"></div>
+      <div class="po-shot r"><img src="portfolio-7.jpg" alt="Recepcja salonu Remedy z kosmetykami premium i kwiatami" loading="lazy"></div>
+      <div class="po-shot r"><img src="portfolio-8.jpg" alt="Klientka w szlafroku z drinkiem, relaks po zabiegu — atmosfera premium" loading="lazy"></div>
+      <div class="po-shot r"><img src="portfolio-9.jpg" alt="Klientka salonu w editorialowym kadrze przy czerwonej ścianie" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section class="pad faq" aria-labelledby="faq-h">
   <div class="wrap">
@@ -1361,6 +1604,29 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
   vslWrap.addEventListener('click', loadVSL);
   vslWrap.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); loadVSL(); }
+  });
+
+  // Portfolio videos — click to load
+  document.querySelectorAll('.po-video-inner').forEach(box => {
+    function loadPortfolioVid() {
+      if (box.querySelector('iframe')) return;
+      const ytId = box.getAttribute('data-yt');
+      if (!ytId || ytId.startsWith('ID_WIDEO')) return; // placeholder not yet replaced
+      const iframe = document.createElement('iframe');
+      iframe.className = 'po-video-iframe';
+      iframe.src = 'https://www.youtube.com/embed/' + ytId + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+      iframe.title = 'Wideo portfolio';
+      iframe.allow = 'autoplay; encrypted-media; picture-in-picture';
+      iframe.allowFullscreen = true;
+      box.appendChild(iframe);
+      box.querySelector('.po-poster')?.style.setProperty('opacity', '0');
+      box.querySelector('.po-play')?.style.setProperty('display', 'none');
+      box.querySelector('.po-badge')?.style.setProperty('display', 'none');
+    }
+    box.addEventListener('click', loadPortfolioVid);
+    box.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); loadPortfolioVid(); }
+    });
   });
 
   // FAQ accordion
