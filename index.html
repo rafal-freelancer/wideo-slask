@@ -1096,14 +1096,19 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
 }
 .po-grid {
   display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 14px;
+  align-items: start;
 }
 .po-shot {
-  aspect-ratio: 1;
+  aspect-ratio: 2 / 3;
   border-radius: var(--r);
   overflow: hidden;
   background: var(--ink-3);
 }
+/* schodkowy rytm — środkowa kolumna w dół, prawa lekko w dół */
+.po-shot:nth-child(3n+2) { transform: translateY(46px); }
+.po-shot:nth-child(3n+3) { transform: translateY(22px); }
+.po-grid { padding-bottom: 56px; }
 .po-shot img {
   width: 100%; height: 100%;
   object-fit: cover;
@@ -1207,7 +1212,9 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
   .form-row { grid-template-columns: 1fr; gap: 0; }
   .form-card { padding: 28px 24px 30px; }
 
-  .po-grid { gap: 6px; }
+  .po-grid { gap: 6px; padding-bottom: 26px; }
+  .po-shot:nth-child(3n+2) { transform: translateY(20px); }
+  .po-shot:nth-child(3n+3) { transform: translateY(10px); }
   .po-grid-label { margin: 40px 0 14px; }
   .po-video-inner { max-width: 220px; }
 
@@ -1434,7 +1441,7 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
         </div>
         <div class="po-video">
           <div class="po-video-inner" data-yt="ID_WIDEO_1" role="button" tabindex="0" aria-label="Odtwórz wideo: sesja z dojazdem">
-            <div class="po-poster" style="background-image:url('portfolio-6.jpg')"></div>
+            <div class="po-poster" style="background-image:url('portfolio-4.jpg')"></div>
             <span class="po-badge"><span class="dot" aria-hidden="true"></span> Reel 9:16</span>
             <button class="po-play" type="button" aria-label="Odtwórz wideo"></button>
           </div>
@@ -1454,7 +1461,7 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
         </div>
         <div class="po-video">
           <div class="po-video-inner" data-yt="ID_WIDEO_2" role="button" tabindex="0" aria-label="Odtwórz wideo: materiały nagrane zdalnie">
-            <div class="po-poster" style="background-image:url('portfolio-4.jpg')"></div>
+            <div class="po-poster" style="background-image:url('portfolio-9.jpg')"></div>
             <span class="po-badge"><span class="dot" aria-hidden="true"></span> Reel 9:16</span>
             <button class="po-play" type="button" aria-label="Odtwórz wideo"></button>
           </div>
@@ -1467,15 +1474,15 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
     <!-- PHOTO GRID -->
     <div class="po-grid-label r">Kadry z sesji</div>
     <div class="po-grid">
-      <div class="po-shot r"><img src="portfolio-1.jpg" alt="Gabinet depilacji laserowej z laserem DEKA przy oknie — wnętrze premium" loading="lazy"></div>
-      <div class="po-shot r"><img src="portfolio-2.jpg" alt="Nogi klientki podczas zabiegu depilacji laserowej, sprzęt w tle" loading="lazy"></div>
-      <div class="po-shot r"><img src="portfolio-3.jpg" alt="Zabieg depilacji laserowej w trakcie — kosmetolożka z głowicą lasera" loading="lazy"></div>
-      <div class="po-shot r"><img src="portfolio-4.jpg" alt="Zbliżenie na zabieg depilacji laserowej z zielonym światłem celownika" loading="lazy"></div>
-      <div class="po-shot r"><img src="portfolio-5.jpg" alt="Przygotowanie do zabiegu — kosmetolożka w rękawiczkach zaznacza obszar" loading="lazy"></div>
-      <div class="po-shot r"><img src="portfolio-6.jpg" alt="Nagrywanie materiału wideo w salonie — telefon na gimbalu, kulisy" loading="lazy"></div>
-      <div class="po-shot r"><img src="portfolio-7.jpg" alt="Recepcja salonu Remedy z kosmetykami premium i kwiatami" loading="lazy"></div>
-      <div class="po-shot r"><img src="portfolio-8.jpg" alt="Klientka w szlafroku z drinkiem, relaks po zabiegu — atmosfera premium" loading="lazy"></div>
-      <div class="po-shot r"><img src="portfolio-9.jpg" alt="Klientka salonu w editorialowym kadrze przy czerwonej ścianie" loading="lazy"></div>
+      <div class="po-shot r"><img src="portfolio-1.jpg" alt="Klientka w szlafroku z kieliszkiem przy ciepłej, okrągłej lampie — atmosfera premium" loading="lazy"></div>
+      <div class="po-shot r"><img src="portfolio-2.jpg" alt="Przygotowanie do zabiegu — kosmetolożka w rękawiczkach zaznacza obszar na nodze" loading="lazy"></div>
+      <div class="po-shot r"><img src="portfolio-3.jpg" alt="Nogi klientki podczas zabiegu depilacji laserowej, laser DEKA w tle" loading="lazy"></div>
+      <div class="po-shot r"><img src="portfolio-4.jpg" alt="Nagrywanie materiału wideo w salonie — telefon na gimbalu, kulisy" loading="lazy"></div>
+      <div class="po-shot r"><img src="portfolio-5.jpg" alt="Recepcja salonu Remedy z kosmetykami premium i białymi różami" loading="lazy"></div>
+      <div class="po-shot r"><img src="portfolio-6.jpg" alt="Klientka w szlafroku z drinkiem, uśmiech i relaks po zabiegu" loading="lazy"></div>
+      <div class="po-shot r"><img src="portfolio-7.jpg" alt="Klientka w editorialowym kadrze przy czerwono-złotej ścianie" loading="lazy"></div>
+      <div class="po-shot r"><img src="portfolio-8.jpg" alt="Gabinet depilacji laserowej z laserem DEKA przy oknie — wnętrze premium" loading="lazy"></div>
+      <div class="po-shot r"><img src="portfolio-9.jpg" alt="Zbliżenie na zabieg depilacji laserowej z zielonym światłem celownika" loading="lazy"></div>
     </div>
   </div>
 </section>
