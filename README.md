@@ -14,6 +14,8 @@ Landing page Rafała Małoty: system pozyskiwania klientek premium na depilację
 | `makijaz.png` | Screen wyników kampanii Kielce (25 leadów, 59,65 zł/lead) | ~675 KB |
 | `rafal.png` | Twój portret do sekcji „O mnie" | ~1,2 MB |
 | `portfolio-1.jpg` … `portfolio-9.jpg` | 9 zdjęć z sesji do sekcji Portfolio (grid 3×3) | ~45–130 KB każde |
+| `opinia-poster.jpg` | Miniatura pod wideo z opinią klientki (poziome 16:9) | ~75 KB |
+| `moma-1.jpg` … `moma-6.jpg` | 6 zdjęć z sesji moma beauty lounge (grid 3×2) | ~42–70 KB każde |
 
 **Ważne:** nazwy plików muszą być dokładnie takie jak wyżej (małe litery, bez polskich znaków). Plik `index.html` odwołuje się do nich po nazwie.
 
@@ -25,12 +27,13 @@ W sekcji „Portfolio · realizacje" są dwa miejsca na wideo (9:16, pionowe). T
 
 1. Wgraj oba filmy na YouTube (mogą być niepubliczne / „niepubliczne z linkiem")
 2. Skopiuj ID każdego filmu z adresu — np. w `youtube.com/watch?v=AFnpVkSqo58` ID to `AFnpVkSqo58`
-3. W `index.html` znajdź `data-yt="ID_WIDEO_1"` (Opcja A — sesja z dojazdem) i `data-yt="ID_WIDEO_2"` (Opcja B — montaż zdalny)
+3. W `index.html` znajdź `data-yt="ID_WIDEO_1"` (realizacja Kielce) i `data-yt="ID_WIDEO_2"` (realizacja Warszawa)
 4. Podmień `ID_WIDEO_1` i `ID_WIDEO_2` na realne ID swoich filmów
+5. Wideo z opinią klientki: znajdź `data-yt="ID_WIDEO_OPINIA"` i podmień na ID filmu z opinią (do tego czasu wyświetla się miniatura `opinia-poster.jpg`)
 
 Po podmianie kliknięcie w miniaturkę odpali wideo. Dopóki tego nie zrobisz, miniaturka po prostu nie reaguje na klik (żeby nie pokazywać błędu).
 
-Możesz też podmienić zdjęcia-miniaturki pod wideo — szukaj `portfolio-6.jpg` (Opcja A) i `portfolio-4.jpg` (Opcja B) w sekcji portfolio.
+Możesz też podmienić zdjęcia-miniaturki pod wideo — szukaj `portfolio-4.jpg` (Kielce) i `portfolio-9.jpg` (Warszawa) w sekcji portfolio.
 
 ---
 

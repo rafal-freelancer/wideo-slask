@@ -104,6 +104,7 @@ h2.title em { font-style: italic; font-weight: 300; color: var(--silver); }
   max-width: 36em;
 }
 .dark .sub { color: var(--silver-3); }
+.sub strong { color: var(--white); font-weight: 500; }
 
 /* ════════════════════════════════════════ BUTTONS ════════════════════════════════════════ */
 .btn {
@@ -968,10 +969,6 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
   padding: clamp(24px, 3vw, 32px);
   display: flex; flex-direction: column;
 }
-.po-card-featured {
-  border-color: rgba(255,255,255,.22);
-  background: linear-gradient(160deg, #18181b 0%, var(--ink-2) 100%);
-}
 .po-head { margin-bottom: 22px; }
 .po-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
 .po-tag {
@@ -990,11 +987,7 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
   letter-spacing: .04em;
   padding: 6px 13px; border-radius: 100px;
 }
-.po-status-incl {
-  background: var(--white);
-  color: var(--ink);
-}
-.po-status-extra {
+.po-status-place {
   background: transparent;
   color: var(--silver-3);
   border: 1px solid rgba(255,255,255,.22);
@@ -1069,23 +1062,7 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
 }
 .po-video-inner:hover .po-play { transform: translate(-50%, -50%) scale(1.06); }
 .po-video-iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; z-index: 4; }
-.po-desc {
-  font-size: .94rem;
-  color: var(--silver-3);
-  line-height: 1.6;
-}
-.po-desc strong { color: var(--white); font-weight: 500; }
-.po-foot {
-  margin-top: auto;
-  padding-top: 18px;
-  font-family: 'Inter', sans-serif;
-  font-size: .8rem;
-  color: var(--silver);
-  line-height: 1.5;
-  border-top: 1px solid var(--line-d);
-}
 .po-card .po-video { margin-top: 0; }
-.po-card .po-desc { margin-bottom: 20px; }
 
 .po-grid-label {
   font-family: 'Inter', sans-serif;
@@ -1110,6 +1087,28 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
   transition: transform .6s cubic-bezier(.22,.61,.36,1);
 }
 .po-shot:hover img { transform: scale(1.06); }
+
+/* ── OPINIA WIDEO (poziome 16:9) ── */
+.opinia-head { max-width: 640px; }
+.opinia-video { margin-top: 44px; }
+.opinia-inner {
+  aspect-ratio: 16 / 9;
+  max-width: 860px;
+  width: 100%;
+}
+.opinia-inner .po-play { transform: translate(-50%, -50%) scale(1.15); }
+.opinia-inner:hover .po-play { transform: translate(-50%, -50%) scale(1.22); }
+
+/* ── GALERIA MOMA (3×2) ── */
+.moma-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 52px;
+}
+@media (max-width: 760px) {
+  .moma-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .opinia-video { margin-top: 28px; }
+}
 
 /* ════════════════════════════════════════ REVEAL ANIMATIONS ════════════════════════════════════════ */
 .r { opacity: 0; transform: translateY(28px); transition: opacity .9s cubic-bezier(.22,.61,.36,1), transform .9s cubic-bezier(.22,.61,.36,1); }
@@ -1413,60 +1412,78 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
   </div>
 </section>
 
-<!-- PORTFOLIO -->
+<!-- REALIZACJE WIDEO -->
 <section class="pad portfolio dark" aria-labelledby="portfolio-h">
   <div class="wrap">
-    <div class="r" style="max-width:620px">
-      <span class="eyebrow">Portfolio · realizacje</span>
-      <h2 id="portfolio-h" class="title" style="color:#fff">Materiały tworzymy na <em>dwa sposoby</em>.</h2>
-      <p class="sub" style="margin-top:18px;color:var(--silver-3)">To dwie osobne opcje współpracy — z osobną wyceną. Wybierasz tę, która pasuje do Twojego salonu i tempa pracy.</p>
+    <div class="r" style="max-width:640px">
+      <span class="eyebrow">Realizacje · reklamy wideo</span>
+      <h2 id="portfolio-h" class="title" style="color:#fff">Tak wyglądają <em>Twoje materiały</em>.</h2>
+      <p class="sub" style="margin-top:18px;color:var(--silver-3)">Wymyślam i tworzę całość pod profil Twojej idealnej klientki. Ty nagrywasz <strong>jedną głosówkę</strong>, ja robię z niej kolejne warianty.</p>
     </div>
 
     <div class="portfolio-options">
-      <!-- OPTION A — dodatkowo płatna (premium) -->
-      <div class="po-card po-card-featured r">
+      <!-- REALIZACJA 1 -->
+      <div class="po-card r">
         <div class="po-head">
           <div class="po-tags">
-            <span class="po-tag">Opcja A</span>
-            <span class="po-status po-status-extra">Dodatkowo płatne</span>
+            <span class="po-tag">Realizacja</span>
           </div>
-          <h3>Sesja z dojazdem</h3>
         </div>
         <div class="po-video">
-          <div class="po-video-inner" data-yt="ID_WIDEO_1" role="button" tabindex="0" aria-label="Odtwórz wideo: sesja z dojazdem">
+          <div class="po-video-inner" data-yt="ID_WIDEO_1" role="button" tabindex="0" aria-label="Odtwórz wideo: realizacja">
             <div class="po-poster" style="background-image:url('portfolio-4.jpg')"></div>
             <span class="po-badge"><span class="dot" aria-hidden="true"></span> Reel 9:16</span>
             <button class="po-play" type="button" aria-label="Odtwórz wideo"></button>
           </div>
         </div>
-        <p class="po-desc">Przyjeżdżam do Twojego salonu z kamerą i gimbalem. Sam reżyseruję ujęcia, światło i kadr — mam pełną kontrolę nad jakością i wyciskam z materiału maksimum efektywności. <strong>Najmocniejsza opcja:</strong> najwyższa jakość obrazu i materiały, których nie da się nagrać telefonem.</p>
-        <div class="po-foot">Wyceniana osobno, poza pakietem — zależnie od lokalizacji i zakresu sesji.</div>
       </div>
 
-      <!-- OPTION B — w pakiecie -->
+      <!-- REALIZACJA 2 -->
       <div class="po-card r d1">
         <div class="po-head">
           <div class="po-tags">
-            <span class="po-tag">Opcja B</span>
-            <span class="po-status po-status-incl">W pakiecie 2&nbsp;500&nbsp;zł</span>
+            <span class="po-tag">Realizacja</span>
           </div>
-          <h3>Nagrywasz — montuję zdalnie</h3>
         </div>
         <div class="po-video">
-          <div class="po-video-inner" data-yt="ID_WIDEO_2" role="button" tabindex="0" aria-label="Odtwórz wideo: materiały nagrane zdalnie">
+          <div class="po-video-inner" data-yt="ID_WIDEO_2" role="button" tabindex="0" aria-label="Odtwórz wideo: realizacja">
             <div class="po-poster" style="background-image:url('portfolio-9.jpg')"></div>
             <span class="po-badge"><span class="dot" aria-hidden="true"></span> Reel 9:16</span>
             <button class="po-play" type="button" aria-label="Odtwórz wideo"></button>
           </div>
         </div>
-        <p class="po-desc">Dostajesz gotową instrukcję, co nagrać telefonem. Nagrywasz <strong>jedną głosówkę</strong> — klonuję Twój głos w narzędziu i tworzę narrację do kolejnych wariantów. Z jednego montażu robię <strong>minimum 4 materiały</strong> reklamowe do testów.</p>
-        <div class="po-foot">Scenariusze i montaż wchodzą w stałą stawkę pakietu — bez dopłat.</div>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- PHOTO GRID -->
-    <div class="po-grid-label r">Kadry z sesji</div>
-    <div class="po-grid">
+<!-- OPINIA WIDEO (białe tło) -->
+<section class="pad opinia" aria-labelledby="opinia-h">
+  <div class="wrap">
+    <div class="opinia-head r">
+      <span class="eyebrow">Opinia · wideo</span>
+      <h2 id="opinia-h" class="title">Co mówią <em>klienci</em>.</h2>
+      <p class="sub" style="margin-top:18px">Z salonem <strong>moma beauty lounge</strong> współpracujemy od ponad trzech miesięcy. Posłuchaj, jak właścicielka opowiada o efektach naszej współpracy.</p>
+    </div>
+    <div class="opinia-video r">
+      <div class="po-video-inner opinia-inner" data-yt="ID_WIDEO_OPINIA" role="button" tabindex="0" aria-label="Odtwórz wideo z opinią klientki">
+        <div class="po-poster" style="background-image:url('opinia-poster.jpg')"></div>
+        <span class="po-badge"><span class="dot" aria-hidden="true"></span> Opinia · 1 min</span>
+        <button class="po-play" type="button" aria-label="Odtwórz wideo"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SESJA REMEDY WARSAW -->
+<section class="pad portfolio dark" aria-labelledby="remedy-h">
+  <div class="wrap">
+    <div class="r" style="max-width:640px">
+      <span class="eyebrow">Sesja zdjęciowa · Remedy Warsaw</span>
+      <h2 id="remedy-h" class="title" style="color:#fff">Salon depilacji laserowej, <em>Warszawa</em>.</h2>
+      <p class="sub" style="margin-top:18px;color:var(--silver-3)">Kadry z sesji w salonie Remedy — wnętrze, zabieg i atmosfera premium.</p>
+    </div>
+    <div class="po-grid" style="margin-top:52px">
       <div class="po-shot r"><img src="portfolio-1.jpg" alt="Klientka w szlafroku z kieliszkiem przy ciepłej, okrągłej lampie — atmosfera premium" loading="lazy"></div>
       <div class="po-shot r"><img src="portfolio-2.jpg" alt="Przygotowanie do zabiegu — kosmetolożka w rękawiczkach zaznacza obszar na nodze" loading="lazy"></div>
       <div class="po-shot r"><img src="portfolio-3.jpg" alt="Nogi klientki podczas zabiegu depilacji laserowej, laser DEKA w tle" loading="lazy"></div>
@@ -1476,6 +1493,25 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
       <div class="po-shot r"><img src="portfolio-7.jpg" alt="Klientka w editorialowym kadrze przy czerwono-złotej ścianie" loading="lazy"></div>
       <div class="po-shot r"><img src="portfolio-8.jpg" alt="Gabinet depilacji laserowej z laserem DEKA przy oknie — wnętrze premium" loading="lazy"></div>
       <div class="po-shot r"><img src="portfolio-9.jpg" alt="Zbliżenie na zabieg depilacji laserowej z zielonym światłem celownika" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SESJA MOMA -->
+<section class="pad moma-wrap" aria-labelledby="moma-h">
+  <div class="wrap">
+    <div class="r" style="max-width:640px">
+      <span class="eyebrow">Sesja grupowa · moma klinika</span>
+      <h2 id="moma-h" class="title">Zespół i kulisy w <em>moma</em>.</h2>
+      <p class="sub" style="margin-top:18px">Sesja zespołowa i kulisy nagrań w moma beauty lounge — ludzie, wnętrze i proces powstawania materiałów.</p>
+    </div>
+    <div class="moma-grid">
+      <div class="po-shot r"><img src="moma-1.jpg" alt="Zespół salonu moma beauty lounge w białych koszulkach" loading="lazy"></div>
+      <div class="po-shot r"><img src="moma-2.jpg" alt="Właścicielka salonu z laptopem i kawą — sesja wizerunkowa" loading="lazy"></div>
+      <div class="po-shot r"><img src="moma-3.jpg" alt="Kosmetolożka zakładająca rękawiczkę przed zabiegiem" loading="lazy"></div>
+      <div class="po-shot r"><img src="moma-4.jpg" alt="Nagrywanie materiału przy podświetlanym lustrze — kulisy" loading="lazy"></div>
+      <div class="po-shot r"><img src="moma-5.jpg" alt="Prezentacja profilu salonu na Instagramie" loading="lazy"></div>
+      <div class="po-shot r"><img src="moma-6.jpg" alt="Nagranie na planie ze światłem filmowym — kulisy realizacji" loading="lazy"></div>
     </div>
   </div>
 </section>
