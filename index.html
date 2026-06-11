@@ -1071,21 +1071,25 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
   color: var(--silver);
   margin: 56px 0 18px;
 }
-.po-grid, .moma-grid {
-  columns: 3;
-  column-gap: 12px;
+.po-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 52px;
+}
+.moma-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
   margin-top: 52px;
 }
 .po-shot {
-  break-inside: avoid;
-  margin: 0 0 12px;
+  aspect-ratio: 1 / 1;
   border-radius: var(--r);
   overflow: hidden;
   background: var(--ink-3);
-  display: block;
 }
 .po-shot img {
-  width: 100%; height: auto; display: block;
+  width: 100%; height: 100%;
+  object-fit: cover;
   transition: transform .6s cubic-bezier(.22,.61,.36,1);
 }
 .po-shot:hover img { transform: scale(1.06); }
@@ -1101,10 +1105,10 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
 .opinia-inner .po-play { transform: translate(-50%, -50%) scale(1.15); }
 .opinia-inner:hover .po-play { transform: translate(-50%, -50%) scale(1.22); }
 
-/* ── MOBILE: galerie 2 kolumny, opinia pełna szerokość, reele większe ── */
+/* ── MOBILE: opinia pełna szerokość, reele większe ── */
 @media (max-width: 760px) {
-  .po-grid, .moma-grid { columns: 2; column-gap: 8px; }
-  .po-shot { margin-bottom: 8px; }
+  .po-grid { gap: 6px; }
+  .moma-grid { gap: 8px; }
   .opinia-video { margin-top: 28px; }
   /* opinia 16:9 na całą szerokość ekranu (full-bleed) */
   .opinia-inner {
@@ -1494,12 +1498,9 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
     <div class="po-grid" style="margin-top:52px">
       <div class="po-shot r"><img src="portfolio-1.jpg" alt="Klientka w szlafroku z kieliszkiem przy ciepłej, okrągłej lampie — atmosfera premium" loading="lazy"></div>
       <div class="po-shot r"><img src="portfolio-2.jpg" alt="Przygotowanie do zabiegu — kosmetolożka w rękawiczkach zaznacza obszar na nodze" loading="lazy"></div>
-      <div class="po-shot r"><img src="portfolio-3.jpg" alt="Nogi klientki podczas zabiegu depilacji laserowej, laser DEKA w tle" loading="lazy"></div>
-      <div class="po-shot r"><img src="portfolio-4.jpg" alt="Nagrywanie materiału wideo w salonie — telefon na gimbalu, kulisy" loading="lazy"></div>
+      <div class="po-shot r"><img src="portfolio-4.jpg" alt="Nogi klientki podczas zabiegu depilacji laserowej przy oknie salonu" loading="lazy"></div>
       <div class="po-shot r"><img src="portfolio-5.jpg" alt="Recepcja salonu Remedy z kosmetykami premium i białymi różami" loading="lazy"></div>
       <div class="po-shot r"><img src="portfolio-6.jpg" alt="Klientka w szlafroku z drinkiem, uśmiech i relaks po zabiegu" loading="lazy"></div>
-      <div class="po-shot r"><img src="portfolio-7.jpg" alt="Klientka w editorialowym kadrze przy czerwono-złotej ścianie" loading="lazy"></div>
-      <div class="po-shot r"><img src="portfolio-8.jpg" alt="Gabinet depilacji laserowej z laserem DEKA przy oknie — wnętrze premium" loading="lazy"></div>
       <div class="po-shot r"><img src="portfolio-9.jpg" alt="Zbliżenie na zabieg depilacji laserowej z zielonym światłem celownika" loading="lazy"></div>
     </div>
   </div>
@@ -1518,8 +1519,8 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
       <div class="po-shot r"><img src="moma-2.jpg" alt="Właścicielka salonu z laptopem i kawą — sesja wizerunkowa" loading="lazy"></div>
       <div class="po-shot r"><img src="moma-3.jpg" alt="Kosmetolożka zakładająca rękawiczkę przed zabiegiem" loading="lazy"></div>
       <div class="po-shot r"><img src="moma-4.jpg" alt="Nagrywanie materiału przy podświetlanym lustrze — kulisy" loading="lazy"></div>
-      <div class="po-shot r"><img src="moma-5.jpg" alt="Prezentacja profilu salonu na Instagramie" loading="lazy"></div>
       <div class="po-shot r"><img src="moma-6.jpg" alt="Nagranie na planie ze światłem filmowym — kulisy realizacji" loading="lazy"></div>
+      <div class="po-shot r"><img src="moma-5.jpg" alt="Prezentacja profilu salonu na Instagramie" loading="lazy"></div>
     </div>
   </div>
 </section>
