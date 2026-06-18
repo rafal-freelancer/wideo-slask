@@ -13,27 +13,35 @@ Landing page Rafała Małoty: system pozyskiwania klientek premium na depilację
 | `mezoterapia.png` | Screen wyników kampanii Gdańsk (37 leadów, 40,37 zł/lead) | ~688 KB |
 | `makijaz.png` | Screen wyników kampanii Kielce (25 leadów, 59,65 zł/lead) | ~675 KB |
 | `rafal.png` | Twój portret do sekcji „O mnie" | ~1,2 MB |
-| `portfolio-1.jpg` … `portfolio-9.jpg` | 9 zdjęć z sesji do sekcji Portfolio (grid 3×3) | ~45–130 KB każde |
-| `opinia-poster.jpg` | Miniatura pod wideo z opinią klientki (poziome 16:9) | ~75 KB |
-| `moma-1.jpg` … `moma-6.jpg` | 6 zdjęć z sesji moma beauty lounge (grid 3×2) | ~42–70 KB każde |
+| `portfolio-1.jpg` … `portfolio-9.jpg` | Zdjęcia z sesji Remedy. W galerii użyte jest 6: 1, 2, 4, 5, 6, 9 (grid 3 rzędy × 2). Pliki 3, 7, 8 zostają w paczce, ale nie są używane | ~45–130 KB każde |
+| `opinia-poster.jpg` | Miniatura-fallback pod wideo z opinią (póki nie ma ID z YouTube) | ~75 KB |
+| `moma-1.jpg` … `moma-6.jpg` | 6 zdjęć z sesji moma beauty lounge (grid 3 rzędy × 2) | ~42–70 KB każde |
 
 **Ważne:** nazwy plików muszą być dokładnie takie jak wyżej (małe litery, bez polskich znaków). Plik `index.html` odwołuje się do nich po nazwie.
 
 ---
 
-## Dwa wideo w sekcji Portfolio — jak podpiąć
+## Wideo: 6 realizacji + opinia — jak podpiąć
 
-W sekcji „Portfolio · realizacje" są dwa miejsca na wideo (9:16, pionowe). Teraz pokazują tylko miniaturkę ze zdjęciem — nie odtwarzają się, dopóki nie wkleisz ID filmu z YouTube.
+W sekcji „Realizacje · reklamy wideo" jest **6 miejsc na pionowe reele (9:16)**, ułożone 3 w rzędzie × 2 rzędy (na telefonie 2 w rzędzie). Osobno, niżej, jest **wideo z opinią klientki** (poziome 16:9).
 
-1. Wgraj oba filmy na YouTube (mogą być niepubliczne / „niepubliczne z linkiem")
-2. Skopiuj ID każdego filmu z adresu — np. w `youtube.com/watch?v=AFnpVkSqo58` ID to `AFnpVkSqo58`
-3. W `index.html` znajdź `data-yt="ID_WIDEO_1"` (realizacja Kielce) i `data-yt="ID_WIDEO_2"` (realizacja Warszawa)
-4. Podmień `ID_WIDEO_1` i `ID_WIDEO_2` na realne ID swoich filmów
-5. Wideo z opinią klientki: znajdź `data-yt="ID_WIDEO_OPINIA"` i podmień na ID filmu z opinią (do tego czasu wyświetla się miniatura `opinia-poster.jpg`)
+**Miniatury pobierają się automatycznie z YouTube** — nie trzeba żadnych plików-posterów. Strona sama zaciąga miniaturę z serwera YouTube: dla pionowych reeli bierze kadr w oryginalnych (pionowych) proporcjach, dla opinii (16:9) wersję hi-res.
 
-Po podmianie kliknięcie w miniaturkę odpali wideo. Dopóki tego nie zrobisz, miniaturka po prostu nie reaguje na klik (żeby nie pokazywać błędu).
+**Filmy są już wpięte** — ID wszystkich 7 filmów są podstawione w `index.html`, nic nie trzeba podmieniać. Warunek: filmy na YouTube muszą być **publiczne** albo **niepubliczne (z linkiem)** — przy ustawieniu „prywatny" miniatura i odtwarzanie nie zadziałają.
 
-Możesz też podmienić zdjęcia-miniaturki pod wideo — szukaj `portfolio-4.jpg` (Kielce) i `portfolio-9.jpg` (Warszawa) w sekcji portfolio.
+Wpięte ID (gdyby kiedyś trzeba było zmienić — szukaj `data-yt="..."` w `index.html`):
+
+| Miejsce | ID |
+|---|---|
+| Opinia (16:9) | `a29EvlRRqq8` |
+| Realizacja 1 | `H7qjE0vkblI` |
+| Realizacja 2 | `lQuFrrre3OY` |
+| Realizacja 3 | `ra1ebdzxq8M` |
+| Realizacja 4 | `FQaXFT-HjSo` |
+| Realizacja 5 | `UtpQqg5B8iA` |
+| Realizacja 6 | `_edr_0yScbQ` |
+
+Kliknięcie w kafelek odpala film w miejscu (bez wychodzenia ze strony).
 
 ---
 

@@ -958,15 +958,15 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
 .portfolio .wrap { position: relative; z-index: 2; }
 
 .portfolio-options {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 18px;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
   margin-top: 52px;
 }
 .po-card {
-  background: var(--ink-2);
-  border: 1px solid var(--line-d);
-  border-radius: var(--r-xl);
-  padding: clamp(24px, 3vw, 32px);
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
   display: flex; flex-direction: column;
 }
 .po-head { margin-bottom: 22px; }
@@ -1000,12 +1000,13 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
   letter-spacing: -.02em;
   line-height: 1.1;
 }
-.po-video { margin-bottom: 22px; }
+.po-video { margin-bottom: 0; }
 .po-video-inner {
   position: relative;
   aspect-ratio: 9/16;
-  max-width: 260px;
+  max-width: 300px;
   margin: 0 auto;
+  width: 100%;
   border-radius: var(--r-lg);
   overflow: hidden;
   background: var(--ink-3);
@@ -1140,7 +1141,7 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
 @media (max-width: 960px) {
   .wrap, .nav { padding-left: 24px; padding-right: 24px; }
   .pain-grid, .system-head, .results-head, .pricing-grid, .about-grid, .form-grid { grid-template-columns: 1fr; gap: 40px; }
-  .portfolio-options { grid-template-columns: 1fr; gap: 16px; }
+  .portfolio-options { grid-template-columns: repeat(2, 1fr); gap: 18px; }
   .results-grid, .testi-grid { grid-template-columns: 1fr 1fr; }
   .sys-row { grid-template-columns: 50px 1fr; row-gap: 6px; }
   .sys-row p { grid-column: 2; }
@@ -1220,7 +1221,6 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
 
   .po-grid { gap: 10px; }
   .po-grid-label { margin: 40px 0 14px; }
-  .po-video-inner { max-width: 220px; }
 
   .ft-top { flex-direction: column; align-items: flex-start; gap: 16px; }
   .ft-bot { flex-direction: column; gap: 8px; }
@@ -1434,37 +1434,48 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
     </div>
 
     <div class="portfolio-options">
-      <!-- REALIZACJA 1 -->
-      <div class="po-card r">
-        <div class="po-head">
-          <div class="po-tags">
-            <span class="po-tag">Realizacja</span>
-          </div>
+      <div class="po-card r"><div class="po-video">
+        <div class="po-video-inner" data-yt="H7qjE0vkblI" data-poster="auto" role="button" tabindex="0" aria-label="Odtwórz wideo: realizacja 1">
+          <div class="po-poster"></div>
+          <span class="po-badge"><span class="dot" aria-hidden="true"></span> Reel 9:16</span>
+          <button class="po-play" type="button" aria-label="Odtwórz wideo"></button>
         </div>
-        <div class="po-video">
-          <div class="po-video-inner" data-yt="ID_WIDEO_1" role="button" tabindex="0" aria-label="Odtwórz wideo: realizacja">
-            <div class="po-poster" style="background-image:url('portfolio-4.jpg')"></div>
-            <span class="po-badge"><span class="dot" aria-hidden="true"></span> Reel 9:16</span>
-            <button class="po-play" type="button" aria-label="Odtwórz wideo"></button>
-          </div>
+      </div></div>
+      <div class="po-card r d1"><div class="po-video">
+        <div class="po-video-inner" data-yt="lQuFrrre3OY" data-poster="auto" role="button" tabindex="0" aria-label="Odtwórz wideo: realizacja 2">
+          <div class="po-poster"></div>
+          <span class="po-badge"><span class="dot" aria-hidden="true"></span> Reel 9:16</span>
+          <button class="po-play" type="button" aria-label="Odtwórz wideo"></button>
         </div>
-      </div>
-
-      <!-- REALIZACJA 2 -->
-      <div class="po-card r d1">
-        <div class="po-head">
-          <div class="po-tags">
-            <span class="po-tag">Realizacja</span>
-          </div>
+      </div></div>
+      <div class="po-card r d2"><div class="po-video">
+        <div class="po-video-inner" data-yt="ra1ebdzxq8M" data-poster="auto" role="button" tabindex="0" aria-label="Odtwórz wideo: realizacja 3">
+          <div class="po-poster"></div>
+          <span class="po-badge"><span class="dot" aria-hidden="true"></span> Reel 9:16</span>
+          <button class="po-play" type="button" aria-label="Odtwórz wideo"></button>
         </div>
-        <div class="po-video">
-          <div class="po-video-inner" data-yt="ID_WIDEO_2" role="button" tabindex="0" aria-label="Odtwórz wideo: realizacja">
-            <div class="po-poster" style="background-image:url('portfolio-9.jpg')"></div>
-            <span class="po-badge"><span class="dot" aria-hidden="true"></span> Reel 9:16</span>
-            <button class="po-play" type="button" aria-label="Odtwórz wideo"></button>
-          </div>
+      </div></div>
+      <div class="po-card r d3"><div class="po-video">
+        <div class="po-video-inner" data-yt="FQaXFT-HjSo" data-poster="auto" role="button" tabindex="0" aria-label="Odtwórz wideo: realizacja 4">
+          <div class="po-poster"></div>
+          <span class="po-badge"><span class="dot" aria-hidden="true"></span> Reel 9:16</span>
+          <button class="po-play" type="button" aria-label="Odtwórz wideo"></button>
         </div>
-      </div>
+      </div></div>
+      <div class="po-card r d4"><div class="po-video">
+        <div class="po-video-inner" data-yt="UtpQqg5B8iA" data-poster="auto" role="button" tabindex="0" aria-label="Odtwórz wideo: realizacja 5">
+          <div class="po-poster"></div>
+          <span class="po-badge"><span class="dot" aria-hidden="true"></span> Reel 9:16</span>
+          <button class="po-play" type="button" aria-label="Odtwórz wideo"></button>
+        </div>
+      </div></div>
+      <div class="po-card r d5"><div class="po-video">
+        <div class="po-video-inner" data-yt="_edr_0yScbQ" data-poster="auto" role="button" tabindex="0" aria-label="Odtwórz wideo: realizacja 6">
+          <div class="po-poster"></div>
+          <span class="po-badge"><span class="dot" aria-hidden="true"></span> Reel 9:16</span>
+          <button class="po-play" type="button" aria-label="Odtwórz wideo"></button>
+        </div>
+      </div></div>
     </div>
   </div>
 </section>
@@ -1478,7 +1489,7 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
       <p class="sub" style="margin-top:18px">Z salonem <strong>moma beauty lounge</strong> współpracujemy od ponad trzech miesięcy. Posłuchaj, jak właścicielka opowiada o efektach naszej współpracy.</p>
     </div>
     <div class="opinia-video r">
-      <div class="po-video-inner opinia-inner" data-yt="ID_WIDEO_OPINIA" role="button" tabindex="0" aria-label="Odtwórz wideo z opinią klientki">
+      <div class="po-video-inner opinia-inner" data-yt="a29EvlRRqq8" data-poster="auto" role="button" tabindex="0" aria-label="Odtwórz wideo z opinią klientki">
         <div class="po-poster" style="background-image:url('opinia-poster.jpg')"></div>
         <span class="po-badge"><span class="dot" aria-hidden="true"></span> Opinia · 1 min</span>
         <button class="po-play" type="button" aria-label="Odtwórz wideo"></button>
@@ -1651,15 +1662,42 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); loadVSL(); }
   });
 
-  // Portfolio videos — click to load
+  // Portfolio videos — click to load + auto-pull thumbnail from YouTube
   document.querySelectorAll('.po-video-inner').forEach(box => {
+    const ytId = box.getAttribute('data-yt');
+
+    // auto-pull miniatury z YouTube — pionowe reele biorą oryginalny (pionowy) kadr,
+    // opinia (16:9) bierze maxres; każdy z fallbackiem do hqdefault
+    if (box.getAttribute('data-poster') === 'auto' && ytId && !ytId.startsWith('ID_WIDEO')) {
+      const poster = box.querySelector('.po-poster');
+      if (poster) {
+        const vertical = !box.classList.contains('opinia-inner');
+        const names = vertical
+          ? ['oardefault.jpg', 'oar2.jpg', 'hqdefault.jpg', 'maxresdefault.jpg']
+          : ['maxresdefault.jpg', 'hqdefault.jpg'];
+        let i = 0;
+        (function tryNext() {
+          if (i >= names.length) return;
+          const url = 'https://i.ytimg.com/vi/' + ytId + '/' + names[i++];
+          const img = new Image();
+          img.onload = function () {
+            // YouTube zwraca szary placeholder 120x90 gdy danego rozmiaru nie ma
+            if (img.naturalWidth > 120) { poster.style.backgroundImage = "url('" + url + "')"; }
+            else { tryNext(); }
+          };
+          img.onerror = tryNext;
+          img.src = url;
+        })();
+      }
+    }
+
     function loadPortfolioVid() {
       if (box.querySelector('iframe')) return;
-      const ytId = box.getAttribute('data-yt');
-      if (!ytId || ytId.startsWith('ID_WIDEO')) return; // placeholder not yet replaced
+      const id = box.getAttribute('data-yt');
+      if (!id || id.startsWith('ID_WIDEO')) return; // placeholder not yet replaced
       const iframe = document.createElement('iframe');
       iframe.className = 'po-video-iframe';
-      iframe.src = 'https://www.youtube.com/embed/' + ytId + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+      iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
       iframe.title = 'Wideo portfolio';
       iframe.allow = 'autoplay; encrypted-media; picture-in-picture';
       iframe.allowFullscreen = true;
