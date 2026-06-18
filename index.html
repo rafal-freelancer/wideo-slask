@@ -1102,6 +1102,9 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
   aspect-ratio: 16 / 9;
   max-width: 860px;
   width: 100%;
+  border-radius: var(--r-xl);
+  border-color: var(--line);
+  box-shadow: 0 30px 70px -30px rgba(0,0,0,.35);
 }
 .opinia-inner .po-play { transform: translate(-50%, -50%) scale(1.15); }
 .opinia-inner:hover .po-play { transform: translate(-50%, -50%) scale(1.22); }
@@ -1111,12 +1114,8 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
   .po-grid { gap: 6px; }
   .moma-grid { gap: 8px; }
   .opinia-video { margin-top: 28px; }
-  /* opinia 16:9 na całą szerokość ekranu — solidny full-bleed (bez transform) */
-  .opinia-inner {
-    width: 100vw; max-width: 100vw;
-    margin-left: calc(50% - 50vw);
-    border-radius: 0;
-  }
+  /* opinia wpisana z marginesami i zaokrągleniem — spójnie z hero VSL */
+  .opinia-inner { border-radius: var(--r-lg); }
   /* dwa reele obok siebie, większe, bliżej krawędzi */
   .portfolio-options { grid-template-columns: 1fr 1fr !important; gap: 10px; margin-top: 40px; }
   .po-card .po-video-inner { max-width: none; }
@@ -1268,8 +1267,8 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
     <!-- Trust -->
     <dl class="hero-trust r d4">
       <div class="trust-item"><dd class="num">7+</dd><dt class="lbl">lat budowania kampanii</dt></div>
-      <div class="trust-item"><dd class="num">1 / miasto</dd><dt class="lbl">wyłączność lokalna</dt></div>
-      <div class="trust-item"><dd class="num">2 mies.</dd><dt class="lbl">pełne wdrożenie</dt></div>
+      <div class="trust-item"><dd class="num">1 proces</dd><dt class="lbl">od reklamy po zapis</dt></div>
+      <div class="trust-item"><dd class="num">2 mies.</dd><dt class="lbl">obsługa testowa</dt></div>
     </dl>
   </div>
 </section>
@@ -1491,7 +1490,7 @@ footer .logo { color: var(--white); font-size: 1.3rem; }
     <div class="opinia-video r">
       <div class="po-video-inner opinia-inner" data-yt="a29EvlRRqq8" role="button" tabindex="0" aria-label="Odtwórz wideo z opinią klientki">
         <div class="po-poster" style="background-image:url('opinia-poster.jpg')"></div>
-        <span class="po-badge"><span class="dot" aria-hidden="true"></span> Opinia · 1 min</span>
+        <span class="po-badge"><span class="dot" aria-hidden="true"></span> Opinia · 3 min</span>
         <button class="po-play" type="button" aria-label="Odtwórz wideo"></button>
       </div>
     </div>
